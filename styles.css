@@ -731,6 +731,123 @@ a {
   border-color: #111111;
 }
 
+/* Experience Section */
+.experience-section {
+  padding: 120px 0;
+  background: white;
+  border-top: 1px solid #E0E0E0;
+}
+.experience-section .experience-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px;
+  margin-top: 60px;
+}
+@media (max-width: 768px) {
+  .experience-section .experience-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+.experience-section .experience-item {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(224, 224, 224, 0.5);
+}
+.experience-section .experience-item:last-child {
+  border-bottom: none;
+}
+.experience-section .experience-item .exp-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+  letter-spacing: -0.02em;
+  font-size: 0.75rem;
+  color: #666666;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.experience-section .experience-item .exp-role {
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: #111111;
+  font-size: 1.75rem;
+  color: #111111;
+}
+.experience-section .experience-item .exp-description {
+  font-size: 1rem;
+  color: #666666;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* Principles Section */
+.principles-section {
+  padding: 120px 0;
+  background: #Fbfbfb;
+  border-top: 1px solid #E0E0E0;
+}
+.principles-section .principles-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-top: 60px;
+}
+@media (max-width: 1024px) {
+  .principles-section .principles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .principles-section .principles-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.principles-section .principle-card {
+  background: white;
+  padding: 40px;
+  border: 1px solid #E0E0E0;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: all 0.3s ease;
+}
+.principles-section .principle-card:hover {
+  transform: translateY(-8px);
+  border-color: #111111;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+.principles-section .principle-card .principle-number {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+  letter-spacing: -0.02em;
+  font-size: 0.8rem;
+  color: rgba(17, 17, 17, 0.2);
+  font-weight: 700;
+}
+.principles-section .principle-card .principle-title {
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: #111111;
+  font-size: 1.5rem;
+  color: #111111;
+}
+.principles-section .principle-card .principle-content {
+  font-size: 1rem;
+  color: #666666;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
 /* Contact Section */
 .contact-section {
   padding: 120px 0;
@@ -849,7 +966,10 @@ a {
 /* Footer - FIXING LAYOUT BUGS */
 .footer {
   border-top: 1px solid #E0E0E0;
-  padding: 60px 0;
+  padding: 80px 0 180px;
+  /* Increased bottom padding */
+  margin-bottom: -100px;
+  /* Negative margin to bleed background */
   background: #111111;
   /* Dark footer */
   color: white;

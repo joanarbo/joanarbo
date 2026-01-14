@@ -16,7 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
         modalDate: document.getElementById('modalDate'),
         modalTags: document.getElementById('modalTags'),
         projectsContainer: document.getElementById('projectsContainer'),
-        testimonialsContainer: document.getElementById('testimonialsContainer')
+        testimonialsContainer: document.getElementById('testimonialsContainer'),
+        experienceContainer: document.getElementById('experienceGrid'),
+        principlesContainer: document.getElementById('principlesGrid')
     };
 
     let appData = {
@@ -43,6 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (appData.talks) renderTalks(appData.talks);
             if (appData.projects) renderProjects(appData.projects);
             if (appData.testimonials) renderTestimonials(appData.testimonials);
+            if (appData.experience) renderExperience(appData.experience);
+            if (appData.principles) renderPrinciples(appData.principles);
             updateStats();
         } catch (error) {
             console.error('Error loading data:', error);
@@ -214,6 +218,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
             talksGrid.appendChild(article);
         });
+    }
+
+    function renderExperience(experience) {
+        if (!elements.experienceContainer) return;
+        elements.experienceContainer.innerHTML = experience.map((item, index) => {
+            const delay = index * 100;
+            return `
+                <div class="experience-item fade-in-up" style="animation-delay: ${delay}ms; opacity: 0;">
+                    <div class="exp-meta">
+                        <span class="exp-period">${item.period}</span>
+                        <span class="exp-company">${item.company}</span>
+                    </div>
+                    <h3 class="exp-role">${item.role}</h3>
+                    <p class="exp-description">${item.description}</p>
+                </div>
+            `;
+        }).join('');
+    }
+
+    function renderPrinciples(principles) {
+        if (!elements.principlesContainer) return;
+        elements.principlesContainer.innerHTML = principles.map((principle, index) => {
+            const delay = index * 100;
+            return `
+                <div class="principle-card fade-in-up" style="animation-delay: ${delay}ms; opacity: 0;">
+                    <div class="principle-number">0${index + 1}</div>
+                    <h3 class="principle-title">${principle.title}</h3>
+                    <p class="principle-content">${principle.content}</p>
+                </div>
+            `;
+        }).join('');
     }
 
     // State

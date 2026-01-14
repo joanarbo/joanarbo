@@ -78,62 +78,152 @@
   ],
   "talks": [
     {
-      "id": "talk-alicante",
-      "title": "IA en Design Systems",
-      "event": "React Alicante",
-      "date": "Oct 2025",
-      "image": "./assets/blog_post_placeholder_1.png",
-      "videoUrl": "https://linkedin.com/in/joanarbo",
+      "id": "masterclass-stories",
+      "title": "El mundo diseño está hecho de historias",
+      "event": "Mr Marcel School",
+      "date": "Masterclass",
+      "image": "https://placehold.co/600x400/1e1e1e/FFF?text=Masterclass+Stories",
+      "videoUrl": "https://youtu.be/eGj9ZZ3Lj2k",
+      "description": "Una reinterpretación del Atomic Design: el mundo no está hecho de átomos, sino de historias que los usuarios recorren.",
       "tags": [
-        "Conferencia",
-        "React"
+        "Atomic Design",
+        "Storytelling"
       ]
     },
     {
-      "id": "talk-commit",
-      "title": "El Fin de Figma",
-      "event": "Commit Conf",
-      "date": "Nov 2025",
-      "image": "./assets/blog_post_placeholder_2.png",
-      "videoUrl": "https://linkedin.com/in/joanarbo",
+      "id": "haikus-tokens",
+      "title": "Haikus y tokens",
+      "event": "Mr Marcel School",
+      "date": "Masterclass",
+      "image": "https://placehold.co/600x400/1e1e1e/FFF?text=Haikus+Tokens",
+      "videoUrl": "https://youtu.be/6NuKWcpw4Ws",
+      "description": "Combinando la brevedad del Haiku con la precisión de los Design Tokens para crear lenguajes visuales semánticos.",
       "tags": [
-        "Debate",
-        "Futuro"
+        "Design Tokens",
+        "Semántica"
       ]
     }
   ],
   "projects": [
     {
-      "id": "global-ds",
-      "title": "Global Design System Architecture",
-      "role": "Lead Architect",
-      "company": "Enterprise Fintech",
-      "impact": "+45% Efficiency",
-      "description": "Arquitectura de un sistema de diseño multinacional soportando +20 productos y 3 tecnologías de frontend distintas (React, Angular, Web Components).",
+      "id": "alexa-shopping-ds",
+      "title": "Conversational Design System",
+      "role": "Design Technologist Manager",
+      "company": "Alexa Shopping (Amazon)",
+      "impact": "Lanzamiento Q3 2022",
+      "description": "Lideré la creación del primer sistema de diseño conversacional del mundo para dispositivos Echo y FireTV. Reduje un 80% el tiempo de creación de componentes mediante la automatización y el uso estratégico de Design Tokens.",
       "tags": [
-        "Arquitectura",
-        "Escalabilidad",
-        "Tokens"
+        "Voice UI",
+        "APL",
+        "AI Strategy"
       ],
-      "image": "https://placehold.co/800x600/1e1e1e/FFF?text=Design+System+Architecture",
-      "architecture": "graph TD\n    A[Tokens Source] --> B[Style Dictionary]\n    B --> C[React Components]\n    B --> D[Web Components]\n    B --> E[Mobile Styles]\n    C --> F[Product Apps]\n    D --> F"
+      "image": "/Users/joanarbo/.gemini/antigravity/brain/36620de0-0b84-4ae2-aaf7-b003b414fa8a/alexa_conversational_ds_substack_1768409773451.png",
+      "architecture": "graph TD\n    A[Voice Intent] --> B[Conversational Model]\n    B --> C[Design System Tokens]\n    C --> D[Multi-modal Response]\n    D --> E[Echo Devices]"
     },
     {
-      "id": "ai-design-workflow",
-      "title": "AI-Powered Design Workflow",
-      "role": "Product Engineer",
-      "company": "Design Agency",
-      "impact": "-70% Time-to-Code",
-      "description": "Implementación de un flujo de trabajo que integra LLMs para la generación automática de componentes a partir de especificaciones semánticas.",
+      "id": "amazon-telescope",
+      "title": "Amazon Telescope",
+      "role": "Sr Design Technologist",
+      "company": "Amazon Business",
+      "impact": "-50% Tiempo de Prototipado",
+      "description": "Desarrollé una herramienta interna de prototipado 'lean' basada íntegramente en código, eliminando la dependencia de Figma para validaciones de alta fidelidad. Los prototipos finales eran indistinguibles de la producción.",
       "tags": [
-        "IA",
-        "Automation",
-        "Workflow"
+        "Prototyping",
+        "React",
+        "Research Tooling"
       ],
-      "image": "https://placehold.co/800x600/1e1e1e/FFF?text=AI+Design+Workflow",
-      "architecture": "sequenceDiagram\n    Designer->>AI Agent: Natural Language Request\n    AI Agent->>Design Tokens: Semantic Query\n    Design Tokens-->>AI Agent: Relevant Context\n    AI Agent->>Code: Generated Component"
+      "image": "/Users/joanarbo/.gemini/antigravity/brain/36620de0-0b84-4ae2-aaf7-b003b414fa8a/amazon_telescope_substack_1768409790038.png",
+      "architecture": "flowchart LR\n    F[Figma Design] --> T[Telescope UI]\n    T --> C[Live Code Environment]\n    C --> P[Stakeholder Test]"
+    },
+    {
+      "id": "ink-design-system",
+      "title": "Estrategia Ink Design System",
+      "role": "Senior UX Engineer",
+      "company": "Amazon Business",
+      "impact": "Escalabilidad Global",
+      "description": "Redefiní el modelo de integración entre diseño y desarrollo para el sistema Ink, superando barreras de adopción en equipos de +50 ingenieros y optimizando la calidad del frontend mediante Storybook.",
+      "tags": [
+        "Design Ops",
+        "Adopción",
+        "Scale"
+      ],
+      "image": "/Users/joanarbo/.gemini/antigravity/brain/36620de0-0b84-4ae2-aaf7-b003b414fa8a/ink_design_system_substack_1768409802855.png",
+      "architecture": "sequenceDiagram\n    UX->>Storybook: Valida Componentes\n    Storybook->>Dev: Implementación Backend\n    Dev->>Production: Lanzamiento Unificado"
     }
   ],
+  "experience": [
+    {
+      "period": "Jun 2017 — Present",
+      "company": "Amazon Madrid",
+      "role": "Senior Design Technologist",
+      "description": "Lead UX Engineer en Madrid y Hyderabad. Actuando como puente crítico entre ingeniería y diseño. Ganador doble de 'Most Peculiar Amazonian' por Ownership e Invent & Simplify. Lideré el lanzamiento de Amazon Business Prime entregando un mes antes de lo previsto y optimizando la eficiencia operativa significativamente."
+    },
+    {
+      "period": "Jan 2021 — Present",
+      "company": "Mr Marcel School / UOC",
+      "role": "Profesor de Design Systems",
+      "description": "Mentor en el nanogrado de Design Systems, formando a la próxima generación de ingenieros y diseñadores en la sistematización de productos digitales y arquitecturas escalables."
+    },
+    {
+      "period": "Jun 2010 — Jun 2017",
+      "company": "Movistar+ TV",
+      "role": "Research & Development",
+      "description": "Diseño centrado en el usuario y prototipado ligero para STB, Web y Apps. Diseñador de interacción en más de 300 campañas (Juego de Tronos, NBA, etc.), pionero en experiencias de segunda pantalla y narrativas interactivas 2D/3D."
+    },
+    {
+      "period": "Feb 2016 — Jun 2017",
+      "company": "CoworkingIT.co",
+      "role": "Co-Founder & Product Designer",
+      "description": "Definición de estrategia de producto y creación/codificación del Design System completo de la plataforma bajo metodologías Agile."
+    },
+    {
+      "period": "Sep 2013 — Apr 2014",
+      "company": "CESMA Business School",
+      "role": "Profesor",
+      "description": "Docente en el Grado de Marketing Digital."
+    },
+    {
+      "period": "Jun 2008 — Jun 2009",
+      "company": "NicePeopleAtWork",
+      "role": "JS/ActionScript Developer",
+      "description": "Desarrollo de reproductores de video de alta calidad con funcionalidades avanzadas (slow motion, pseudo-streaming, zoom)."
+    },
+    {
+      "period": "Aug 2007 — May 2008",
+      "company": "Sclipo",
+      "role": "JS/ActionScript Developer",
+      "description": "Startup de eLearning. Responsable de la programación de todos los reproductores de video de la plataforma."
+    },
+    {
+      "period": "2000 — 2006",
+      "company": "Universidad La Salle Barcelona",
+      "role": "Ingeniero Multimedia",
+      "description": "Formación técnica y creativa en el desarrollo de sistemas multimedia, interactividad y experiencias digitales."
+    }
+  ],
+  "principles": [
+    {
+      "title": "Interfaces de Intención",
+      "content": "Avanzar hacia experiencias naturales donde la interacción es efímera y se alinea con nuestra forma humana de comunicar."
+    },
+    {
+      "title": "El Código es la Verdad",
+      "content": "Si no está en la web (en el código funcional), no existe. El diseño es una promesa; el código es la entrega."
+    },
+    {
+      "title": "Diseño Proactivo",
+      "content": "Los sistemas no deben ser bibliotecas estáticas, sino ecosistemas que anticipan necesidades y facilitan la toma de decisiones."
+    },
+    {
+      "title": "Impacto sobre Píxeles",
+      "content": "Un sistema solo es útil si genera confianza y eficiencia. La adopción es la métrica definitiva del éxito de un Design System."
+    }
+  ],
+  "links": {
+    "substack": "https://joanarbo.notion.site/?pvs=74",
+    "linkedin": "https://www.linkedin.com/in/joanarbo/",
+    "email": "me@joanarbo.com"
+  },
   "testimonials": [
     {
       "name": "Alex Rivera",

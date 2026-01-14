@@ -793,6 +793,120 @@ a {
     }
 }
 
+/* Experience Section */
+.experience-section {
+    padding: 120px 0;
+    background: white;
+    border-top: 1px solid $color-line;
+
+    .experience-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 60px;
+        margin-top: 60px;
+
+        @media(max-width: 768px) {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+    }
+
+    .experience-item {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding-bottom: 40px;
+        border-bottom: 1px solid rgba($color-line, 0.5);
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        .exp-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            @include text-mono;
+            font-size: 0.75rem;
+            color: $color-text-secondary;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .exp-role {
+            @include heading-serif;
+            font-size: 1.75rem;
+            color: $color-text;
+        }
+
+        .exp-description {
+            font-size: 1rem;
+            color: $color-text-secondary;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+    }
+}
+
+/* Principles Section */
+.principles-section {
+    padding: 120px 0;
+    background: $color-bg; // Slightly different background
+    border-top: 1px solid $color-line;
+
+    .principles-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 32px;
+        margin-top: 60px;
+
+        @media(max-width: 1024px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media(max-width: 600px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .principle-card {
+        background: white;
+        padding: 40px;
+        border: 1px solid $color-line;
+        border-radius: $radius-xs;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        transition: all 0.3s ease;
+
+        &:hover {
+            transform: translateY(-8px);
+            border-color: $color-text;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .principle-number {
+            @include text-mono;
+            font-size: 0.8rem;
+            color: rgba($color-text, 0.2);
+            font-weight: 700;
+        }
+
+        .principle-title {
+            @include heading-serif;
+            font-size: 1.5rem;
+            color: $color-text;
+        }
+
+        .principle-content {
+            font-size: 1rem;
+            color: $color-text-secondary;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+    }
+}
+
 /* Contact Section */
 .contact-section {
     padding: 120px 0;
@@ -917,7 +1031,10 @@ a {
 /* Footer - FIXING LAYOUT BUGS */
 .footer {
     border-top: 1px solid $color-line;
-    padding: 60px 0;
+    padding: 80px 0 180px;
+    /* Increased bottom padding */
+    margin-bottom: -100px;
+    /* Negative margin to bleed background */
     background: $color-text;
     /* Dark footer */
     color: white;
