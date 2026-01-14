@@ -47,7 +47,10 @@
     {
       "id": "hybrid-engineer",
       "title": "El Colapso de las Especialidades",
+      "date": "2026-01-14",
+      "readTime": "6 min lectura",
       "description": "Una reflexión sobre la muerte del rol binario. El futuro pertenece al 'Full-Stack Designer' que no solo define la visión, sino que programa la infraestructura que la soporta.",
+      "content": "La distinción entre \"Diseñador\" e \"Ingeniero\" es un artefacto de la era industrial del software. En un mundo donde la IA genera código UI semánticamente correcto, el valor se desplaza de la *producción* de artefactos (mockups, specs) a la *definición* de sistemas.\n\n[Concepto Visual: Un diagrama de Venn donde los círculos 'Diseño' y 'Ingeniería' se superponen casi totalmente, etiquetados como 'System Logic' en el centro. Estilo Bauhaus minimalista.]\n\n### La Falacia del Handoff\n\nTradicionalmente operamos bajo el modelo de \"Línea de Ensamblaje\":\n1. Diseño define la \"apariencia\" (Figma).\n2. Ingeniería define la \"función\" (React/DOM).\n\nEste modelo está roto. El \"Full-Stack Designer\" (o UX Engineer) no es alguien que hace mal dos cosas. Es el arquitecto que entiende que el **Token en Figma** y la **Prop en React** son la misma entidad ontológica.\n\n> \"Si no puedes manipular el medio final (el código), estás diseñando ficciones.\"\n\n### El Nuevo Rol: Arquitecto de Sistemas\n\nLas empresas top (Google, Amazon, Uber) ya no buscan \"UI Designers\" que entreguen PNGs. Buscan perfiles híbridos capaces de:\n- Escribir lógica de renderizado condicional.\n- Definir APIs de componentes.\n- Auditar el impacto en performance de sus decisiones visuales.\n\nLa nueva 'especialidad' no es una herramienta, es la **Integridad Sistémica**: la capacidad de orquestar la experiencia de usuario desde la intención estratégica hasta el último renderizado en el DOM.\n\n---\n\n#### 🚀 Auditoría de Sistemas de Diseño\n¿Tu equipo sigue atrapado en discusiones infinitas de handoff? **Audito la arquitectura de diseño y código de tu empresa** para eliminar la fricción entre diseño e ingeniería. Transformo equipos fragmentados en unidades de producto sistémicas.\n[Contactar para Auditoría](mailto:me@joanarbo.com?subject=Auditoría%20Sistémica)",
       "tags": [
         "Filosofía",
         "Carrera",
@@ -58,7 +61,10 @@
     {
       "id": "ai-components-ex",
       "title": "Interfaces de Intención",
+      "date": "2026-01-12",
+      "readTime": "5 min lectura",
       "description": "Experimentos en UI generativa donde el usuario describe un objetivo sistémico y el motor renderiza la solución optimizada, validando accesibilidad y performance en tiempo real.",
+      "content": "Estamos atrapados en el paradigma imperativo: \"Pinta un botón azul aquí\". La IA Generativa nos permite movernos hacia un diseño declarativo: \"Necesito una forma de que el usuario confirme esta acción crítica\".\n\n[Concepto Visual: Un esquema de flujo de datos. Input: 'Usuario quiere borrar cuenta'. Black Box: 'AI Layout Engine'. Output: 'Modal de confirmación con focus trap y variante danger'.]\n\n### De Píxeles a Reglas\n\nEl Sistema de Diseño del futuro no es una librería de componentes estáticos, sino un motor de decisiones (Decision Engine) impulsado por LLMs.\n\nEl sistema debe decidir en tiempo de ejecución (Runtime) si esa confirmación se manifiesta como un **Modal**, un **Toast** o un **Inline Expansion** basado en:\n- **El contexto del usuario**: ¿Está en móvil caminando? (Botones grandes, zona inferior).\n- **La carga cognitiva actual**: ¿Hay ya 3 modales abiertos?\n- **Capacidades del dispositivo**: ¿Soporta animaciones complejas?\n\n### Renderizado Semántico\n\nNo diseñamos pantallas. Diseñamos **reglas de renderizado**. El motor de UI ingiere \"Intención\" y escupe \"Interfaz\", validada por WCAG 2.2 y optimizada para Core Web Vitals en tiempo real. Esto no es ciencia ficción; es la evolución natural de React Server Components combinados con inferencia en el borde (Edge AI).\n\n---\n\n#### 🛠 Consultoría de UI Generativa\nAyudo a empresas visionarias a preparar sus Sistemas de Diseño para la era de la IA. Evaluamos si tu arquitectura de componentes es compatible con generación dinámica y automatización.\n[Solicitar Diagnóstico](mailto:me@joanarbo.com?subject=Consultoría%20UI%20Generativa)",
       "tags": [
         "IA Generativa",
         "LLM",
@@ -69,7 +75,10 @@
     {
       "id": "design-tokens-v2",
       "title": "Semántica Computacional",
+      "date": "2026-01-10",
+      "readTime": "7 min lectura",
       "description": "Propuesta para una capa de abstracción sobre los Design Tokens que permita a modelos de IA razonar sobre la jerarquía visual y la intención de marca sin intervención humana.",
+      "content": "Los Design Tokens actuales (W3C Draft) son diccionarios de estilos planos. `blue-500: #00AABB`. Esto es insuficiente para la Inteligencia Artificial. Necesitamos una capa semántica superior. `action-primary-hover` no es solo un color; es un estado interactivo con affordance crítica.\n\n[Concepto Visual: Un trozo de código JSON resaltado con sintaxis, flotando sobre una estructura alámbrica 3D de una interfaz. El código ilumina partes específicas de la UI.]\n\n### La Ontología del Diseño\n\nPara que un LLM (como GPT-4 o Claude) \"entienda\" tu marca, no basta con darle un archivo CSS. Propongo una estructura de datos oncológica donde los tokens lleven metadatos de propósito:\n\n```json\nToken {\n  value: #FFF,\n  role: \"surface\",\n  intent: \"neutral\",\n  context_rules: [\"dark-mode-aware\", \"high-contrast-safe\"],\n  accessibility: { \n    contrast_ratio_against_text: 4.5 \n  }\n}\n```\n\n### Por qué importa para el SEO y la Estructura\n\nCuando estructuramos el diseño así, no solo facilitamos la IA, facilitamos la accesibilidad y el SEO técnico. Los motores de búsqueda entienden mejor la jerarquía de una página construida semánticamente.\n\nCuando un LLM lee esto, no ve colores hexadecimales. Ve **jerarquía**. Ve **lógica de negocio**. Esto permite a los modelos de IA razonar sobre \"Contraste\" o \"Énfasis\" sin intervención humana, generando interfaces que son correctas por construcción y fieles a la marca.\n\n---\n\n#### 📐 Auditoría de Design Tokens\n¿Tu sistema de tokens es un caos inmanejable? Organizo y estructuro tu arquitectura de tokens para que sea escalable, mantenible y preparada para el futuro de la IA.\n[Auditar mis Tokens](mailto:me@joanarbo.com?subject=Auditoría%20Tokens)",
       "tags": [
         "Sistemas",
         "Lógica",
@@ -80,22 +89,14 @@
     {
       "id": "design-agents",
       "title": "Agentes de Diseño Autónomos",
+      "date": "2026-01-08",
+      "readTime": "4 min lectura",
       "description": "Sistemas que monitorizan el uso de los componentes en producción y proponen refactorizaciones automáticas para mejorar la consistencia visual y el rendimiento del bundle.",
+      "content": "El Design System promedio se pudre desde el día 1 tras su lanzamiento. Reglas CSS muertas (dead code), componentes deprecados que nadie borra, inconsistencias de espaciado que se acumulan como deuda técnica silenciosa.\n\nLa solución no es más disciplina humana. Los humanos somos malos manteniendo consistencia a escala. La solución son **Agentes Autónomos**.\n\n[Concepto Visual: Un dashboard de terminal futurista mostrando 'System Health: 98%'. Logs de actividad mostrando 'Auto-refactor component ButtonGhost... Success'.]\n\n### Auto-Curación (Self-Healing Design Systems)\n\nImagine un pipeline de CI/CD (Integración Continua) donde:\n\n1. **Agente Guardián**: Bloquea Pull Requests que introducen valores hexadecimales *hardcodeados* en lugar de tokens.\n2. **Agente Jardinero**: Monitoriza el bundle de producción. \"¿Este botón secundario variante 'ghost' se usa solo en el 0.01% de las sesiones? Proponiendo refactorización a enlace de texto simple para ahorrar 5kb\".\n3. **Agente de Accesibilidad**: Audita cada deploy contra las reglas WCAG y genera *issues* automáticos en Jira.\n\nEl mantenimiento manual es insostenible en empresas grandes. El futuro es **Pruning automático**. Consistencia forzada por código. El Diseño se mantiene a sí mismo.\n\n---\n\n#### 🛡 Implementación de Design Ops\nAyudo a organizaciones a automatizar sus operaciones de diseño (DesignOps). Desde linters de estilo hasta pipelines de integración continua para sistemas de diseño.\n[Escalar mi Design System](mailto:me@joanarbo.com?subject=Consultoría%20DesignOps)",
       "tags": [
         "Agentes",
         "Automatización",
         "Ops"
-      ],
-      "status": "active"
-    },
-    {
-      "id": "atomic-logic",
-      "title": "Lógica Atómica de Producto",
-      "description": "Más allá del Atomic Design visual: una metodología para sistematizar reglas de negocio y flujos de usuario como componentes lógicos reutilizables y testeables.",
-      "tags": [
-        "Metodología",
-        "Sistemas",
-        "Product Engineering"
       ],
       "status": "active"
     }

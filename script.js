@@ -41,7 +41,17 @@ document.addEventListener('DOMContentLoaded', () => {
         'Tools': 'ph-wrench',
         'Life': 'ph-heart',
         'Automation': 'ph-gear',
-        'System Builder': 'ph-blueprint'
+        'Automatización': 'ph-gear',
+        'System Builder': 'ph-blueprint',
+        'Filosofía': 'ph-book-open',
+        'Philosopy': 'ph-book-open',
+        'IA Generativa': 'ph-magic-wand',
+        'LLM': 'ph-chat-circle-text',
+        'UX': 'ph-users',
+        'Sistemas': 'ph-tree-structure',
+        'Lógica': 'ph-function',
+        'Agentes': 'ph-robot',
+        'Ops': 'ph-cloud-check'
     };
 
     function getIconForTag(tag) {
@@ -131,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const type = idea.tags && idea.tags.length > 0 ? idea.tags[0] : 'Concept';
 
         return `
-            <div class="idea-row fade-in-up" style="animation-delay: ${delay}ms; opacity: 0;">
+            <div class="idea-row fade-in-up" style="animation-delay: ${delay}ms; opacity: 0; cursor: pointer;" onclick="openIdea('${idea.id}')">
                 <div class="idea-main">
                     <div class="idea-status ${idea.status === 'En desarrollo' || idea.status === 'active' ? 'active' : 'concept'}"></div>
                     <h3 class="idea-title">${idea.title}</h3>
@@ -391,6 +401,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Modal Functions
     let currentPostId = null;
+    let currentModalContext = 'post'; // 'post' or 'idea'
 
     window.openPost = function (postId) {
         // Ensure postId is a number if IDs are numbers in JSON
@@ -398,45 +409,70 @@ document.addEventListener('DOMContentLoaded', () => {
         const post = appData.posts.find(p => p.id === postId);
         if (!post) return;
 
+        currentModalContext = 'post';
         currentPostId = postId;
 
-        elements.modalTitle.textContent = post.title;
-        elements.modalDate.textContent = formatDate(post.date);
+        populateAndOpenModal(post);
+    };
+
+    window.openIdea = function (ideaId) {
+        const idea = appData.ideas.find(i => i.id === ideaId);
+        if (!idea) return;
+
+        currentModalContext = 'idea';
+        currentPostId = ideaId;
+
+        populateAndOpenModal(idea);
+    };
+
+    function populateAndOpenModal(item) {
+        elements.modalTitle.textContent = item.title;
+        elements.modalDate.textContent = item.date ? formatDate(item.date) : '';
 
         // Render tags
-        elements.modalTags.innerHTML = post.tags.map(tag =>
-            `<span class="tag">${getIconForTag(tag)} ${tag}</span>`
-        ).join('');
+        if (item.tags) {
+            elements.modalTags.innerHTML = item.tags.map(tag =>
+                `<span class="tag">${getIconForTag(tag)} ${tag}</span>`
+            ).join('');
+        } else {
+            elements.modalTags.innerHTML = '';
+        }
 
-        elements.modalBody.innerHTML = marked.parse(post.content);
+        elements.modalBody.innerHTML = marked.parse(item.content || item.description);
 
         elements.modal.classList.add('active');
         document.body.style.overflow = 'hidden';
 
         updateModalNavButtons();
-    };
+    }
 
     function updateModalNavButtons() {
-        const currentIndex = appData.posts.findIndex(p => p.id === currentPostId);
+        const isPost = currentModalContext === 'post';
+        const collection = isPost ? appData.posts : appData.ideas;
+        const currentIndex = collection.findIndex(p => p.id === currentPostId);
+
         const prevBtn = document.getElementById('prevPost');
         const nextBtn = document.getElementById('nextPost');
 
-        // Logic: Posts are usually ordered by ID or Date. 
-        // Assuming appData.posts matches the grid order.
-
-        // Previous Post (newer ID or previous index in array)
+        // Previous Item
         if (currentIndex > 0) {
             prevBtn.disabled = false;
-            prevBtn.onclick = () => window.openPost(appData.posts[currentIndex - 1].id);
+            prevBtn.onclick = () => {
+                const prevId = collection[currentIndex - 1].id;
+                isPost ? window.openPost(prevId) : window.openIdea(prevId);
+            };
         } else {
             prevBtn.disabled = true;
             prevBtn.onclick = null;
         }
 
-        // Next Post
-        if (currentIndex < appData.posts.length - 1) {
+        // Next Item
+        if (currentIndex < collection.length - 1) {
             nextBtn.disabled = false;
-            nextBtn.onclick = () => window.openPost(appData.posts[currentIndex + 1].id);
+            nextBtn.onclick = () => {
+                const nextId = collection[currentIndex + 1].id;
+                isPost ? window.openPost(nextId) : window.openIdea(nextId);
+            };
         } else {
             nextBtn.disabled = true;
             nextBtn.onclick = null;
