@@ -1114,6 +1114,122 @@ a {
     }
 }
 
+/* Mentorship & Thought Leadership Section */
+.mentorship-section {
+    padding: $spacing-unit * 15 0;
+    background: var(--surface-color);
+    border-top: 1px solid rgba(var(--text-color-rgb), 0.08);
+
+    .mentorship-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: $spacing-unit * 4;
+        margin-top: $spacing-unit * 8;
+
+        @media (max-width: 992px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .philosophy-card {
+        background: var(--bg-color);
+        border: 1px solid rgba(var(--text-color-rgb), 0.08);
+        border-radius: 8px;
+        padding: $spacing-unit * 5;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+        &:hover {
+            transform: translateY(-4px);
+            border-color: rgba(var(--text-color-rgb), 0.15);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .card-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: rgba(var(--accent-color-rgb), 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: $spacing-unit * 3;
+
+            i {
+                font-size: 28px;
+                color: $color-accent;
+            }
+        }
+
+        .card-title {
+            @include heading-serif;
+            font-size: 1.5rem;
+            margin-bottom: $spacing-unit * 2;
+            color: var(--text-color);
+        }
+
+        .card-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: rgba(var(--text-color-rgb), 0.7);
+            margin-bottom: $spacing-unit * 3;
+        }
+
+        .card-principles {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                @include text-mono;
+                font-size: 0.85rem;
+                padding: $spacing-unit * 1.5 0;
+                border-top: 1px solid rgba(var(--text-color-rgb), 0.08);
+                color: rgba(var(--text-color-rgb), 0.8);
+
+                &:before {
+                    content: "→";
+                    margin-right: $spacing-unit * 1.5;
+                    color: $color-accent;
+                }
+            }
+        }
+    }
+
+    .mentorship-cta {
+        margin-top: $spacing-unit * 10;
+        text-align: center;
+        padding: $spacing-unit * 6;
+        background: rgba(var(--accent-color-rgb), 0.05);
+        border-radius: 8px;
+        border: 1px solid rgba(var(--accent-color-rgb), 0.1);
+
+        .cta-text {
+            @include heading-serif;
+            font-size: 1.25rem;
+            margin-bottom: $spacing-unit * 3;
+            color: var(--text-color);
+        }
+
+        .cta-button {
+            @include text-mono;
+            display: inline-block;
+            padding: $spacing-unit * 2 $spacing-unit * 4;
+            background: $color-accent;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background: darken($color-accent, 10%);
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba(var(--accent-color-rgb), 0.3);
+            }
+        }
+    }
+}
+
 /* Contact Section */
 .contact-section {
     padding: 120px 0;
