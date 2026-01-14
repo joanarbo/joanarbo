@@ -1,0 +1,18 @@
+{
+    "name": "joan-arbo-web",
+    "version": "1.0.0",
+    "description": "Personal website for Joan Arbo",
+    "scripts": {
+        "sass:watch": "sass --watch styles.scss:styles.css",
+        "build:css": "sass styles.scss:styles.css",
+        "build": "npm run build:css",
+        "dev": "sass --watch styles.scss:styles.css & serve .",
+        "start": "sass --watch styles.scss:styles.css & serve ."
+    },
+    "dependencies": {
+        "sass": "^1.70.0"
+    },
+    "devDependencies": {
+        "serve": "^14.2.5"
+    }
+}

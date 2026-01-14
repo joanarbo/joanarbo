@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joan Arbo - AI Design Architect</title>
+    <meta name="description"
+        content="Ingeniero de Producto Híbrido que usa IA para colapsar roles de Diseño e Ingeniería">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,900;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Markdown Parser -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Mermaid.js for Diagrams -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'neutral', securityLevel: 'loose' });
+    </script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="./" class="nav-logo">
+                    <span class="logo-gradient">JA</span>
+                </a>
+
+                <div class="nav-links">
+                    <a href="#blog" class="nav-link active">Blog</a>
+                    <a href="#work" class="nav-link">Arquitectura</a>
+                    <a href="#ideas" class="nav-link">Ideas</a>
+                    <a href="#about" class="nav-link">Sobre mí</a>
+                    <a href="#contact" class="nav-link">Contacto</a>
+                </div>
+
+                <div class="hero-cta">
+                    <a href="#blog" class="btn btn-primary">
+                        <span>Ver mi blog</span>
+                        <i class="ph-thin ph-arrow-right btn-icon"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span>Conectar</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge fade-in">
+                    <span class="badge-dot"></span>
+                    Disponible para nuevos proyectos
+                </div>
+                <h1 class="hero-title fade-in-up">
+                    Arquitectura de Sistemas y <span class="highlight">Diseño Proactivo</span>: Escalando con IA
+                </h1>
+                <p class="hero-description fade-in-up">
+                    Arquitecto de Sistemas de Diseño e Ingeniero de Producto.
+                    Especializado en la escalabilidad de interfaces y la integración de Inteligencia Artificial en
+                    flujos de diseño.
+                </p>
+                <div class="hero-cta fade-in-up">
+                    <a href="#blog" class="btn btn-primary">
+                        Explorar Artículos
+                        <i class="ph-thin ph-arrow-down"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        Contactar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tags Filter -->
+    <section class="tags-section" id="blog">
+        <div class="container">
+            <div class="tags-header">
+                <h2 class="section-title">Explorar por tema</h2>
+                <button class="clear-filters" id="clearFilters">
+                    <i class="ph-thin ph-x icon"></i>
+                    Limpiar
+                </button>
+            </div>
+            <div class="tags-container" id="tagsContainer">
+                <!-- Tags will be dynamically inserted -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Posts -->
+    <section class="blog-section">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Últimos Posts</h2>
+                    <p class="section-subtitle">
+                        Explorando IA, Design Systems y desarrollo moderno
+                    </p>
+                </div>
+                <div class="search-box">
+                    <i class="ph-thin ph-magnifying-glass search-icon"></i>
+                    <input type="text" class="search-input" placeholder="Buscar posts..." id="searchInput">
+                </div>
+            </div>
+
+            <div class="posts-grid" id="postsGrid">
+                <!-- Posts will be dynamically inserted -->
+            </div>
+
+            <div class="load-more-container" id="loadMoreContainer" style="display: none;">
+                <button class="btn btn-secondary" id="loadMoreBtn">
+                    <i class="ph-thin ph-arrow-down icon"></i>
+                    Ver más posts
+                </button>
+            </div>
+        </div>
+        <!-- Selected Work / System Architecture -->
+        <section class="work-section" id="work">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <h2 class="section-title">Arquitectura Seleccionada</h2>
+                        <p class="section-subtitle">Sistemas complejos y soluciones de ingeniería escalables</p>
+                    </div>
+                </div>
+                <div class="projects-container" id="projectsContainer">
+                    <!-- Projects will be dynamically inserted -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Ideas Section -->
+        <section class="ideas-section" id="ideas">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <h2 class="section-title">Ideas en Desarrollo</h2>
+                        <p class="section-subtitle">
+                            Proyectos y conceptos en los que estoy trabajando
+                        </p>
+                    </div>
+                </div>
+
+                <div class="ideas-list" id="ideasGrid">
+                    <!-- Ideas will be dynamically inserted -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Talks Section -->
+        <section class="talks-section" id="talks">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <h2 class="section-title">Charlas y Conferencias</h2>
+                        <p class="section-subtitle">
+                            Compartiendo conocimiento sobre IA y Diseño
+                        </p>
+                    </div>
+                </div>
+                <div class="talks-grid" id="talksGrid">
+                    <!-- Talks will be dynamically inserted -->
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section" id="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2 class="section-title">Sobre mí</h2>
+                        <div class="about-description">
+                            <p>
+                                <strong>Staff Product Engineer & System Builder.</strong>
+                            </p>
+                            <p>
+                                Especializado en sistematizar la complejidad en la intersección entre
+                                <strong>Arquitectura
+                                    de Software</strong> y
+                                <strong>Estrategia de Producto</strong>. Mi enfoque se centra en construir motores de
+                                diseño
+                                que no solo escalan,
+                                sino que optimizan la fidelidad y la velocidad operativa de organizaciones de
+                                ingeniería.
+                            </p>
+                            <p>
+                                Como <strong>System Builder</strong>, transformo procesos manuales en infraestructuras
+                                proactivas.
+                                Mi trabajo consiste en diseñar las herramientas que permiten a otros ingenieros y
+                                diseñadores
+                                construir productos excepcionales con fricción cero.
+                            </p>
+                        </div>
+
+                        <div class="tech-stack">
+                            <h3 class="tech-title">Stack Principal</h3>
+                            <div class="tech-tags">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">Tailwind CSS</span>
+                                <span class="tech-tag">Storybook</span>
+                                <span class="tech-tag">Supabase</span>
+                                <span class="tech-tag">Turborepo</span>
+                                <span class="tech-tag">Cursor AI</span>
+                                <span class="tech-tag">Design Systems</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-visual">
+                        <div class="profile-card">
+                            <div class="profile-avatar">
+                                <div class="avatar-gradient"></div>
+                                <span class="avatar-text">JA</span>
+                            </div>
+                            <h3 class="profile-name">Joan Arbo</h3>
+                            <p class="profile-role">AI Design Architect</p>
+
+                            <div class="profile-links">
+                                <a href="https://github.com/joanarbo" class="profile-link" target="_blank"
+                                    rel="noopener">
+                                    <i class="ph-thin ph-github-logo link-icon"></i>
+                                    GitHub
+                                </a>
+                                <a href="https://linkedin.com/in/joanarbo" class="profile-link" target="_blank"
+                                    rel="noopener">
+                                    <i class="ph-thin ph-linkedin-logo link-icon"></i>
+                                    LinkedIn
+                                </a>
+                                <a href="mailto:hello@joanarbo.com" class="profile-link">
+                                    <i class="ph-thin ph-envelope-simple link-icon"></i>
+                                    Email
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter & Testimonials -->
+        <section class="newsletter-section">
+            <div class="container">
+                <div class="newsletter-grid">
+                    <div class="testimonials-column" id="testimonialsContainer">
+                        <!-- Testimonials will be dynamically inserted -->
+                    </div>
+                    <div class="newsletter-column">
+                        <div class="newsletter-card">
+                            <i class="ph-thin ph-envelope-open newsletter-icon"></i>
+                            <h2 class="section-title">System Builder Newsletter</h2>
+                            <p>Recibe una dosis semanal de arquitectura de sistemas, diseño proactivo e IA directamente
+                                en tu bandeja de entrada.</p>
+                            <form class="newsletter-form"
+                                onsubmit="event.preventDefault(); alert('¡Gracias! Pronto recibirás noticias.');">
+                                <input type="email" placeholder="tu@email.com" required>
+                                <button type="submit" class="btn btn-primary">Suscribirme</button>
+                            </form>
+                            <p class="newsletter-note">Sin spam, solo sistemas de los que aprender.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <div class="container">
+                <div class="contact-content">
+                    <h2 class="section-title">Conectemos</h2>
+                    <p class="section-subtitle">
+                        ¿Tienes un proyecto interesante? ¿Quieres colaborar?
+                        Me encantaría escucharte.
+                    </p>
+
+                    <div class="contact-methods">
+                        <a href="mailto:hello@joanarbo.com" class="contact-card">
+                            <i class="ph-thin ph-envelope-simple contact-icon"></i>
+                            <h3>Email</h3>
+                            <p>hello@joanarbo.com</p>
+                        </a>
+
+                        <a href="https://linkedin.com/in/joanarbo" class="contact-card" target="_blank" rel="noopener">
+                            <i class="ph-thin ph-linkedin-logo contact-icon"></i>
+                            <h3>LinkedIn</h3>
+                            <p>Conecta conmigo</p>
+                        </a>
+
+                        <a href="https://twitter.com/joanarbo" class="contact-card" target="_blank" rel="noopener">
+                            <i class="ph-thin ph-x-logo contact-icon"></i>
+                            <h3>Twitter</h3>
+                            <p>Sígueme en X</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-left">
+                        <p class="footer-text">
+                            © 2026 Joan Arbo · AI Design Architect
+                        </p>
+                    </div>
+                    <div class="footer-center">
+                        <div class="footer-socials">
+                            <a href="https://github.com/joanarbo" target="_blank" rel="noopener" title="GitHub">
+                                <i class="ph-thin ph-github-logo"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/joanarbo" target="_blank" rel="noopener" title="LinkedIn">
+                                <i class="ph-thin ph-linkedin-logo"></i>
+                            </a>
+                            <a href="https://twitter.com/joanarbo" target="_blank" rel="noopener" title="Twitter">
+                                <i class="ph-thin ph-x-logo"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer-right">
+                        <p class="footer-highlight">
+                            <i class="ph-thin ph-heart"></i> Creado con IA · Eficiencia del 70%
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Post Modal -->
+        <div class="modal" id="postModal">
+            <div class="modal-overlay" id="modalOverlay"></div>
+            <div class="modal-content">
+                <button class="modal-close" id="modalClose">
+                    <i class="ph-thin ph-x"></i>
+                </button>
+
+                <div class="modal-header">
+                    <h2 class="modal-title" id="modalTitle"></h2>
+                    <div class="modal-meta">
+                        <span class="modal-date" id="modalDate"></span>
+                        <div class="modal-tags" id="modalTags"></div>
+                    </div>
+                </div>
+
+                <div class="modal-body" id="modalBody">
+                    <!-- Post content will be inserted here -->
+                </div>
+
+                <div class="modal-footer">
+                    <button class="modal-nav-btn" id="prevPost">
+                        <i class="ph-thin ph-arrow-left"></i> Anterior
+                    </button>
+                    <button class="modal-nav-btn" id="nextPost">
+                        Siguiente <i class="ph-thin ph-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="script.js"></script>
+</body>
+
+</html>

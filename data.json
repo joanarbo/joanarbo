@@ -1,0 +1,149 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Arquitectura de Sistemas de Diseño con IA",
+      "date": "2026-01-12",
+      "readTime": "8 min de lectura",
+      "tags": [
+        "Diseño IA",
+        "Sistemas",
+        "Arquitectura"
+      ],
+      "image": "./assets/blog_post_placeholder_1.png",
+      "description": "Explorando cómo los Modelos de Lenguaje transforman los Design Systems de repositorios estáticos a ecosistemas vivos y proactivos.",
+      "content": "La intersección entre la inteligencia artificial y los sistemas de diseño abre un nuevo paradigma en el desarrollo de software. Ya no hablamos solo de bibliotecas de componentes estáticos; estamos entrando en la era de los *Sistemas Proactivos*.\n\n### El Colapso de la Distancia entre Diseño y Código\n\nTradicionalmente, el 'handoff' ha sido la frontera más difícil de cruzar. Con la integración de agentes de IA en el flujo de trabajo, esta frontera desaparece. El código se convierte en una extensión directa del pensamiento de diseño, y viceversa.\n\n#### Pilares de la nueva arquitectura:\n1. **Tokens Dinámicos**: Variables que no solo almacenan valores, sino contextos de uso y reglas de accesibilidad autogeneradas.\n2. **Ecosistemas de Feedback**: Sistemas que analizan el uso de los componentes en producción y sugieren optimizaciones de legibilidad o performance.\n3. **Generación Just-in-Time**: Componentes que se adaptan a la necesidad del usuario final, manteniendo la coherencia de marca pero optimizando la función.\n\nEste es solo el comienzo. El futuro del diseño es generativo, y la arquitectura que construimos hoy debe estar lista para ser co-creada con máquinas inteligentes."
+    },
+    {
+      "id": 2,
+      "title": "Manifiesto del Prompt: Ingeniería de Diálogo",
+      "date": "2026-01-08",
+      "readTime": "6 min de lectura",
+      "tags": [
+        "IA",
+        "Creatividad",
+        "Ingeniería"
+      ],
+      "image": "./assets/blog_post_placeholder_2.png",
+      "description": "Técnicas avanzadas para diseñadores de producto que buscan dominar los modelos fundacionales a través de la semántica.",
+      "content": "Escribir un prompt no es dar una instrucción; es diseñar una arquitectura de pensamiento para una inteligencia externa. Para el diseñador de producto moderno, la palabra es ahora una herramienta de renderizado.\n\n### Más allá del 'Chat'\n\nEl error común es tratar a los modelos de lenguaje como buscadores. Son, en realidad, motores de razonamiento estadístico. Dominarlos requiere entender conceptos como:\n\n*   **Chain-of-Thought**: Forzar al modelo a verbalizar sus pasos lógicos antes de emitir un resultado.\n*   **Few-Shot Prompting**: Proporcionar ejemplos estructurales para que el modelo entienda el 'tono de voz' o la 'jerarquía visual' que buscamos.\n*   **Delimitadores Estructurales**: Usar sintaxis clara para separar el contexto de la tarea.\n\nCuando un diseñador domina estas técnicas, su flujo de trabajo se acelera exponencialmente, permitiéndole enfocarse en la estrategia y la visión artística."
+    },
+    {
+      "id": 3,
+      "title": "Workflows en Notion: Tu Segundo Cerebro",
+      "date": "2025-12-28",
+      "readTime": "10 min de lectura",
+      "tags": [
+        "Notion",
+        "Productividad",
+        "Flujo de Trabajo"
+      ],
+      "image": "./assets/blog_post_placeholder_3.png",
+      "description": "Cómo estructurar un espacio de trabajo que potencie la creatividad mediante bases de datos relacionales y lógica de sistemas.",
+      "content": "Notion ha evolucionado de ser una simple aplicación de notas a convertirse en un 'SRE' (Site Reliability Engine) personal. El secreto no está en las páginas, sino en la lógica subyacente de sus bases de datos.\n\n### La Metodología de Sistemas\n\nPara que un espacio en Notion sea efectivo, debe seguir principios de ingeniería de software:\n\n1. **Atomización**: Información guardada en el nivel más pequeño posible.\n2. **Normalización**: Evitar la duplicidad de datos mediante relaciones inteligentes.\n3. **Visualización**: Múltiples vistas para un mismo dato dependiendo del contexto de trabajo (Kanban para ejecución, Gallery para inspiración).\n\nHe diseñado mi propio framework que integra mis lecturas, mis proyectos de código y mis sistemas de diseño en un único ecosistema coherente que se actualiza automáticamente."
+    }
+  ],
+  "ideas": [
+    {
+      "id": "hybrid-engineer",
+      "title": "El Colapso de las Especialidades",
+      "description": "Una reflexión sobre la muerte del rol binario. El futuro pertenece al 'Full-Stack Designer' que programa su propia visión.",
+      "tags": [
+        "Filosofía",
+        "Carrera"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "ai-components-ex",
+      "title": "Interfaces de Intención",
+      "description": "Experimentos en UI generativa donde el usuario describe el problema y el sistema renderiza la solución optimizada en tiempo real.",
+      "tags": [
+        "IA",
+        "Tailwind",
+        "Laboratorio"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "design-tokens-v2",
+      "title": "Semántica Computacional",
+      "description": "Propuesta para una capa de abstracción sobre los Design Tokens que permita a modelos de IA razonar sobre la jerarquía visual.",
+      "tags": [
+        "Sistemas",
+        "Arquitectura"
+      ],
+      "status": "concept"
+    }
+  ],
+  "talks": [
+    {
+      "id": "talk-alicante",
+      "title": "IA en Design Systems",
+      "event": "React Alicante",
+      "date": "Oct 2025",
+      "image": "./assets/blog_post_placeholder_1.png",
+      "videoUrl": "https://linkedin.com/in/joanarbo",
+      "tags": [
+        "Conferencia",
+        "React"
+      ]
+    },
+    {
+      "id": "talk-commit",
+      "title": "El Fin de Figma",
+      "event": "Commit Conf",
+      "date": "Nov 2025",
+      "image": "./assets/blog_post_placeholder_2.png",
+      "videoUrl": "https://linkedin.com/in/joanarbo",
+      "tags": [
+        "Debate",
+        "Futuro"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "global-ds",
+      "title": "Global Design System Architecture",
+      "role": "Lead Architect",
+      "company": "Enterprise Fintech",
+      "impact": "+45% Efficiency",
+      "description": "Arquitectura de un sistema de diseño multinacional soportando +20 productos y 3 tecnologías de frontend distintas (React, Angular, Web Components).",
+      "tags": [
+        "Arquitectura",
+        "Escalabilidad",
+        "Tokens"
+      ],
+      "image": "https://placehold.co/800x600/1e1e1e/FFF?text=Design+System+Architecture",
+      "architecture": "graph TD\n    A[Tokens Source] --> B[Style Dictionary]\n    B --> C[React Components]\n    B --> D[Web Components]\n    B --> E[Mobile Styles]\n    C --> F[Product Apps]\n    D --> F"
+    },
+    {
+      "id": "ai-design-workflow",
+      "title": "AI-Powered Design Workflow",
+      "role": "Product Engineer",
+      "company": "Design Agency",
+      "impact": "-70% Time-to-Code",
+      "description": "Implementación de un flujo de trabajo que integra LLMs para la generación automática de componentes a partir de especificaciones semánticas.",
+      "tags": [
+        "IA",
+        "Automation",
+        "Workflow"
+      ],
+      "image": "https://placehold.co/800x600/1e1e1e/FFF?text=AI+Design+Workflow",
+      "architecture": "sequenceDiagram\n    Designer->>AI Agent: Natural Language Request\n    AI Agent->>Design Tokens: Semantic Query\n    Design Tokens-->>AI Agent: Relevant Context\n    AI Agent->>Code: Generated Component"
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Alex Rivera",
+      "role": "CTO / StartUp Co-founder",
+      "content": "Joan no solo construye interfaces; construye sistemas que permiten a los equipos moverse 10 veces más rápido. Su visión de la IA es estratégica, no solo cosmética."
+    },
+    {
+      "name": "Sarah Chen",
+      "role": "Design Manager",
+      "content": "The most technical designer I've worked with. He bridges the gap between Figma and Production with surgical precision."
+    }
+  ]
+}
