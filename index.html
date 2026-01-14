@@ -335,20 +335,6 @@
             </div>
         </section>
 
-        <!-- Stack / Favorites -->
-        <section class="stack-section" id="stack">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Uses / Stack</h2>
-                    <p class="section-subtitle">A curated selection of the tools, hardware, and software that power my
-                        workflow.</p>
-                </div>
-                <div class="stack-grid" id="stackGrid">
-                    <!-- Stack items will be inserted here -->
-                </div>
-            </div>
-        </section>
-
         <!-- Newsletter & Testimonials -->
         <section class="newsletter-section">
             <div class="container">
@@ -362,9 +348,8 @@
                             <h2 class="section-title">System Builder Newsletter</h2>
                             <p>Recibe una dosis semanal de arquitectura de sistemas, diseño proactivo e IA directamente
                                 en tu bandeja de entrada.</p>
-                            <form class="newsletter-form"
-                                onsubmit="event.preventDefault(); alert('¡Gracias! Pronto recibirás noticias.');">
-                                <input type="email" placeholder="tu@email.com" required>
+                            <form class="newsletter-form" id="newsletterForm">
+                                <input type="email" id="newsletterEmail" placeholder="tu@email.com" required>
                                 <button type="submit" class="btn btn-primary">Suscribirme</button>
                             </form>
                             <p class="newsletter-note">Sin spam, solo sistemas de los que aprender.</p>

@@ -271,6 +271,12 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
 
+        // Reset scroll position to top
+        const modalContent = modal.querySelector('.modal-content');
+        if (modalContent) {
+            modalContent.scrollTop = 0;
+        }
+
         try {
             // Simulate fetching content (or use actual content if available)
             // In a real app, this might fetch Markdown from a URL
@@ -775,6 +781,12 @@ document.addEventListener('DOMContentLoaded', () => {
         elements.modal.classList.add('active');
         document.body.style.overflow = 'hidden';
 
+        // Reset scroll position to top
+        const modalContent = elements.modal.querySelector('.modal-content');
+        if (modalContent) {
+            modalContent.scrollTop = 0;
+        }
+
         updateModalNavButtons();
         // Ensure footer is visible (might have been hidden by /now)
         document.querySelector('.modal-footer').style.display = 'flex';
@@ -1011,6 +1023,12 @@ document.addEventListener('DOMContentLoaded', () => {
         elements.modalBody.innerHTML = nowContent;
         elements.modal.classList.add('active');
         document.body.style.overflow = 'hidden';
+
+        // Reset scroll position to top
+        const modalContent = elements.modal.querySelector('.modal-content');
+        if (modalContent) {
+            modalContent.scrollTop = 0;
+        }
     }
 
     function initTheme() {
@@ -1129,12 +1147,65 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Newsletter feedback
-    const newsletterForm = document.querySelector('.newsletter-form');
+    const newsletterForm = document.getElementById('newsletterForm');
     if (newsletterForm) {
-        newsletterForm.onsubmit = (e) => {
+        newsletterForm.onsubmit = async (e) => {
             e.preventDefault();
-            const email = newsletterForm.querySelector('input').value;
-            newsletterForm.innerHTML = `<div class="newsletter-success"><i class="ph-thin ph-check-circle"></i> ¡Gracias! ${email} ha sido registrado.</div>`;
+            const emailInput = document.getElementById('newsletterEmail');
+            const email = emailInput.value;
+            const submitButton = newsletterForm.querySelector('button[type="submit"]');
+
+            // Disable form during submission
+            submitButton.disabled = true;
+            submitButton.textContent = 'Enviando...';
+
+            // Remove any existing message
+            const existingMessage = newsletterForm.querySelector('.newsletter-message');
+            if (existingMessage) {
+                existingMessage.remove();
+            }
+
+            // Simulate API call (replace with actual API call later)
+            try {
+                // Simulate network delay
+                await new Promise(resolve => setTimeout(resolve, 1000));
+
+                // For now, always succeed. Replace with actual API call:
+                // const response = await fetch('/api/newsletter', { method: 'POST', body: JSON.stringify({ email }) });
+                // if (!response.ok) throw new Error('Subscription failed');
+
+                // Show success message
+                const successMessage = document.createElement('div');
+                successMessage.className = 'newsletter-message newsletter-success';
+                successMessage.innerHTML = `
+                    <i class="ph-thin ph-check-circle"></i>
+                    <span>¡Perfecto! Revisa tu correo para confirmar tu suscripción.</span>
+                `;
+                newsletterForm.insertBefore(successMessage, newsletterForm.firstChild);
+
+                // Clear input
+                emailInput.value = '';
+
+                // Reset button after delay
+                setTimeout(() => {
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Suscribirme';
+                }, 2000);
+
+            } catch (error) {
+                // Show error message
+                const errorMessage = document.createElement('div');
+                errorMessage.className = 'newsletter-message newsletter-error';
+                errorMessage.innerHTML = `
+                    <i class="ph-thin ph-warning-circle"></i>
+                    <span>Hubo un problema. Por favor, inténtalo de nuevo.</span>
+                `;
+                newsletterForm.insertBefore(errorMessage, newsletterForm.firstChild);
+
+                // Reset button
+                submitButton.disabled = false;
+                submitButton.textContent = 'Suscribirme';
+            }
         };
     }
 });
