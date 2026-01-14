@@ -105,6 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let activeTags = new Set();
     let currentSearch = '';
+    let activeSeries = 'all';
 
     // Initialize
     init();
@@ -679,7 +680,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const matchesTags = activeTags.size === 0 || post.tags.some(tag => activeTags.has(tag));
             const matchesSearch = post.title.toLowerCase().includes(currentSearch) ||
                 (post.description && post.description.toLowerCase().includes(currentSearch));
-            return matchesTags && matchesSearch;
+            const matchesSeries = activeSeries === 'all' || post.series === activeSeries;
+            return matchesTags && matchesSearch && matchesSeries;
         });
 
         // Handle Pagination
@@ -923,6 +925,21 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeModal();
         });
+
+        // Series Filter Buttons
+        const seriesFilterBtns = document.querySelectorAll('.series-filter-btn');
+        seriesFilterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active state
+                seriesFilterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Update active series and filter
+                activeSeries = btn.dataset.series;
+                filterAndRenderContent();
+            });
+        });
+
 
         // Navigation Links
         // Desktop Navigation

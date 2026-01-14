@@ -12,6 +12,7 @@
         "Deep Work",
         "Philosophy"
       ],
+      "series": "AI & Future of Work",
       "image": "assets/images/posts/perihelion.jpg"
     },
     {
@@ -26,6 +27,7 @@
         "ROI",
         "Strategy"
       ],
+      "series": "Design Systems Mastery",
       "image": "assets/images/posts/roi-design-system.png"
     },
     {
@@ -40,6 +42,7 @@
         "Headless",
         "Voice UI"
       ],
+      "series": "AI & Future of Work",
       "image": "assets/images/posts/interface-dependency.png"
     },
     {
