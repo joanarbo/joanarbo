@@ -1111,17 +1111,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const allItems = [...appData.posts, ...appData.ideas];
 
+        // Calculate relevance score based on tags and title similarity
         const related = allItems
             .filter(item => item.id !== currentItem.id && item.tags)
             .map(item => {
-                const commonTags = item.tags.filter(tag => currentItem.tags.includes(tag));
-                return { ...item, score: commonTags.length };
-            })
-            .filter(item => item.score > 0)
-            .sort((a, b) => b.score - a.score || new Date(b.date || 0) - new Date(a.date || 0))
-            .slice(0, 2);
+                let score = 0;
 
-        if (related.length === 0) {
+                // Score based on common tags (primary factor)
+                const commonTags = item.tags.filter(tag => currentItem.tags?.includes(tag));
+                score += commonTags.length * 10;
+
+                // Bonus for title word similarity (secondary factor)
+                if (currentItem.title && item.title) {
+                    const currentWords = currentItem.title.toLowerCase().split(/\s+/);
+                    const itemWords = item.title.toLowerCase().split(/\s+/);
+                    const commonWords = currentWords.filter(word =>
+                        word.length > 3 && itemWords.includes(word)
+                    );
+                    score += commonWords.length * 2;
+                }
+
+                // Small bonus for recency
+                if (item.date) {
+                    const daysSincePublished = (Date.now() - new Date(item.date)) / (1000 * 60 * 60 * 24);
+                    score += Math.max(0, (365 - daysSincePublished) / 365);
+                }
+
+                return { ...item, score };
+            })
+            .sort((a, b) => b.score - a.score || new Date(b.date || 0) - new Date(a.date || 0))
+            .slice(0, 3);
+
+        // Fallback: if no related articles with score > 0, show most recent
+        const finalRelated = related.filter(item => item.score > 0).length > 0
+            ? related.filter(item => item.score > 0)
+            : allItems
+                .filter(item => item.id !== currentItem.id)
+                .sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0))
+                .slice(0, 3);
+
+        if (finalRelated.length === 0) {
             elements.relatedArticlesContainer.innerHTML = '';
             elements.relatedArticlesContainer.style.display = 'none';
             return;
@@ -1133,7 +1162,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h3 class="related-title">Sigue explorando</h3>
             </div>
             <div class="related-grid">
-                ${related.map(item => `
+                ${finalRelated.map(item => `
                     <div class="related-card" onclick="${item.date ? 'openPost' : 'openIdea'}('${item.id}')">
                         <div class="related-info">
                             <span class="related-date">${item.date ? formatDate(item.date) : 'Idea'}</span>
