@@ -496,5 +496,83 @@
         "desc": "For quick capture on the go."
       }
     ]
-  }
+  },
+  "caseStudies": [
+    {
+      "id": "alexa-shopping-ds",
+      "title": "Alexa Shopping Design System",
+      "company": "Amazon",
+      "year": "2020-2022",
+      "role": "Lead Product Engineer",
+      "challenge": "Fragmented UI across 15+ Alexa shopping experiences led to inconsistent user experiences and 60% longer development cycles",
+      "solution": "Built unified design system with 50+ multimodal components supporting voice, visual, and touch interactions",
+      "impact": {
+        "adoption": "100%",
+        "adoptionLabel": "Alexa Shopping Adoption",
+        "efficiency": "60%",
+        "efficiencyLabel": "Dev Time Reduction",
+        "consistency": "95%",
+        "consistencyLabel": "Design Consistency"
+      },
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Design Tokens",
+        "Storybook",
+        "Voice UI"
+      ],
+      "image": "assets/images/case-studies/alexa-ds.png",
+      "link": "#alexa-shopping-ds"
+    },
+    {
+      "id": "amazon-telescope",
+      "title": "Amazon Telescope Analytics Platform",
+      "company": "Amazon",
+      "year": "2021-2022",
+      "role": "Senior Product Engineer",
+      "challenge": "Product teams lacked real-time visibility into design system adoption and component usage patterns",
+      "solution": "Developed automated analytics platform tracking component usage, adoption metrics, and consistency scores across all products",
+      "impact": {
+        "adoption": "40+",
+        "adoptionLabel": "Teams Tracked",
+        "efficiency": "80%",
+        "efficiencyLabel": "Faster Issue Detection",
+        "consistency": "€200K",
+        "consistencyLabel": "Annual Savings"
+      },
+      "technologies": [
+        "Python",
+        "AWS",
+        "Data Visualization",
+        "Analytics"
+      ],
+      "image": "assets/images/case-studies/telescope.png",
+      "link": "#amazon-telescope"
+    },
+    {
+      "id": "ink-design-system",
+      "title": "Ink Design System",
+      "company": "Substack",
+      "year": "2023-2024",
+      "role": "Staff Product Engineer",
+      "challenge": "Rapid growth required scalable design system supporting millions of creators while maintaining editorial quality",
+      "solution": "Architected premium design system with focus on typography, reading experience, and creator tools",
+      "impact": {
+        "adoption": "2M+",
+        "adoptionLabel": "Creators Impacted",
+        "efficiency": "45%",
+        "efficiencyLabel": "Faster Feature Delivery",
+        "consistency": "98%",
+        "consistencyLabel": "Brand Consistency"
+      },
+      "technologies": [
+        "React",
+        "TypeScript",
+        "CSS-in-JS",
+        "Editorial Design"
+      ],
+      "image": "assets/images/case-studies/ink-ds.png",
+      "link": "#ink-design-system"
+    }
+  ]
 }

@@ -22,12 +22,14 @@ document.addEventListener('DOMContentLoaded', () => {
         playgroundGrid: document.getElementById('playgroundGrid'),
         servicesGrid: document.getElementById('servicesGrid'),
         stackGrid: document.getElementById('stackGrid'),
-        relatedArticlesContainer: document.getElementById('relatedArticlesContainer')
+        relatedArticlesContainer: document.getElementById('relatedArticlesContainer'),
+        caseStudiesGrid: document.getElementById('caseStudiesGrid')
     };
 
     let appData = {
         posts: [],
         ideas: [],
+        caseStudies: [],
         services: [],
         tags: {}
     };
@@ -161,6 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
             filterAndRenderContent();
             if (appData.talks) renderTalks(appData.talks);
             if (appData.projects) renderProjects(appData.projects);
+            if (appData.caseStudies) renderCaseStudies(appData.caseStudies);
             if (appData.playground) renderPlayground(appData.playground); // Render Playground
             if (appData.playground) renderPlayground(appData.playground); // Render Playground
             if (appData.services) renderServices(appData.services); // Build Services
@@ -404,6 +407,53 @@ document.addEventListener('DOMContentLoaded', () => {
 
         tocNav.appendChild(ul);
     }
+    function renderCaseStudies(caseStudies) {
+        if (!elements.caseStudiesGrid || !caseStudies) return;
+
+        elements.caseStudiesGrid.innerHTML = caseStudies.map((study, index) => {
+            const delay = index * 150;
+            return `
+                <div class="case-study-card fade-in-up" style="animation-delay: ${delay}ms; opacity: 0;">
+                    <img src="${study.image}" alt="${study.title}" class="case-study-image" loading="lazy">
+                    <div class="case-study-content">
+                        <div class="case-study-meta">
+                            <span class="case-study-company">${study.company}</span>
+                            <span class="case-study-year">${study.year}</span>
+                            <span class="case-study-role">${study.role}</span>
+                        </div>
+                        <h3 class="case-study-title">${study.title}</h3>
+                        <p class="case-study-challenge"><strong>Challenge:</strong> ${study.challenge}</p>
+                        <p class="case-study-solution"><strong>Solution:</strong> ${study.solution}</p>
+                        <div class="impact-metrics">
+                            <div class="metric">
+                                <div class="metric-value">${study.impact.adoption}</div>
+                                <div class="metric-label">${study.impact.adoptionLabel}</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">${study.impact.efficiency}</div>
+                                <div class="metric-label">${study.impact.efficiencyLabel}</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">${study.impact.consistency}</div>
+                                <div class="metric-label">${study.impact.consistencyLabel}</div>
+                            </div>
+                        </div>
+                        <div class="case-study-tech">
+                            ${study.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        // Trigger fade-in animation
+        setTimeout(() => {
+            document.querySelectorAll('.case-study-card.fade-in-up').forEach(card => {
+                card.style.opacity = '1';
+            });
+        }, 100);
+    }
+
     function renderProjects(projects) {
         if (!elements.projectsContainer || !projects) return; // Changed to projectsContainer
         elements.projectsContainer.innerHTML = projects.map((project, index) => { // Changed to projectsContainer
