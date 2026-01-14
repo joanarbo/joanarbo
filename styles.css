@@ -116,6 +116,9 @@ a {
   color: #111111;
 }
 .navbar .nav-links .nav-link.active::after, .navbar .nav-links .nav-link:hover::after {
+  transform: scaleX(1);
+}
+.navbar .nav-links .nav-link::after {
   content: "";
   position: absolute;
   bottom: -4px;
@@ -123,6 +126,9 @@ a {
   width: 100%;
   height: 1px;
   background: #111111;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
 }
 .navbar .hero-cta {
   display: none;
@@ -271,24 +277,40 @@ a {
   font-size: 0.85rem;
   letter-spacing: -0.02em;
   font-size: 0.75rem;
-  padding: 8px 20px;
+  padding: 10px 24px;
   background: transparent;
   border: 1px solid #E0E0E0;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   color: #666666;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 2px;
+}
+.tags-section .tags-container .tag-btn i {
+  font-size: 1.1rem;
+  opacity: 0.7;
 }
 .tags-section .tags-container .tag-btn:hover {
   border-color: #111111;
   color: #111111;
   background: rgba(17, 17, 17, 0.02);
+  transform: translateY(-2px);
+}
+.tags-section .tags-container .tag-btn:hover i {
+  opacity: 1;
+  transform: scale(1.1);
 }
 .tags-section .tags-container .tag-btn.active {
   background: #111111;
   color: white;
   border-color: #111111;
+}
+.tags-section .tags-container .tag-btn.active i {
+  opacity: 1;
 }
 .tags-section .clear-filters {
   font-family: "JetBrains Mono", monospace;
@@ -475,22 +497,30 @@ a {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.85rem;
   letter-spacing: -0.02em;
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: #666666;
-  padding: 4px 0;
-  border-bottom: 1px solid transparent;
-  background: transparent;
+  padding: 6px 12px;
+  background: rgba(17, 17, 17, 0.03);
+  border: 1px solid #E0E0E0;
+  border-radius: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
 }
-.post-card .post-tags .tag::before {
-  content: "#";
-  margin-right: 2px;
-  opacity: 0.5;
+.post-card .post-tags .tag i {
+  font-size: 0.9rem;
+  opacity: 0.6;
 }
 .post-card .post-tags .tag:hover {
   color: #111111;
-  border-bottom-color: #111111;
+  border-color: #111111;
+  background: rgba(17, 17, 17, 0.05);
+}
+.post-card .post-tags .tag:hover i {
+  opacity: 1;
 }
 
 /* Ideas Section - FIXING LAYOUT BUGS */
@@ -1048,20 +1078,29 @@ a {
   position: relative;
   background: white;
   width: 100%;
-  max-width: 800px;
+  max-width: 900px;
   height: 100%;
   max-height: 100vh;
   overflow-y: auto;
-  padding: 60px;
+  padding: 80px;
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
   z-index: 1;
-  border-left: 1px solid #E0E0E0;
   border-right: 1px solid #E0E0E0;
 }
 @media (max-width: 600px) {
   .modal .modal-content {
-    padding: 24px;
+    padding: 32px 24px;
   }
+}
+.modal .modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+.modal .modal-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+.modal .modal-content::-webkit-scrollbar-thumb {
+  background: #E0E0E0;
+  border-radius: 10px;
 }
 .modal .modal-close {
   position: fixed;
@@ -1177,9 +1216,55 @@ a {
 .modal .modal-body img {
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 4px;
   margin: 48px 0;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+}
+.modal .modal-footer {
+  margin-top: 80px;
+  padding-top: 40px;
+  border-top: 1px solid #E0E0E0;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.modal .modal-footer .modal-nav-btn {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+  letter-spacing: -0.02em;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 16px 32px;
+  background: transparent;
+  border: 1px solid #E0E0E0;
+  color: #666666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  justify-content: center;
+}
+.modal .modal-footer .modal-nav-btn i {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+.modal .modal-footer .modal-nav-btn:hover:not(:disabled) {
+  border-color: #111111;
+  color: #111111;
+  background: rgba(17, 17, 17, 0.02);
+}
+#prevPost .modal .modal-footer .modal-nav-btn:hover:not(:disabled) i {
+  transform: translateX(-5px);
+}
+#nextPost .modal .modal-footer .modal-nav-btn:hover:not(:disabled) i {
+  transform: translateX(5px);
+}
+.modal .modal-footer .modal-nav-btn:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
 }
 
 /* Selected Work / System Architecture */

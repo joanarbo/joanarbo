@@ -47,33 +47,57 @@
     {
       "id": "hybrid-engineer",
       "title": "El Colapso de las Especialidades",
-      "description": "Una reflexión sobre la muerte del rol binario. El futuro pertenece al 'Full-Stack Designer' que programa su propia visión.",
+      "description": "Una reflexión sobre la muerte del rol binario. El futuro pertenece al 'Full-Stack Designer' que no solo define la visión, sino que programa la infraestructura que la soporta.",
       "tags": [
         "Filosofía",
-        "Carrera"
+        "Carrera",
+        "Estrategia"
       ],
       "status": "active"
     },
     {
       "id": "ai-components-ex",
       "title": "Interfaces de Intención",
-      "description": "Experimentos en UI generativa donde el usuario describe el problema y el sistema renderiza la solución optimizada en tiempo real.",
+      "description": "Experimentos en UI generativa donde el usuario describe un objetivo sistémico y el motor renderiza la solución optimizada, validando accesibilidad y performance en tiempo real.",
       "tags": [
-        "IA",
-        "Tailwind",
-        "Laboratorio"
+        "IA Generativa",
+        "LLM",
+        "UX"
       ],
       "status": "active"
     },
     {
       "id": "design-tokens-v2",
       "title": "Semántica Computacional",
-      "description": "Propuesta para una capa de abstracción sobre los Design Tokens que permita a modelos de IA razonar sobre la jerarquía visual.",
+      "description": "Propuesta para una capa de abstracción sobre los Design Tokens que permita a modelos de IA razonar sobre la jerarquía visual y la intención de marca sin intervención humana.",
       "tags": [
         "Sistemas",
+        "Lógica",
         "Arquitectura"
       ],
       "status": "concept"
+    },
+    {
+      "id": "design-agents",
+      "title": "Agentes de Diseño Autónomos",
+      "description": "Sistemas que monitorizan el uso de los componentes en producción y proponen refactorizaciones automáticas para mejorar la consistencia visual y el rendimiento del bundle.",
+      "tags": [
+        "Agentes",
+        "Automatización",
+        "Ops"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "atomic-logic",
+      "title": "Lógica Atómica de Producto",
+      "description": "Más allá del Atomic Design visual: una metodología para sistematizar reglas de negocio y flujos de usuario como componentes lógicos reutilizables y testeables.",
+      "tags": [
+        "Metodología",
+        "Sistemas",
+        "Product Engineering"
+      ],
+      "status": "active"
     }
   ],
   "talks": [
@@ -141,7 +165,7 @@
       "role": "Senior UX Engineer",
       "company": "Amazon Business",
       "impact": "Escalabilidad Global",
-      "description": "Redefiní el modelo de integración entre diseño y desarrollo para el sistema Ink, superando barreras de adopción en equipos de +50 ingenieros y optimizando la calidad del frontend mediante Storybook.",
+      "description": "Redefiní el modelo de integración entre diseño y desarrollo para el sistema Ink, superando barreras de adopción en equipos de +50 ingenieros y optimizando la calidad del frontend mediante el uso de Storybook y Testing de Regresión Visual.",
       "tags": [
         "Design Ops",
         "Adopción",
@@ -156,19 +180,19 @@
       "period": "Jun 2017 — Present",
       "company": "Amazon Madrid",
       "role": "Senior Design Technologist",
-      "description": "Lead UX Engineer en Madrid y Hyderabad. Actuando como puente crítico entre ingeniería y diseño. Ganador doble de 'Most Peculiar Amazonian' por Ownership e Invent & Simplify. Lideré el lanzamiento de Amazon Business Prime entregando un mes antes de lo previsto y optimizando la eficiencia operativa significativamente."
+      "description": "Lead UX Engineer en Madrid y Hyderabad. Actuando como puente crítico entre ingeniería y diseño. Ganador doble de 'Most Peculiar Amazonian' por Ownership e Invent & Simplify. Lideré el lanzamiento de Amazon Business Prime entregando un mes antes de lo previsto y optimizando la eficiencia operativa significativamente mediante la creación de frameworks intern de prototipado rápido."
     },
     {
       "period": "Jan 2021 — Present",
       "company": "Mr Marcel School / UOC",
       "role": "Profesor de Design Systems",
-      "description": "Mentor en el nanogrado de Design Systems, formando a la próxima generación de ingenieros y diseñadores en la sistematización de productos digitales y arquitecturas escalables."
+      "description": "Director y mentor en el nanogrado de Design Systems. He formado a más de 200 profesionales de product engineering en la sistematización de productos digitales, arquitecturas de tokens y escalabilidad de interfaces."
     },
     {
       "period": "Jun 2010 — Jun 2017",
       "company": "Movistar+ TV",
       "role": "Research & Development",
-      "description": "Diseño centrado en el usuario y prototipado ligero para STB, Web y Apps. Diseñador de interacción en más de 300 campañas (Juego de Tronos, NBA, etc.), pionero en experiencias de segunda pantalla y narrativas interactivas 2D/3D."
+      "description": "Diseño de sistemas complejos para STB, Web y Apps. Lideré el diseño de interacción para más de 300 campañas globales de alto impacto. Desarrollé prototipos experimentales en 2D/3D que definieron el futuro del consumo de TV interactiva en España."
     },
     {
       "period": "Feb 2016 — Jun 2017",

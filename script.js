@@ -27,6 +27,28 @@ document.addEventListener('DOMContentLoaded', () => {
         tags: {}
     };
 
+    const tagIcons = {
+        'IA': 'ph-robot',
+        'AI': 'ph-robot',
+        'Design Systems': 'ph-paint-brush-broad',
+        'Architecture': 'ph-stack',
+        'Arquitectura': 'ph-stack',
+        'Product': 'ph-cube',
+        'Engineering': 'ph-code',
+        'Career': 'ph-briefcase',
+        'Strategy': 'ph-strategy',
+        'UI/UX': 'ph-palette',
+        'Tools': 'ph-wrench',
+        'Life': 'ph-heart',
+        'Automation': 'ph-gear',
+        'System Builder': 'ph-blueprint'
+    };
+
+    function getIconForTag(tag) {
+        const iconClass = tagIcons[tag] || 'ph-hash';
+        return `<i class="ph-thin ${iconClass}"></i>`;
+    }
+
     let activeTags = new Set();
     let currentSearch = '';
 
@@ -64,7 +86,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         elements.tagsContainer.innerHTML = Array.from(allTags).sort().map(tag => `
             <button class="tag-btn" data-tag="${tag}">
-                ${tag}
+                ${getIconForTag(tag)}
+                <span>${tag}</span>
             </button>
         `).join('');
 
@@ -96,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h3 class="post-title">${post.title}</h3>
                     <p class="post-excerpt">${post.description || post.content.substring(0, 240) + '...'}</p>
                     <div class="post-tags">
-                        ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        ${post.tags.map(tag => `<span class="tag">${getIconForTag(tag)} ${tag}</span>`).join('')}
                     </div>
                 </div>
             </article>
@@ -368,7 +391,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Render tags
         elements.modalTags.innerHTML = post.tags.map(tag =>
-            `<span class="tag">${tag}</span>`
+            `<span class="tag">${getIconForTag(tag)} ${tag}</span>`
         ).join('');
 
         elements.modalBody.innerHTML = marked.parse(post.content);
@@ -483,18 +506,52 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
         }
+
+        initScrollSpy();
     }
 
     function scrollToSection(targetId) {
         const targetSection = document.getElementById(targetId);
         if (targetSection) {
-            // Update active state (desktop)
-            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-            const activeLink = document.querySelector(`.nav-link[data-target="${targetId}"]`);
-            if (activeLink) activeLink.classList.add('active');
-
             // Smooth scroll
             targetSection.scrollIntoView({ behavior: 'smooth' });
         }
+    }
+
+    /**
+     * Scroll Spy implementation using Intersection Observer
+     * Updates navigation highlighting as the user scrolls
+     */
+    function initScrollSpy() {
+        const sectionIds = ['blog', 'work', 'ideas', 'about', 'contact'];
+        const sections = sectionIds.map(id => document.getElementById(id)).filter(el => el);
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        if (sections.length === 0) return;
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '-20% 0px -70% 0px', // Trigger when section is in the top portion of the viewport
+            threshold: 0
+        };
+
+        const observerCallback = (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+
+                    // Update active state (desktop)
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+        sections.forEach(section => observer.observe(section));
     }
 });
