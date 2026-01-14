@@ -303,10 +303,24 @@ document.addEventListener('DOMContentLoaded', () => {
         elements.postsGrid.innerHTML = showingPosts.map((post, index) => renderPost(post, index)).join('');
         elements.ideasGrid.innerHTML = filteredIdeas.map((idea, index) => renderIdea(idea, index)).join('');
 
+        // Handle Empty State
+        const noResults = document.getElementById('noResults');
+        if (noResults) {
+            if (filteredPosts.length === 0 && filteredIdeas.length === 0) {
+                noResults.style.display = 'flex';
+                elements.postsGrid.style.display = 'none';
+                elements.ideasGrid.style.display = 'none';
+            } else {
+                noResults.style.display = 'none';
+                elements.postsGrid.style.display = 'grid';
+                elements.ideasGrid.style.display = 'grid';
+            }
+        }
+
         // Handle Load More Button
         const loadMoreContainer = document.getElementById('loadMoreContainer');
         if (loadMoreContainer) {
-            if (totalPosts > visiblePostsCount) {
+            if (totalPosts > visiblePostsCount && filteredPosts.length > 0) {
                 loadMoreContainer.style.display = 'flex';
             } else {
                 loadMoreContainer.style.display = 'none';
@@ -505,6 +519,46 @@ document.addEventListener('DOMContentLoaded', () => {
                     mobileMenuBtn.innerHTML = '<i class="ph-thin ph-list"></i>';
                 });
             });
+        }
+
+        // Back to Top Logic
+        const backToTopBtn = document.getElementById('backToTop');
+        if (backToTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 500) {
+                    backToTopBtn.classList.add('active');
+                } else {
+                    backToTopBtn.classList.remove('active');
+                }
+            });
+
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        // Header Scroll Effect
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar--scrolled');
+            } else {
+                navbar.classList.remove('navbar--scrolled');
+            }
+        });
+
+        // Global Clear Filters (for empty state)
+        window.clearAllFilters = function () {
+            activeTags.clear();
+            currentSearch = '';
+            elements.searchInput.value = '';
+            document.querySelectorAll('.tag-btn').forEach(btn => btn.classList.remove('active'));
+            filterAndRenderContent();
+        };
+
+        const clearFiltersEmpty = document.getElementById('clearFiltersEmpty');
+        if (clearFiltersEmpty) {
+            clearFiltersEmpty.addEventListener('click', clearAllFilters);
         }
 
         initScrollSpy();

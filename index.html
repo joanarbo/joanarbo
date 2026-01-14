@@ -66,15 +66,15 @@
                     <span class="badge-dot"></span>
                     Disponible para nuevos proyectos
                 </div>
-                <h1 class="hero-title fade-in-up">
+                <h1 class="hero-title fade-in-up stagger-1">
                     Arquitectura de Sistemas y <span class="highlight">Diseño Proactivo</span>: Escalando con IA
                 </h1>
-                <p class="hero-description fade-in-up">
+                <p class="hero-description fade-in-up stagger-2">
                     Arquitecto de Sistemas de Diseño e Ingeniero de Producto.
                     Especializado en la escalabilidad de interfaces y la integración de Inteligencia Artificial en
                     flujos de diseño.
                 </p>
-                <div class="hero-cta fade-in-up">
+                <div class="hero-cta fade-in-up stagger-3">
                     <a href="#blog" class="btn btn-primary">
                         Explorar Artículos
                         <i class="ph-thin ph-arrow-down"></i>
@@ -121,6 +121,18 @@
 
             <div class="posts-grid" id="postsGrid">
                 <!-- Posts will be dynamically inserted -->
+            </div>
+
+            <!-- Empty State -->
+            <div id="noResults" class="empty-state" style="display: none;">
+                <div class="empty-state-content">
+                    <i class="ph-thin ph-magnifying-glass empty-icon"></i>
+                    <h3>No se han encontrado resultados</h3>
+                    <p>Intenta ajustar tus filtros o búsqueda para encontrar lo que buscas.</p>
+                    <button class="btn btn-primary" id="clearFiltersEmpty">
+                        Limpiar todos los filtros
+                    </button>
+                </div>
             </div>
 
             <div class="load-more-container" id="loadMoreContainer" style="display: none;">
@@ -394,6 +406,12 @@
                 </div>
             </div>
         </div>
+
+        <!-- Back to Top -->
+        <button id="backToTop" class="back-to-top" aria-label="Volver arriba">
+            <i class="ph-thin ph-arrow-up"></i>
+            <span>TOP</span>
+        </button>
 
         <!-- Scripts -->
         <script src="script.js"></script>
