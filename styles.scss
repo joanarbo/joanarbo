@@ -541,8 +541,7 @@ a {
                 font-weight: 600;
 
                 &:hover {
-                    background: darken($color-accent, 5%);
-                    border-color: darken($color-accent, 5%);
+                    filter: brightness(0.9);
                 }
             }
         }
@@ -1222,9 +1221,7 @@ a {
             transition: all 0.3s ease;
 
             &:hover {
-                background: darken($color-accent, 10%);
-                transform: translateY(-2px);
-                box-shadow: 0 8px 20px rgba(var(--accent-color-rgb), 0.3);
+                filter: brightness(0.9);
             }
         }
     }
@@ -2050,6 +2047,247 @@ a {
                 font-size: 1rem;
                 color: $color-text-secondary;
                 line-height: 1.5;
+            }
+        }
+    }
+}
+
+/* Design System Showcase */
+.ds-showcase-section {
+    padding: $spacing-unit * 15 0;
+    background: var(--bg-color);
+    border-top: 1px solid rgba(var(--text-color-rgb), 0.08);
+
+    .ds-showcase-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: $spacing-unit * 4;
+        margin-top: $spacing-unit * 8;
+
+        @media (max-width: 992px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .ds-card {
+        background: var(--surface-color);
+        border: 1px solid rgba(var(--text-color-rgb), 0.08);
+        border-radius: 8px;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+        &:hover {
+            transform: translateY(-4px);
+            border-color: rgba(var(--text-color-rgb), 0.15);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .ds-card-header {
+            padding: $spacing-unit * 4;
+            border-bottom: 1px solid rgba(var(--text-color-rgb), 0.08);
+            display: flex;
+            align-items: center;
+            gap: $spacing-unit * 2;
+
+            i {
+                font-size: 24px;
+                color: $color-accent;
+            }
+
+            h3 {
+                @include heading-serif;
+                font-size: 1.25rem;
+                margin: 0;
+                color: var(--text-color);
+            }
+        }
+
+        .ds-card-content {
+            padding: $spacing-unit * 4;
+        }
+
+        .ds-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: rgba(var(--text-color-rgb), 0.7);
+            margin-bottom: $spacing-unit * 3;
+        }
+    }
+
+    // Token Examples
+    .token-examples {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-unit * 2;
+
+        .token-item {
+            display: flex;
+            align-items: center;
+            gap: $spacing-unit * 2;
+            padding: $spacing-unit * 2;
+            background: rgba(var(--text-color-rgb), 0.03);
+            border-radius: 4px;
+
+            .token-swatch {
+                width: 40px;
+                height: 40px;
+                border-radius: 4px;
+                border: 1px solid rgba(var(--text-color-rgb), 0.1);
+                flex-shrink: 0;
+
+                &.token-spacing {
+                    background: repeating-linear-gradient(45deg,
+                            rgba(var(--text-color-rgb), 0.1),
+                            rgba(var(--text-color-rgb), 0.1) 4px,
+                            transparent 4px,
+                            transparent 8px);
+                }
+            }
+
+            .token-info {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+
+                .token-name {
+                    @include text-mono;
+                    font-size: 0.85rem;
+                    color: var(--text-color);
+                    font-weight: 600;
+                }
+
+                .token-value {
+                    @include text-mono;
+                    font-size: 0.75rem;
+                    color: rgba(var(--text-color-rgb), 0.6);
+                }
+            }
+        }
+    }
+
+    // Component Preview
+    .component-preview {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-unit * 2;
+        padding: $spacing-unit * 3;
+        background: rgba(var(--text-color-rgb), 0.03);
+        border-radius: 4px;
+        margin-bottom: $spacing-unit * 2;
+
+        .preview-button {
+            @include text-mono;
+            padding: $spacing-unit * 1.5 $spacing-unit * 3;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+
+            &.primary {
+                background: $color-accent;
+                color: #fff;
+
+                &:hover {
+                    filter: brightness(0.9);
+                }
+            }
+
+            &.secondary {
+                background: transparent;
+                color: var(--text-color);
+                border: 1px solid rgba(var(--text-color-rgb), 0.2);
+
+                &:hover {
+                    border-color: rgba(var(--text-color-rgb), 0.4);
+                }
+            }
+        }
+
+        .preview-input {
+            input {
+                width: 100%;
+                padding: $spacing-unit * 1.5 $spacing-unit * 2;
+                border: 1px solid rgba(var(--text-color-rgb), 0.2);
+                border-radius: 4px;
+                background: var(--bg-color);
+                color: var(--text-color);
+                font-size: 0.875rem;
+
+                &:focus {
+                    outline: none;
+                    border-color: $color-accent;
+                }
+            }
+        }
+    }
+
+    .code-snippet {
+        padding: $spacing-unit * 2;
+        background: rgba(var(--text-color-rgb), 0.05);
+        border-radius: 4px;
+        border: 1px solid rgba(var(--text-color-rgb), 0.1);
+
+        code {
+            @include text-mono;
+            font-size: 0.8rem;
+            color: $color-accent;
+        }
+    }
+
+    // Features List
+    .ds-features {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-unit * 1.5;
+
+        li {
+            display: flex;
+            align-items: center;
+            gap: $spacing-unit * 1.5;
+            font-size: 0.9rem;
+            color: rgba(var(--text-color-rgb), 0.8);
+
+            i {
+                color: $color-accent;
+                font-size: 18px;
+            }
+        }
+    }
+
+    // Metrics
+    .ds-metrics {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: $spacing-unit * 3;
+        margin-top: $spacing-unit * 10;
+        padding: $spacing-unit * 6 0;
+        border-top: 1px solid rgba(var(--text-color-rgb), 0.08);
+
+        @media (max-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .metric-item {
+            text-align: center;
+
+            .metric-value {
+                @include heading-serif;
+                font-size: 2.5rem;
+                color: $color-accent;
+                margin-bottom: $spacing-unit;
+            }
+
+            .metric-label {
+                @include text-mono;
+                font-size: 0.75rem;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                color: rgba(var(--text-color-rgb), 0.6);
             }
         }
     }
