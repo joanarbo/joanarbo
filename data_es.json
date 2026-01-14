@@ -328,20 +328,20 @@
   ],
   "now": {
     "lastUpdated": "2026-01-15",
-    "location": "Madrid, Spain",
-    "status": "Building & Teaching",
+    "location": "Madrid, España",
+    "status": "Construyendo y Enseñando",
     "items": [
       {
-        "title": "Crafting this Digital Garden",
-        "description": "Moving away from static portfolios. Treating this site as a living system where design engineering and AI meet. It's built with vanilla JS and raw data, no frameworks, just craft."
+        "title": "Cultivando este Jardín Digital",
+        "description": "Alejándome de los portfolios estáticos. Tratando este sitio como un sistema vivo donde la ingeniería de diseño y la IA se encuentran. Construido con vanilla JS y datos puros, sin frameworks, solo oficio."
       },
       {
-        "title": "Stealth Mode: Redefining Events",
-        "description": "Building an independent platform to transform how we experience live gatherings. Crafting bridge between craft, community, and the stage."
+        "title": "Modo Incógnito: Redefiniendo los Eventos",
+        "description": "Construyendo una plataforma independiente para transformar cómo vivimos los encuentros en vivo. Creando un puente entre oficio, comunidad y el escenario."
       },
       {
-        "title": "Exploring Agentic Design Ops",
-        "description": "Building private tools to automate the borrowing parts of design management (renaming, linting, handoff) using LLMs."
+        "title": "Explorando Design Ops Agénticos",
+        "description": "Construyendo herramientas privadas para automatizar las partes aburridas de la gestión de diseño (renombrado, linting, handoff) usando LLMs."
       }
     ],
     "reading": {
@@ -358,143 +358,12 @@
     {
       "name": "Alex Rivera",
       "role": "CTO / StartUp Co-founder",
-      "content": "Joan no solo construye interfaces; construye sistemas que permiten a los equipos moverse 10 veces más rápido. Su visión de la IA es estratégica, no solo cosmética.",
-      "tags": [
-        "Engineering",
-        "Leadership",
-        "AI",
-        "Systems"
-      ]
+      "content": "Joan no solo construye interfaces; construye sistemas que permiten a los equipos moverse 10 veces más rápido. Su visión de la IA es estratégica, no solo cosmética."
     },
     {
       "name": "Sarah Chen",
       "role": "Design Manager",
-      "content": "Finding the sweet spot between creativity and maintainability is hard. Joan lives there. The design systems he builds actually get used.",
-      "tags": [
-        "Design Systems",
-        "UI/UX",
-        "Product"
-      ]
-    },
-    {
-      "name": "David Miller",
-      "role": "Senior Engineer",
-      "content": "Rare to find someone who cares as much about code quality as pixel perfection. Debugging with Joan is a masterclass in systems thinking.",
-      "tags": [
-        "Engineering",
-        "Career",
-        "Lógica"
-      ]
+      "content": "The most technical designer I've worked with. He bridges the gap between Figma and Production with surgical precision."
     }
-  ],
-  "playground": [
-    {
-      "id": "css-grid-experiments",
-      "title": "CSS Grid Layout Patterns",
-      "description": "Explorations in complex magazine-style layouts using CSS Grid and Subgrid.",
-      "type": "CodePen",
-      "url": "https://codepen.io/joanarbo/pen/Exxxxx",
-      "image": "assets/images/playground/grid.png"
-    },
-    {
-      "id": "generative-typography",
-      "title": "Generative Typography",
-      "description": "Canvas-based kinetic typography experiments reacting to mouse movement.",
-      "type": "Canvas",
-      "url": "#",
-      "image": "assets/images/playground/typo.png"
-    },
-    {
-      "id": "micro-interactions",
-      "title": "Button Micro-interactions",
-      "description": "A collection of subtle, state-based animations for design system components.",
-      "type": "UI Kit",
-      "url": "#",
-      "image": "assets/images/playground/ui.png"
-    }
-  ],
-  "services": [
-    {
-      "id": "design-system-audit",
-      "icon": "ph-blueprint",
-      "title": "Design System Audit & Strategy",
-      "description": "Un análisis técnico integral diseñado para eliminar la fricción entre Figma y Código. Evaluamos la arquitectura de tus componentes, la escalabilidad de tus design tokens y la eficacia de tu documentación. El resultado es un roadmap estratégico para transformar tu Design System de una biblioteca estática a un acelerador de producto.",
-      "price": "A partir de €2.500",
-      "features": [
-        "Component API & Slotting Strategy Review",
-        "Semantic Design Tokens Architecture Audit",
-        "Documentation Health (Storybook / Zeroheight)",
-        "Accessibility (WCAG 2.1) & HTML Semantic Audit",
-        "Handoff Workflow & Contribution Model Analysis",
-        "Actionable Prioritized Roadmap Report"
-      ],
-      "cta": "Reservar Auditoría"
-    },
-    {
-      "id": "fractional-staff-engineer",
-      "icon": "ph-user-focus",
-      "title": "Fractional Staff Engineer",
-      "description": "Liderazgo técnico estratégico para startups y empresas en fases críticas de entrega. Ideal para equipos que acaban de recibir un Design System y necesitan asegurar su adopción, o para startups que requieren una visión arquitectónica senior sin el coste de un perfil C-level a tiempo completo.",
-      "price": "Retainer a medida",
-      "features": [
-        "Architecture Review Board & Tech Strategy",
-        "Mentorship & Coaching para Senior Engineers",
-        "Acompañamiento en migraciones complejas",
-        "Implementación de Design Ops & AI Workflows",
-        "Aseguramiento de Calidad y Rendimiento",
-        "Definición de Roadmaps de Ingeniería"
-      ],
-      "cta": "Consultar Disponibilidad"
-    },
-    {
-      "id": "modern-project-launch",
-      "icon": "ph-rocket-launch",
-      "title": "Modern Digital Launch",
-      "description": "Cómo arrancar un proyecto digital a día de hoy. Dejamos atrás los procesos lentos y pesados para adoptar un enfoque de 'Engineering-First' potenciado por IA. Te ayudo a definir el stack mínimo viable, la arquitectura de producto y los workflows de desarrollo para pasar de la idea al código funcional en tiempo récord.",
-      "price": "Bajo consulta",
-      "features": [
-        "Definición de Stack Tecnológico Moderno",
-        "Estrategia de MVP & Time-to-Market",
-        "Workflows de Co-creación con IA (Cursor/Claude)",
-        "Arquitectura Escalable desde el Día 1",
-        "Setup de Entornos de Desarrollo Rápido",
-        "Mentoría de Producto y Tecnología"
-      ],
-      "cta": "Empezar Proyecto"
-    }
-  ],
-  "stack": {
-    "software": [
-      {
-        "name": "Cursor + Antigravity",
-        "desc": "AI-first code editor. My daily driver."
-      },
-      {
-        "name": "Warp",
-        "desc": "Gemini y perplexity para exploracion y notebook llm"
-      },
-      {
-        "name": "Figma",
-        "desc": "Where design systems begin."
-      },
-      {
-        "name": "Notion",
-        "desc": "Second brain and OS."
-      }
-    ],
-    "analog": [
-      {
-        "name": "Leuchtturm1917",
-        "desc": "Dotted A5. Daily bullet journaling."
-      },
-      {
-        "name": "Rotring 600",
-        "desc": "Drafting pencil. German engineering."
-      },
-      {
-        "name": "Field Notes",
-        "desc": "For quick capture on the go."
-      }
-    ]
-  }
+  ]
 }

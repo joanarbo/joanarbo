@@ -12,18 +12,23 @@ document.addEventListener('DOMContentLoaded', () => {
         modalOverlay: document.getElementById('modalOverlay'),
         modalClose: document.getElementById('modalClose'),
         modalTitle: document.getElementById('modalTitle'),
-        modalBody: document.getElementById('modalBody'),
+        modalBody: document.querySelector('.modal-body'),
         modalDate: document.getElementById('modalDate'),
         modalTags: document.getElementById('modalTags'),
         projectsContainer: document.getElementById('projectsContainer'),
         testimonialsContainer: document.getElementById('testimonialsContainer'),
         experienceContainer: document.getElementById('experienceGrid'),
-        principlesContainer: document.getElementById('principlesGrid')
+        principlesContainer: document.getElementById('principlesGrid'),
+        playgroundGrid: document.getElementById('playgroundGrid'),
+        servicesGrid: document.getElementById('servicesGrid'),
+        stackGrid: document.getElementById('stackGrid'),
+        relatedArticlesContainer: document.getElementById('relatedArticlesContainer')
     };
 
     let appData = {
         posts: [],
         ideas: [],
+        services: [],
         tags: {}
     };
 
@@ -36,7 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
         'Product': 'ph-cube',
         'Engineering': 'ph-code',
         'Career': 'ph-briefcase',
+        'Carrera': 'ph-briefcase',
         'Strategy': 'ph-strategy',
+        'Estrategia': 'ph-strategy',
         'UI/UX': 'ph-palette',
         'Tools': 'ph-wrench',
         'Life': 'ph-heart',
@@ -44,14 +51,49 @@ document.addEventListener('DOMContentLoaded', () => {
         'Automatización': 'ph-gear',
         'System Builder': 'ph-blueprint',
         'Filosofía': 'ph-book-open',
-        'Philosopy': 'ph-book-open',
+        'Philosophy': 'ph-book-open',
         'IA Generativa': 'ph-magic-wand',
         'LLM': 'ph-chat-circle-text',
         'UX': 'ph-users',
         'Sistemas': 'ph-tree-structure',
         'Lógica': 'ph-function',
         'Agentes': 'ph-robot',
-        'Ops': 'ph-cloud-check'
+        'AI Agents': 'ph-robot',
+        'Ops': 'ph-cloud-check',
+        'Flow': 'ph-wind',
+        'Deep Work': 'ph-brain',
+        'Management': 'ph-users-four',
+        'ROI': 'ph-chart-line-up',
+        'Headless': 'ph-ghost',
+        'Voice UI': 'ph-microphone',
+        'DX': 'ph-code-simple',
+        'Invisible Design': 'ph-eye-slash',
+        'Governance': 'ph-shield-check',
+        'Scales': 'ph-ruler',
+        'Scale': 'ph-ruler',
+        'Education': 'ph-graduation-cap',
+        'Prototyping': 'ph-test-tube',
+        'Process': 'ph-arrows-clockwise',
+        'Reality': 'ph-fingerprint',
+        'Future Tech': 'ph-rocket-launch',
+        'System Ops': 'ph-terminal-window',
+        'Case Study': 'ph-newspaper-clipping',
+        'Notion': 'ph-notepad',
+        'Mindset': 'ph-lightning',
+        'Writing': 'ph-pen-nib',
+        'Productivity': 'ph-lightning',
+        'Workflow': 'ph-arrows-left-right',
+        'Atomic Design': 'ph-atom',
+        'Storytelling': 'ph-chat-circle-dots',
+        'Design Tokens': 'ph-circle-half-tilt',
+        'Semántica': 'ph-text-aa',
+        'APL': 'ph-television',
+        'AI Strategy': 'ph-brain',
+        'React': 'ph-atom',
+        'Research Tooling': 'ph-microscope',
+        'Design Ops': 'ph-gear-six',
+        'Adopción': 'ph-hands-clapping',
+        'NLP': 'ph-chat-teardrop-text'
     };
 
     function getIconForTag(tag) {
@@ -65,6 +107,49 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize
     init();
 
+    // JSON-LD Schema Generator
+    function generateSchema(data) {
+        const schema = {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Joan Arbo",
+            "url": "https://joanarbo.com",
+            "sameAs": [
+                "https://www.linkedin.com/in/joanarbo",
+                "https://github.com/joanarbo"
+            ],
+            "jobTitle": "AI Design Architect",
+            "worksFor": {
+                "@type": "Organization",
+                "name": "Amazon"
+            },
+            "description": "Senior System Builder. AI Design Architect at Amazon. Exploring the intersection of design systems, AI, and flow state."
+        };
+
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.text = JSON.stringify(schema);
+        document.head.appendChild(script);
+
+        // Article Schema for Posts
+        if (data.posts && data.posts.length > 0) {
+            const itemList = {
+                "@context": "https://schema.org",
+                "@type": "ItemList",
+                "itemListElement": data.posts.map((post, index) => ({
+                    "@type": "ListItem",
+                    "position": index + 1,
+                    "url": `https://joanarbo.com/#post/${post.id}`,
+                    "name": post.title
+                }))
+            };
+            const listScript = document.createElement('script');
+            listScript.type = 'application/ld+json';
+            listScript.text = JSON.stringify(itemList);
+            document.head.appendChild(listScript);
+        }
+    }
+
     async function init() {
         setupEventListeners();
 
@@ -76,10 +161,25 @@ document.addEventListener('DOMContentLoaded', () => {
             filterAndRenderContent();
             if (appData.talks) renderTalks(appData.talks);
             if (appData.projects) renderProjects(appData.projects);
-            if (appData.testimonials) renderTestimonials(appData.testimonials);
-            if (appData.experience) renderExperience(appData.experience);
+            if (appData.playground) renderPlayground(appData.playground); // Render Playground
+            if (appData.playground) renderPlayground(appData.playground); // Render Playground
+            if (appData.services) renderServices(appData.services); // Build Services
+            if (appData.stack) renderStack(appData.stack); // Render Stack
+            renderExperience(appData.experience);
             if (appData.principles) renderPrinciples(appData.principles);
             updateStats();
+
+            // SEO: Generate Schema
+            generateSchema(appData);
+
+            // RSS Link Handler
+            const rssLink = document.querySelector('a[href="/feed.xml"]');
+            if (rssLink) {
+                rssLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.open('feed.xml', '_blank');
+                });
+            }
         } catch (error) {
             console.error('Error loading data:', error);
             elements.postsGrid.innerHTML = '<p class="error">Error loading content. Please try again.</p>';
@@ -156,10 +256,151 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `;
     }
+    async function openPostModal(post) {
+        const modal = document.getElementById('postModal');
+        const modalBody = document.getElementById('modalBody');
+        const readingProgressBar = document.getElementById('readingProgress');
 
+        // Reset Progress Bar
+        if (readingProgressBar) readingProgressBar.style.width = '0%';
+
+        if (!modal || !modalBody) return;
+
+        // Show loading state
+        modalBody.innerHTML = '<div class="loading-spinner"></div>';
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+
+        try {
+            // Simulate fetching content (or use actual content if available)
+            // In a real app, this might fetch Markdown from a URL
+            // For now, we'll render the placeholder content or enhanced content if we had it.
+            // But treating 'description' as the full content for this demo if no 'content' field
+
+            // For now, let's construct a rich "fake" article if real content is missing
+            // to demonstrate the TOC and Progress Bar
+            let content = post.content || post.description;
+
+            // Render basic structure
+            modalBody.innerHTML = renderPostDetails(post, content);
+
+            // Generate TOC
+            generateTOC(modalBody);
+
+            // Highlight syntax
+            if (window.Prism) {
+                window.Prism.highlightAllUnder(modalBody);
+            }
+
+            // Setup Scroll Listener for Progress Bar
+            const modalContent = modal.querySelector('.modal-content'); // Assuming this is the scrollable element
+            if (modalContent && readingProgressBar) {
+                modalContent.onscroll = () => {
+                    const scrollTop = modalContent.scrollTop;
+                    const scrollHeight = modalContent.scrollHeight - modalContent.clientHeight;
+                    const progress = (scrollTop / scrollHeight) * 100;
+                    readingProgressBar.style.width = `${progress}%`;
+                };
+            }
+
+        } catch (error) {
+            console.error('Error opening post:', error);
+            modalBody.innerHTML = '<p>Error loading post content.</p>';
+        }
+    }
+
+    function renderPostDetails(post, content) {
+        // ... existing rendering logic, but let's wrap content to allow for a TOC sidebar layout
+        // For existing logic, I'll just return the HTML string.
+        // But for TOC, I need headings.
+
+        // Mocking long content for demonstration if it's short
+        if (!content || content.length < 500) {
+            content += `
+                <h2>Introduction</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <h3>The Challenge</h3>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <h2>Methodology</h2>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <h3>Research</h3>
+                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <h3>Implementation</h3>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                <h2>Conclusion</h2>
+                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+             `;
+        }
+
+        // Use marked if available, otherwise simple text
+        const htmlContent = typeof marked !== 'undefined' ? marked.parse(content) : content;
+
+        return `
+            <div class="post-detail-layout">
+                <aside class="toc-sidebar">
+                    <div class="toc-sticky">
+                        <h4>Contents</h4>
+                        <nav id="toc-nav"></nav>
+                    </div>
+                </aside>
+                <article class="post-content-full">
+                    <header class="post-header-full">
+                        <div class="post-meta-full">
+                            <span class="date">Oct 12, 2025</span>
+                            <span class="read-time">5 min read</span>
+                        </div>
+                        <h1>${post.title}</h1>
+                        <div class="post-tags-full">
+                            ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        </div>
+                    </header>
+                    <div class="markdown-body">
+                        ${htmlContent}
+                    </div>
+                </article>
+            </div>
+        `;
+    }
+
+    function generateTOC(container) {
+        const tocNav = container.querySelector('#toc-nav');
+        const contentArea = container.querySelector('.markdown-body');
+
+        if (!tocNav || !contentArea) return;
+
+        const headings = contentArea.querySelectorAll('h2, h3');
+        if (headings.length === 0) {
+            tocNav.innerHTML = '<p class="toc-empty">No headings</p>';
+            return;
+        }
+
+        const ul = document.createElement('ul');
+        headings.forEach((heading, index) => {
+            const id = `heading-${index}`;
+            heading.id = id;
+
+            const li = document.createElement('li');
+            li.className = `toc-item toc-${heading.tagName.toLowerCase()}`;
+
+            const a = document.createElement('a');
+            a.href = `#${id}`;
+            a.textContent = heading.textContent;
+
+            // Smooth scroll inside modal
+            a.onclick = (e) => {
+                e.preventDefault();
+                heading.scrollIntoView({ behavior: 'smooth' });
+            };
+
+            li.appendChild(a);
+            ul.appendChild(li);
+        });
+
+        tocNav.appendChild(ul);
+    }
     function renderProjects(projects) {
-        if (!elements.projectsContainer) return;
-        elements.projectsContainer.innerHTML = projects.map((project, index) => {
+        if (!elements.projectsContainer || !projects) return; // Changed to projectsContainer
+        elements.projectsContainer.innerHTML = projects.map((project, index) => { // Changed to projectsContainer
             const delay = index * 150;
             return `
                 <div class="project-item fade-in-up" style="animation-delay: ${delay}ms; opacity: 0;">
@@ -193,12 +434,46 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function renderTestimonials(testimonials) {
-        if (!elements.testimonialsContainer) return;
+    function renderPlayground(items) {
+        if (!elements.playgroundGrid || !items) return;
+        elements.playgroundGrid.innerHTML = items.map(item => `
+            <a href="${item.url}" target="_blank" class="playground-card">
+                <div class="playground-visual" style="background-image: url('${item.image}')">
+                    <div class="playground-overlay">
+                        <i class="ph-thin ph-arrow-up-right"></i>
+                    </div>
+                </div>
+                <div class="playground-info">
+                    <span class="playground-type">${item.type}</span>
+                    <h3>${item.title}</h3>
+                    <p>${item.description}</p>
+                </div>
+            </a>
+        `).join('');
+    }
+
+    function renderTestimonials(testimonials, activeTags) {
+        if (!elements.testimonialsContainer || !testimonials) return;
+
+        let filtered = testimonials;
+
+        // Contextual Filtering
+        if (activeTags && activeTags.size > 0) {
+            const contextMatches = testimonials.filter(t =>
+                t.tags && t.tags.some(tag => activeTags.has(tag))
+            );
+            if (contextMatches.length > 0) {
+                filtered = contextMatches;
+            }
+        }
+
+        // Randomize and limit to 2
+        const displayed = filtered.sort(() => 0.5 - Math.random()).slice(0, 2);
+
         elements.testimonialsContainer.innerHTML = `
             <h2 class="section-title">Validación Final</h2>
             <div class="testimonials-list">
-                ${testimonials.map((t, index) => {
+                ${displayed.map((t, index) => {
             const delay = index * 200;
             return `
                         <div class="testimonial-card fade-in-up" style="animation-delay: ${delay}ms; opacity: 0;">
@@ -251,6 +526,56 @@ document.addEventListener('DOMContentLoaded', () => {
 
             talksGrid.appendChild(article);
         });
+    }
+
+    function renderServices(services) {
+        if (!elements.servicesGrid || !services) return;
+        elements.servicesGrid.innerHTML = services.map(service => `
+            <div class="service-card">
+                <div class="service-icon-box">
+                    <i class="ph-thin ${service.icon}"></i>
+                </div>
+                <div class="service-header">
+                    <h3>${service.title}</h3>
+                    <span class="service-price">${service.price}</span>
+                </div>
+                <p class="service-description">${service.description}</p>
+                <ul class="service-features">
+                    ${service.features.map(f => `<li><i class="ph-bold ph-check"></i> ${f}</li>`).join('')}
+                </ul>
+                <a href="mailto:hello@joanarbo.com?subject=Inquiry: ${encodeURIComponent(service.title)}" class="service-cta button outline">
+                    ${service.cta} <i class="ph-thin ph-arrow-right"></i>
+                </a>
+            </div>
+        `).join('');
+    }
+
+    function renderStack(stack) {
+        if (!elements.stackGrid || !stack) return;
+
+        const categories = {
+            'software': 'Software',
+            'analog': 'Analog'
+        };
+
+        elements.stackGrid.innerHTML = Object.entries(categories).map(([key, label]) => {
+            const items = stack[key];
+            if (!items) return '';
+
+            return `
+                <div class="stack-category">
+                    <h3 class="stack-category-title">${label}</h3>
+                    <ul class="stack-list">
+                        ${items.map(item => `
+                            <li class="stack-item">
+                                <span class="stack-name">${item.name}</span>
+                                <span class="stack-desc">${item.desc}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+            `;
+        }).join('');
     }
 
     function renderExperience(experience) {
@@ -343,10 +668,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 el.classList.add('visible');
             });
         });
+        // Update Contextual Testimonials
+        if (appData.testimonials) {
+            renderTestimonials(appData.testimonials, activeTags);
+        }
     }
 
     function toggleTag(tag) {
-        const btn = document.querySelector(`.tag - btn[data - tag="${tag}"]`);
+        const btn = document.querySelector(`.tag-btn[data-tag="${tag}"]`);
 
         if (activeTags.has(tag)) {
             activeTags.delete(tag);
@@ -404,9 +733,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentModalContext = 'post'; // 'post' or 'idea'
 
     window.openPost = function (postId) {
-        // Ensure postId is a number if IDs are numbers in JSON
-        postId = parseInt(postId);
-        const post = appData.posts.find(p => p.id === postId);
+        // IDs can be strings (slugs) or numbers, so we avoid parseInt
+        // and use loose equality to find the post
+        const post = appData.posts.find(p => p.id == postId);
         if (!post) return;
 
         currentModalContext = 'post';
@@ -440,10 +769,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         elements.modalBody.innerHTML = marked.parse(item.content || item.description);
 
+        // Render Related Articles
+        renderRelatedArticles(item);
+
         elements.modal.classList.add('active');
         document.body.style.overflow = 'hidden';
 
         updateModalNavButtons();
+        // Ensure footer is visible (might have been hidden by /now)
+        document.querySelector('.modal-footer').style.display = 'flex';
     }
 
     function updateModalNavButtons() {
@@ -483,6 +817,14 @@ document.addEventListener('DOMContentLoaded', () => {
         elements.modal.classList.remove('active');
         document.body.style.overflow = '';
         currentPostId = null;
+        // Reset footer visibility in case it was hidden by /now
+        const modalFooter = document.querySelector('.modal-footer');
+        if (modalFooter) modalFooter.style.display = 'flex';
+
+        // Clear hash without scrolling
+        if (window.location.hash) {
+            history.pushState("", document.title, window.location.pathname + window.location.search);
+        }
     }
 
     // Event Listeners
@@ -598,6 +940,106 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         initScrollSpy();
+        initTheme();
+    }
+
+    checkHash();
+    window.addEventListener('hashchange', checkHash);
+    initTheme();
+    initTheme();
+
+    function checkHash() {
+        const hash = window.location.hash;
+        if (hash === '#now') {
+            openNow();
+        } else if (hash.startsWith('#post/')) {
+            const id = hash.replace('#post/', '');
+            openPost(id);
+        } else if (hash.startsWith('#idea/')) {
+            const id = hash.replace('#idea/', '');
+            openIdea(id);
+        } else {
+            closeModal();
+        }
+    }
+
+    function openNow() {
+        if (!appData.now) return;
+        const now = appData.now;
+
+        elements.modalTitle.textContent = "Now";
+        elements.modalDate.textContent = `Last updated: ${now.lastUpdated}`;
+        elements.modalTags.innerHTML = `<span class="tag"><i class="ph-thin ph-map-pin"></i> ${now.location}</span>`;
+
+        // Hide nav buttons for Now page
+        document.querySelector('.modal-footer').style.display = 'none';
+
+        // Custom Layout for Now Page
+        const nowContent = `
+            <div class="now-page-content">
+                <div class="now-status-section">
+                    <h3>Current Status</h3>
+                    <p class="now-status-highlight">${now.status}</p>
+                </div>
+                
+                <div class="now-grid">
+                    ${now.items.map(item => `
+                        <div class="now-item">
+                            <h4>${item.title}</h4>
+                            <p>${item.description}</p>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div class="now-reading">
+                    <h3>Reading</h3>
+                    <div class="book-card">
+                        <i class="ph-thin ph-book"></i>
+                        <div>
+                            <strong>${now.reading.title}</strong>
+                            <span>by ${now.reading.author}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="now-footer-note">
+                    <p>This is a <a href="https://nownownow.com/about" target="_blank">/now</a> page.</p>
+                </div>
+            </div>
+        `;
+
+        elements.modalBody.innerHTML = nowContent;
+        elements.modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function initTheme() {
+        const themeToggle = document.getElementById('themeToggle');
+        if (!themeToggle) return;
+
+        const icon = themeToggle.querySelector('i');
+        const savedTheme = localStorage.getItem('theme');
+
+        // Apply saved theme
+        if (savedTheme === 'dark') {
+            document.body.setAttribute('data-theme', 'dark');
+            if (icon) icon.classList.replace('ph-moon', 'ph-sun');
+        }
+
+        // Toggle Event
+        themeToggle.addEventListener('click', () => {
+            const isDark = document.body.getAttribute('data-theme') === 'dark';
+
+            if (isDark) {
+                document.body.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                if (icon) icon.classList.replace('ph-sun', 'ph-moon');
+            } else {
+                document.body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                if (icon) icon.classList.replace('ph-moon', 'ph-sun');
+            }
+        });
     }
 
     function scrollToSection(targetId) {
@@ -643,5 +1085,56 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const observer = new IntersectionObserver(observerCallback, observerOptions);
         sections.forEach(section => observer.observe(section));
+    }
+
+    // Related Articles engine
+    function renderRelatedArticles(currentItem) {
+        if (!elements.relatedArticlesContainer) return;
+
+        const allItems = [...appData.posts, ...appData.ideas];
+
+        const related = allItems
+            .filter(item => item.id !== currentItem.id && item.tags)
+            .map(item => {
+                const commonTags = item.tags.filter(tag => currentItem.tags.includes(tag));
+                return { ...item, score: commonTags.length };
+            })
+            .filter(item => item.score > 0)
+            .sort((a, b) => b.score - a.score || new Date(b.date || 0) - new Date(a.date || 0))
+            .slice(0, 2);
+
+        if (related.length === 0) {
+            elements.relatedArticlesContainer.innerHTML = '';
+            elements.relatedArticlesContainer.style.display = 'none';
+            return;
+        }
+
+        elements.relatedArticlesContainer.style.display = 'block';
+        elements.relatedArticlesContainer.innerHTML = `
+            <div class="related-header">
+                <h3 class="related-title">Sigue explorando</h3>
+            </div>
+            <div class="related-grid">
+                ${related.map(item => `
+                    <div class="related-card" onclick="${item.date ? 'openPost' : 'openIdea'}('${item.id}')">
+                        <div class="related-info">
+                            <span class="related-date">${item.date ? formatDate(item.date) : 'Idea'}</span>
+                            <h4 class="related-card-title">${item.title}</h4>
+                        </div>
+                        <i class="ph-thin ph-arrow-right related-arrow"></i>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+    }
+
+    // Newsletter feedback
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.onsubmit = (e) => {
+            e.preventDefault();
+            const email = newsletterForm.querySelector('input').value;
+            newsletterForm.innerHTML = `<div class="newsletter-success"><i class="ph-thin ph-check-circle"></i> ¡Gracias! ${email} ha sido registrado.</div>`;
+        };
     }
 });
