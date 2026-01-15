@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joan Arbo | Senior Product Engineer</title>
+    <title>Joan Arboleda | Senior Product Engineer</title>
     <meta name="description"
         content="Staff Product Engineer and System Builder helping teams scale design systems with AI-driven workflows.">
     <link rel="canonical" href="https://joanarbo.com/">
@@ -298,7 +298,20 @@
     </section>
 
     <!-- Series Filter Section -->
-
+    <section class="series-filter-section">
+        <div class="container">
+            <div class="series-filter-header">
+                <h3 class="series-filter-title" data-i18n="sections.blog.seriesTitle">Blog Series</h3>
+            </div>
+            <div class="series-filter-container" id="seriesFilterContainer">
+                <button class="series-filter-btn active" data-series="all" data-i18n="sections.blog.allPosts">All
+                    Posts</button>
+                <button class="series-filter-btn" data-series="Design Systems Mastery">Design Systems Mastery</button>
+                <button class="series-filter-btn" data-series="AI & Future of Work">AI & Future of Work</button>
+                <button class="series-filter-btn" data-series="Product Leadership">Product Leadership</button>
+            </div>
+        </div>
+    </section>
 
     <!-- Blog Posts -->
     <section class="blog-section">
@@ -361,8 +374,7 @@
             </div>
             <div class="public-cases-grid">
                 <a href="#" class="public-case-card">
-                    <div class="case-status on-track"><i class="ph-fill ph-circle" style="color: #10B981;"></i> Live
-                        System</div>
+                    <div class="case-status on-track">🟢 Live System</div>
                     <h3>Bodados Design System</h3>
                     <p data-i18n="sections.publicCases.bodadosDesc">El sistema de diseño multi-plataforma (Web + Native)
                         que alimenta Bodados.com.</p>
@@ -370,8 +382,7 @@
                             class="ph-bold ph-arrow-right"></i></span>
                 </a>
                 <a href="#" class="public-case-card">
-                    <div class="case-status completed"><i class="ph-fill ph-check-circle" style="color: #10B981;"></i>
-                        Reference</div>
+                    <div class="case-status completed">✅ Reference</div>
                     <h3>Amazon Alexa Components</h3>
                     <p data-i18n="sections.publicCases.alexaDesc">Referencia pública de componentes y patrones de voz
                         construidos para Alexa.</p>
@@ -502,11 +513,7 @@
             <div class="section-header">
                 <h2 class="section-title" data-i18n="sections.now.title">What I'm Doing Now</h2>
                 <p class="section-subtitle" data-i18n="sections.now.subtitle">Systems building, creating content, and
-                    learning.</p>
-                <div class="section-meta">
-                    <span data-i18n="labels.lastUpdated">Updated</span>: <span class="last-updated"
-                        data-i18n="sections.now.date">Jan 15, 2026</span>
-                </div>
+                    learning. Updated: Jan 15, 2026</p>
             </div>
             <div class="now-grid">
                 <div class="now-card">
@@ -561,15 +568,132 @@
     </section>
 
     <!-- AI Workflow Demos -->
-    <!-- AI Workflow Demos REMOVED -->
-    <!-- Design System Showcase REMOVED -->
+    <section class="playground-section" id="playground">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="sections.playground.title">AI Workflow Demos</h2>
+                <p class="section-subtitle" data-i18n="sections.playground.subtitle">Live demos of automated audits and
+                    system tooling</p>
+            </div>
+            <div class="playground-grid" id="playgroundGrid">
+                <!-- Playground items will be inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Design System Showcase -->
+    <section class="ds-showcase-section" id="design-system">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="sections.showcase.title">Design System Showcase</h2>
+                <p class="section-subtitle" data-i18n="sections.showcase.subtitle">Real-time components and design
+                    tokens</p>
+            </div>
+
+            <div class="ds-showcase-grid">
+                <!-- Token System Card -->
+                <div class="ds-card">
+                    <div class="ds-card-header">
+                        <i class="ph-thin ph-palette"></i>
+                        <h3>Design Tokens</h3>
+                    </div>
+                    <div class="ds-card-content">
+                        <p class="ds-description">Centralized design decisions as code</p>
+                        <div class="token-examples">
+                            <div class="token-item">
+                                <div class="token-swatch" style="background: #FF6B35;"></div>
+                                <div class="token-info">
+                                    <span class="token-name">--color-primary</span>
+                                    <span class="token-value">#FF6B35</span>
+                                </div>
+                            </div>
+                            <div class="token-item">
+                                <div class="token-swatch" style="background: #004E89;"></div>
+                                <div class="token-info">
+                                    <span class="token-name">--color-secondary</span>
+                                    <span class="token-value">#004E89</span>
+                                </div>
+                            </div>
+                            <div class="token-item">
+                                <div class="token-swatch token-spacing"></div>
+                                <div class="token-info">
+                                    <span class="token-name">--spacing-unit</span>
+                                    <span class="token-value">8px</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Component Library Card -->
+                <div class="ds-card">
+                    <div class="ds-card-header">
+                        <i class="ph-thin ph-app-window"></i>
+                        <h3 data-i18n="sections.designSystem.components.title">Component Library</h3>
+                    </div>
+                    <div class="ds-card-content">
+                        <p class="ds-description" data-i18n="sections.designSystem.components.desc">Reusable, accessible
+                            UI components</p>
+                        <div class="component-preview">
+                            <button class="preview-button primary">Primary Action</button>
+                            <button class="preview-button secondary">Secondary</button>
+                            <div class="preview-input">
+                                <input type="text" placeholder="Input field example" />
+                            </div>
+                        </div>
+                        <div class="code-snippet">
+                            <code>&lt;Button variant="primary"&gt;Action&lt;/Button&gt;</code>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Documentation Card -->
+                <div class="ds-card">
+                    <div class="ds-card-header">
+                        <i class="ph-thin ph-book-open"></i>
+                        <h3 data-i18n="sections.designSystem.docs.title">Documentation</h3>
+                    </div>
+                    <div class="ds-card-content">
+                        <p class="ds-description" data-i18n="sections.designSystem.docs.desc">Comprehensive guides and
+                            best practices</p>
+                        <ul class="ds-features">
+                            <li><i class="ph-thin ph-check"></i> Component API documentation</li>
+                            <li><i class="ph-thin ph-check"></i> Usage guidelines</li>
+                            <li><i class="ph-thin ph-check"></i> Accessibility standards</li>
+                            <li><i class="ph-thin ph-check"></i> Code examples</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ds-metrics">
+                <div class="metric-item">
+                    <div class="metric-value">50+</div>
+                    <div class="metric-label" data-i18n="sections.designSystem.metrics.components">Components</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-value">100%</div>
+                    <div class="metric-label" data-i18n="sections.designSystem.metrics.typeSafe">Type Safe</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-value">A11y</div>
+                    <div class="metric-label" data-i18n="sections.designSystem.metrics.compliant">Compliant</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-value">15+</div>
+                    <div class="metric-label" data-i18n="sections.designSystem.metrics.teamsUsing">Teams Using</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Newsletter & Testimonials -->
     <section class="newsletter-section">
         <div class="container">
-            <div class="newsletter-grid newsletter-grid--single">
-                <!-- Testimonials Removed -->
-
+            <div class="newsletter-grid">
+                <div class="testimonials-column" id="testimonialsContainer">
+                    <!-- Testimonials will be dynamically inserted -->
+                </div>
                 <div class="newsletter-card">
                     <div class="newsletter-content">
                         <h2 class="newsletter-title" data-i18n="sections.newsletter.title">Systems & Growth</h2>
@@ -625,16 +749,10 @@
                         <p data-i18n="sections.contact.linkedinDesc">Connect with me</p>
                     </a>
 
-                    <a href="https://substack.com/@joanarbo" class="contact-card" target="_blank" rel="noopener">
-                        <i class="ph-thin ph-newspaper contact-icon"></i>
-                        <h3 data-i18n="sections.contact.substack">Substack</h3>
-                        <p data-i18n="sections.contact.substackDesc">Subscribe to newsletter</p>
-                    </a>
-
-                    <a href="https://medium.com/@joanarbo" class="contact-card" target="_blank" rel="noopener">
-                        <i class="ph-thin ph-medium-logo contact-icon"></i>
-                        <h3 data-i18n="sections.contact.medium">Medium</h3>
-                        <p data-i18n="sections.contact.mediumDesc">Read articles</p>
+                    <a href="https://twitter.com/joanarbo" class="contact-card" target="_blank" rel="noopener">
+                        <i class="ph-thin ph-x-logo contact-icon"></i>
+                        <h3 data-i18n="sections.contact.twitter">Twitter</h3>
+                        <p data-i18n="sections.contact.twitterDesc">Follow on X</p>
                     </a>
                 </div>
             </div>

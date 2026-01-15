@@ -138,6 +138,20 @@
   ],
   "ideas": [
     {
+      "id": "hybrid-engineer",
+      "title": "El Colapso de las Especialidades",
+      "date": "2026-01-14",
+      "readTime": "12 min lectura",
+      "description": "Una reflexión sobre la muerte del rol binario. El futuro pertenece al 'Full-Stack Designer' que no solo define la visión, sino que programa la infraestructura que la soporta.",
+      "content": "Hace una década, la división del trabajo en productos digitales era clara y, aparentemente, necesaria. Teníamos \"Creativos\" que soñaban en Photoshop y \"Técnicos\" que construían en PHP o Java. Esta estructura, heredada de la línea de montaje industrial (Fordismo), optimizaba la producción lineal. Pero el software ya no es lineal.\n\n> **Concepto Visual**\n> Un diagrama evolutivo. Izquierda: 'Silo Era' (Diseño -> Spec -> Código). Derecha: 'System Era' (Tokens <-> Agentes <-> UI). Estilo: Data Viz editorial.\n\n#\n\n#\n\n# La Era de la Especialización (2010-2023)\n\nDurante el boom del SaaS, especializamos los roles hasta el absurdo. UX Researchers, UI Designers, Interaction Designers, UX Writers, Frontend Developers, CSS Specialists... La teoría era que la hiper-especialización aumentaba la calidad. La realidad fue que aumentó la **burocracia**.\n\nEl costo de coordinación (el \"overhead\" de comunicación) superó al valor del trabajo individual. Pasamos más tiempo sincronizando Figma con Jira que resolviendo problemas de usuario. Creamos el problema del \"Handoff\": el momento traumático donde la intención se pierde en la traducción.\n\n#\n\n#\n\n# El Catalizador: Inteligencia Artificial\n\nLa IA Generativa ha commoditizado la ejecución técnica de ambas partes.\n*   **Midjourney/v0** commoditizan la exploración visual.\n*   **Cursor/Copilot** commoditizan la sintaxis del código.\n\nSi la IA puede generar el mock-up y también puede escribir el componente en React, ¿cuál es el rol del humano? **La Orquestación Sistémica**.\n\n> \"El valor ya no reside en mover píxeles ni en escribir loops. Reside en definir la *Lógica del Sistema* que gobierna ambas cosas.\"\n\n#\n\n#\n\n# El renacimiento del Generalista (Full-Stack Designer)\n\nEstamos viendo el retorno del perfil \"Webmaster\" de los 90s, pero con superpoderes. Un solo individuo ahora puede concebir, diseñar y desplegar una aplicación completa. No porque sea un genio, sino porque las herramientas de abstracción se lo permiten.\n\nEl \"Full-Stack Designer\" no es un desarrollador mediocre y un diseñador mediocre. Es un **Arquitecto de Producto**. Alguien que entiende que:\n1.  Un **Design Token** en Figma no es un color, es una variable de pre-procesador.\n2.  Una **animación** no es un 'easing', es una función matemática de interpolación.\n3.  La **accesibilidad** no es un checklist, es una estructura semántica HTML correcta.\n\n#\n\n#\n\n# Engineering Case Study: La validación de una Hipótesis\n\nEn Amazon, observé cómo los equipos híbridos (Design Technologists) entregaban valor 4x más rápido que los equipos segregados. ¿Por qué?\n*   **Cero traducción**: No hay specs. El prototipo *es* la especificación.\n*   **Validación técnica inmediata**: Si el diseño rompía el performance, se sabía en el día 1, no en el día 40.\n*   **Iteración fluida**: Cambiar el diseño significaba cambiar una variable en el código, no actualizar 50 artboards.\n\n#\n\n#\n\n# Conclusión Educativa\n\nSi eres diseñador, deja de obsesionarte con las herramientas de dibujo y aprende cómo el navegador renderiza tu trabajo (Box Model, DOM, CSS Grid). Si eres desarrollador, estudia Tipografía, Gestalt y Jerarquía Visual.\n\nEl futuro no pertenece a quien mejor usa la herramienta, sino a quien mejor entiende el **medio**.\n\n---\n\n#\n\n#\n\n#\n\n# Auditoría de Madurez de Diseño\n¿Sientes que tu organización sufre de \"parálisis por especialización\"? **Audito la estructura de tu equipo de producto** para identificar cuellos de botella en el flujo Diseño-Ingeniería y propongo una transición hacia modelos híbridos de alta eficiencia.\n\n[<i class=\"ph ph-arrow-right\"></i> Solicitar Auditoría Organizacional](mailto:me@joanarbo.com?subject=Auditoría%20Organización%20Producto)",
+      "tags": [
+        "Filosofía",
+        "Carrera",
+        "Estrategia"
+      ],
+      "status": "active"
+    },
+    {
       "id": "ai-components-ex",
       "title": "Interfaces de Intención",
       "date": "2026-01-12",
@@ -260,27 +274,67 @@
       "period": "Jun 2017 — Present",
       "company": "Amazon Madrid",
       "role": "Senior Design Technologist",
-      "description": "Lead UX Engineer en Madrid y Hyderabad. Actuando como puente crítico entre ingeniería y diseño. Ganador doble de 'Most Peculiar Amazonian' por Ownership e Invent & Simplify."
+      "description": "Lead UX Engineer en Madrid y Hyderabad. Actuando como puente crítico entre ingeniería y diseño. Ganador doble de 'Most Peculiar Amazonian' por Ownership e Invent & Simplify. Lideré el lanzamiento de Amazon Business Prime entregando un mes antes de lo previsto y optimizando la eficiencia operativa significativamente mediante la creación de frameworks intern de prototipado rápido."
     },
     {
       "period": "Jan 2021 — Present",
       "company": "Mr Marcel School / UOC",
       "role": "Profesor de Design Systems",
-      "description": "Director y mentor en el nanogrado de Design Systems. He formado a más de 200 profesionales de product engineering en la sistematización de productos digitales."
+      "description": "Director y mentor en el nanogrado de Design Systems. He formado a más de 200 profesionales de product engineering en la sistematización de productos digitales, arquitecturas de tokens y escalabilidad de interfaces."
+    },
+    {
+      "period": "Jun 2010 — Jun 2017",
+      "company": "Movistar+ TV",
+      "role": "Research & Development",
+      "description": "Diseño de sistemas complejos para STB, Web y Apps. Lideré el diseño de interacción para más de 300 campañas globales de alto impacto. Desarrollé prototipos experimentales en 2D/3D que definieron el futuro del consumo de TV interactiva en España."
+    },
+    {
+      "period": "Feb 2016 — Jun 2017",
+      "company": "CoworkingIT.co",
+      "role": "Co-Founder & Product Designer",
+      "description": "Definición de estrategia de producto y creación/codificación del Design System completo de la plataforma bajo metodologías Agile."
+    },
+    {
+      "period": "Sep 2013 — Apr 2014",
+      "company": "CESMA Business School",
+      "role": "Profesor",
+      "description": "Docente en el Grado de Marketing Digital."
+    },
+    {
+      "period": "Jun 2008 — Jun 2009",
+      "company": "NicePeopleAtWork",
+      "role": "JS/ActionScript Developer",
+      "description": "Desarrollo de reproductores de video de alta calidad con funcionalidades avanzadas (slow motion, pseudo-streaming, zoom)."
+    },
+    {
+      "period": "Aug 2007 — May 2008",
+      "company": "Sclipo",
+      "role": "JS/ActionScript Developer",
+      "description": "Startup de eLearning. Responsable de la programación de todos los reproductores de video de la plataforma."
+    },
+    {
+      "period": "2000 — 2006",
+      "company": "Universidad La Salle Barcelona",
+      "role": "Ingeniero Multimedia",
+      "description": "Formación técnica y creativa en el desarrollo de sistemas multimedia, interactividad y experiencias digitales."
     }
   ],
   "principles": [
     {
+      "title": "Interfaces de Intención",
+      "content": "Avanzar hacia experiencias naturales donde la interacción es efímera y se alinea con nuestra forma humana de comunicar."
+    },
+    {
       "title": "El Código es la Verdad",
-      "content": "Si no está en producción, es solo una opinión. El diseño es una hipótesis; el código es la única validación real."
+      "content": "Si no está en la web (en el código funcional), no existe. El diseño es una promesa; el código es la entrega."
     },
     {
-      "title": "Sistemas > Componentes",
-      "content": "No construyo bibliotecas de UI estáticas. Diseño flujos de decisión y arquitecturas que escalan con el negocio."
+      "title": "Diseño Proactivo",
+      "content": "Los sistemas no deben ser bibliotecas estáticas, sino ecosistemas que anticipan necesidades y facilitan la toma de decisiones."
     },
     {
-      "title": "IA como Multiplicador",
-      "content": "No para reemplazar el pensamiento, sino para amplificar la ejecución y eliminar el trabajo 'manual' del diseño."
+      "title": "Impacto sobre Píxeles",
+      "content": "Un sistema solo es útil si genera confianza y eficiencia. La adopción es la métrica definitiva del éxito de un Design System."
     }
   ],
   "now": {
@@ -311,8 +365,36 @@
     "linkedin": "https://www.linkedin.com/in/joanarbo/",
     "email": "me@joanarbo.com"
   },
-  "testimonials": [],
-  "playground": [],
+  "testimonials": [
+    {
+      "name": "Alex Rivera",
+      "role": "CTO / StartUp Co-founder",
+      "content": "Joan no solo construye interfaces; construye sistemas que permiten a los equipos moverse 10 veces más rápido. Su visión de la IA es estratégica, no solo cosmética."
+    },
+    {
+      "name": "Sarah Chen",
+      "role": "Design Manager",
+      "content": "El diseñador más técnico con el que he trabajado. Une la brecha entre Figma y Producción con precisión quirúrgica."
+    }
+  ],
+  "playground": [
+    {
+      "id": "typo-lab",
+      "title": "Laboratorio de Tipografía",
+      "description": "Espacio para probar escalas, combinaciones y correcciones ópticas.",
+      "type": "Analytics",
+      "url": "",
+      "image": "assets/images/playground/typo.png"
+    },
+    {
+      "id": "ai-briefing",
+      "title": "AI Discovery Briefing",
+      "description": "Asistente de descubrimiento que mapea casos borde y zonas de riesgo antes de la construcción.",
+      "type": "Research",
+      "url": "",
+      "image": "assets/images/playground/ui.png"
+    }
+  ],
   "services": [
     {
       "id": "ds-mentorship",

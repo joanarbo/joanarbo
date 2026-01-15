@@ -23,7 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
         servicesGrid: document.getElementById('servicesGrid'),
         stackGrid: document.getElementById('stackGrid'),
         relatedArticlesContainer: document.getElementById('relatedArticlesContainer'),
-        caseStudiesGrid: document.getElementById('caseStudiesGrid')
+        caseStudiesGrid: document.getElementById('caseStudiesGrid'),
+        featuredPostsGrid: document.getElementById('featuredPostsGrid'),
+        featuredPosts: document.getElementById('featuredPosts')
     };
 
     let appData = {
@@ -55,11 +57,15 @@ document.addEventListener('DOMContentLoaded', () => {
         'Filosofía': 'ph-book-open',
         'Philosophy': 'ph-book-open',
         'IA Generativa': 'ph-magic-wand',
+        'Generative AI': 'ph-magic-wand',
         'LLM': 'ph-chat-circle-text',
         'UX': 'ph-users',
         'Sistemas': 'ph-tree-structure',
+        'Systems': 'ph-tree-structure',
         'Lógica': 'ph-function',
+        'Logic': 'ph-function',
         'Agentes': 'ph-robot',
+        'Agents': 'ph-robot',
         'AI Agents': 'ph-robot',
         'Ops': 'ph-cloud-check',
         'Flow': 'ph-wind',
@@ -106,9 +112,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let activeTags = new Set();
     let currentSearch = '';
     let activeSeries = 'all';
+    let currentLang = 'es';
+    let visiblePostsCount = 6;
+    const POSTS_PER_PAGE = 6;
 
-    // Initialize
-    init();
+    // Initialize moved to end of script
 
     // JSON-LD Schema Generator
     function generateSchema(data) {
@@ -154,40 +162,111 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function init() {
+        detectLanguage();
+        await loadLanguageData(currentLang);
         setupEventListeners();
+        setupIntersectionObserver();
 
-        try {
-            const response = await fetch('data.json');
-            appData = await response.json();
+        // Initial render is handled by loadLanguageData -> updateUI
 
-            renderTags();
-            filterAndRenderContent();
-            if (appData.talks) renderTalks(appData.talks);
-            if (appData.projects) renderProjects(appData.projects);
-            if (appData.caseStudies) renderCaseStudies(appData.caseStudies);
-            if (appData.playground) renderPlayground(appData.playground); // Render Playground
-            if (appData.playground) renderPlayground(appData.playground); // Render Playground
-            if (appData.services) renderServices(appData.services); // Build Services
-            if (appData.stack) renderStack(appData.stack); // Render Stack
-            renderExperience(appData.experience);
-            if (appData.principles) renderPrinciples(appData.principles);
-            updateStats();
-
-            // SEO: Generate Schema
-            generateSchema(appData);
-
-            // RSS Link Handler
-            const rssLink = document.querySelector('a[href="/feed.xml"]');
-            if (rssLink) {
-                rssLink.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    window.open('feed.xml', '_blank');
-                });
-            }
-        } catch (error) {
-            console.error('Error loading data:', error);
-            elements.postsGrid.innerHTML = '<p class="error">Error loading content. Please try again.</p>';
+        // RSS Link Handler
+        const rssLink = document.querySelector('a[href="/feed.xml"]');
+        if (rssLink) {
+            rssLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.open('feed.xml', '_blank');
+            });
         }
+    }
+
+    function detectLanguage() {
+        const savedLang = localStorage.getItem('preferredLanguage');
+        if (savedLang) {
+            currentLang = savedLang;
+        } else {
+            const browserLang = navigator.language.split('-')[0];
+            currentLang = (browserLang === 'en' || browserLang === 'es') ? browserLang : 'es';
+        }
+        updateLangToggleButton();
+    }
+
+    async function loadLanguageData(lang) {
+        try {
+            const response = await fetch(`data_${lang}.json`);
+            appData = await response.json();
+            localStorage.setItem('preferredLanguage', lang);
+            updateUI();
+        } catch (error) {
+            console.error('Error loading language data:', error);
+            if (!appData.posts || appData.posts.length === 0) {
+                const fallbackResponse = await fetch('data.json');
+                appData = await fallbackResponse.json();
+                updateUI();
+            }
+        }
+    }
+
+    function updateUI() {
+        updateStaticText();
+        updateLangToggleButton();
+
+        renderCaseStudies(appData.caseStudies);
+        renderProjects(appData.projects);
+        renderExperience(appData.experience);
+        renderPrinciples(appData.principles);
+        renderPlayground(appData.playground);
+        renderServices(appData.services);
+        renderTestimonials(appData.testimonials);
+
+
+        if (appData.talks) renderTalks(appData.talks);
+        if (appData.stack) renderStack(appData.stack);
+
+        // Blog logic
+        filterAndRenderContent();
+        renderTags();
+
+        // SEO: Generate Schema
+        generateSchema(appData);
+    }
+
+    function updateStaticText() {
+        const i18nElements = document.querySelectorAll('[data-i18n]');
+        i18nElements.forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            const translation = getNestedTranslation(translations[currentLang], key);
+            if (translation) {
+                el.innerHTML = translation;
+            }
+        });
+
+        const placeholders = document.querySelectorAll('[data-i18n-placeholder]');
+        placeholders.forEach(el => {
+            const key = el.getAttribute('data-i18n-placeholder');
+            const translation = getNestedTranslation(translations[currentLang], key);
+            if (translation) {
+                el.placeholder = translation;
+            }
+        });
+    }
+
+    function getNestedTranslation(obj, path) {
+        return path.split('.').reduce((p, c) => p && p[c], obj);
+    }
+
+    function updateLangToggleButton() {
+        const langBtn = document.getElementById('langToggle');
+        if (langBtn) {
+            const textSpan = langBtn.querySelector('.lang-text');
+            if (textSpan) {
+                textSpan.textContent = currentLang === 'es' ? 'EN' : 'ES';
+            }
+        }
+    }
+
+    function toggleLanguage() {
+        currentLang = currentLang === 'es' ? 'en' : 'es';
+        loadLanguageData(currentLang);
     }
 
     // Rendering Functions
@@ -228,7 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="post-content">
                     <div class="post-meta">
                         <span>${formatDate(post.date)}</span>
-                        <span>${post.readTime || '5 min de lectura'}</span>
+                        <span>${post.readTime || `5 ${getNestedTranslation(translations[currentLang], 'labels.readTime')}`}</span>
                     </div>
                     <h3 class="post-title">${post.title}</h3>
                     <p class="post-excerpt">${post.description || post.content.substring(0, 240) + '...'}</p>
@@ -242,7 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderIdea(idea, index) {
         const delay = index * 100;
-        const type = idea.tags && idea.tags.length > 0 ? idea.tags[0] : 'Concept';
+        const type = idea.tags && idea.tags.length > 0 ? idea.tags[0] : getNestedTranslation(translations[currentLang], 'labels.concept');
 
         return `
             <div class="idea-row fade-in-up" style="animation-delay: ${delay}ms; opacity: 0; cursor: pointer;" onclick="openIdea('${idea.id}')">
@@ -260,9 +339,9 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `;
     }
-    async function openPostModal(post) {
-        const modal = document.getElementById('postModal');
-        const modalBody = document.getElementById('modalBody');
+    async function populateAndOpenModal(item) {
+        const modal = elements.modal;
+        const modalBody = elements.modalBody;
         const readingProgressBar = document.getElementById('readingProgress');
 
         // Reset Progress Bar
@@ -282,17 +361,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            // Simulate fetching content (or use actual content if available)
-            // In a real app, this might fetch Markdown from a URL
-            // For now, we'll render the placeholder content or enhanced content if we had it.
-            // But treating 'description' as the full content for this demo if no 'content' field
+            elements.modalTitle.textContent = item.title;
+            elements.modalDate.textContent = item.date ? formatDate(item.date) : '';
 
-            // For now, let's construct a rich "fake" article if real content is missing
-            // to demonstrate the TOC and Progress Bar
-            let content = post.content || post.description;
+            // Render tags
+            if (item.tags) {
+                elements.modalTags.innerHTML = item.tags.map(tag =>
+                    `<span class="tag">${getIconForTag(tag)} ${tag}</span>`
+                ).join('');
+            } else {
+                elements.modalTags.innerHTML = '';
+            }
 
-            // Render basic structure
-            modalBody.innerHTML = renderPostDetails(post, content);
+            let content = item.content || item.description;
+
+            // Render advanced structure
+            modalBody.innerHTML = renderPostDetails(item, content);
 
             // Generate TOC
             generateTOC(modalBody);
@@ -303,7 +387,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Setup Scroll Listener for Progress Bar
-            const modalContent = modal.querySelector('.modal-content'); // Assuming this is the scrollable element
             if (modalContent && readingProgressBar) {
                 modalContent.onscroll = () => {
                     const scrollTop = modalContent.scrollTop;
@@ -313,35 +396,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 };
             }
 
+            // Render Related Articles
+            renderRelatedArticles(item);
+
+            updateModalNavButtons();
+
+            // Ensure footer is visible
+            const modalFooter = document.querySelector('.modal-footer');
+            if (modalFooter) modalFooter.style.display = 'flex';
+
         } catch (error) {
-            console.error('Error opening post:', error);
-            modalBody.innerHTML = '<p>Error loading post content.</p>';
+            console.error('Error opening item:', error);
+            modalBody.innerHTML = `<p>${getNestedTranslation(translations[currentLang], 'sections.blog.noResults')}</p>`;
         }
     }
 
     function renderPostDetails(post, content) {
-        // ... existing rendering logic, but let's wrap content to allow for a TOC sidebar layout
-        // For existing logic, I'll just return the HTML string.
-        // But for TOC, I need headings.
-
-        // Mocking long content for demonstration if it's short
-        if (!content || content.length < 500) {
-            content += `
-                <h2>Introduction</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <h3>The Challenge</h3>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <h2>Methodology</h2>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                <h3>Research</h3>
-                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <h3>Implementation</h3>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-                <h2>Conclusion</h2>
-                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
-             `;
-        }
-
         // Use marked if available, otherwise simple text
         const htmlContent = typeof marked !== 'undefined' ? marked.parse(content) : content;
 
@@ -349,21 +419,11 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="post-detail-layout">
                 <aside class="toc-sidebar">
                     <div class="toc-sticky">
-                        <h4>Contents</h4>
+                        <h4 data-i18n="labels.contents">${getNestedTranslation(translations[currentLang], 'labels.contents') || 'Contents'}</h4>
                         <nav id="toc-nav"></nav>
                     </div>
                 </aside>
                 <article class="post-content-full">
-                    <header class="post-header-full">
-                        <div class="post-meta-full">
-                            <span class="date">Oct 12, 2025</span>
-                            <span class="read-time">5 min read</span>
-                        </div>
-                        <h1>${post.title}</h1>
-                        <div class="post-tags-full">
-                            ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-                        </div>
-                    </header>
                     <div class="markdown-body">
                         ${htmlContent}
                     </div>
@@ -418,13 +478,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     <img src="${study.image}" alt="${study.title}" class="case-study-image" loading="lazy">
                     <div class="case-study-content">
                         <div class="case-study-meta">
+                            ${study.status ? `<span class="case-study-status ${study.status.toLowerCase().includes('active') ? 'status-active' : 'status-default'}">${study.status}</span>` : ''}
                             <span class="case-study-company">${study.company}</span>
                             <span class="case-study-year">${study.year}</span>
                             <span class="case-study-role">${study.role}</span>
+                            ${study.timeline ? `<span class="case-study-timeline">${study.timeline}</span>` : ''}
                         </div>
                         <h3 class="case-study-title">${study.title}</h3>
-                        <p class="case-study-challenge"><strong>Challenge:</strong> ${study.challenge}</p>
-                        <p class="case-study-solution"><strong>Solution:</strong> ${study.solution}</p>
+                        <p class="case-study-challenge"><strong>${getNestedTranslation(translations[currentLang], 'labels.challenge')}:</strong> ${study.challenge}</p>
+                        ${study.myRole ? `<p class="case-study-role-detail"><strong>${getNestedTranslation(translations[currentLang], 'labels.myRole')}:</strong> ${study.myRole}</p>` : ''}
+                        ${study.team ? `<p class="case-study-team"><strong>${getNestedTranslation(translations[currentLang], 'labels.team')}:</strong> ${study.team}</p>` : ''}
+                        <p class="case-study-solution"><strong>${getNestedTranslation(translations[currentLang], 'labels.solution')}:</strong> ${study.solution}</p>
+                        ${study.businessImpact ? `<p class="case-study-impact"><strong>${getNestedTranslation(translations[currentLang], 'labels.businessImpact')}:</strong> ${study.businessImpact}</p>` : ''}
+                        ${study.architecture ? `<p class="case-study-architecture"><strong>${getNestedTranslation(translations[currentLang], 'labels.architecture')}:</strong> ${study.architecture}</p>` : ''}
                         <div class="impact-metrics">
                             <div class="metric">
                                 <div class="metric-value">${study.impact.adoption}</div>
@@ -493,11 +559,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderPlayground(items) {
         if (!elements.playgroundGrid || !items) return;
-        elements.playgroundGrid.innerHTML = items.map(item => `
-            <a href="${item.url}" target="_blank" class="playground-card">
-                <div class="playground-visual" style="background-image: url('${item.image}')">
-                    <div class="playground-overlay">
-                        <i class="ph-thin ph-arrow-up-right"></i>
+        elements.playgroundGrid.innerHTML = items.map(item => {
+            const hasLink = item.url && item.url.trim().length > 0 && item.url !== '#';
+            const overlayStyle = hasLink ? '' : 'style="opacity: 1; background: rgba(0, 0, 0, 0.45);"';
+            const visualStyle = hasLink
+                ? `style="background-image: url('${item.image}')"`
+                : `style="background-image: url('${item.image}'); filter: grayscale(20%);"`;
+
+            const cardContent = `
+                <div class="playground-visual" ${visualStyle}>
+                    <div class="playground-overlay" ${overlayStyle}>
+                        ${hasLink ? '<i class="ph-thin ph-arrow-up-right"></i>' : `<span style="color: #fff; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em;">${getNestedTranslation(translations[currentLang], 'labels.comingSoon')}</span>`}
                     </div>
                 </div>
                 <div class="playground-info">
@@ -505,12 +577,31 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h3>${item.title}</h3>
                     <p>${item.description}</p>
                 </div>
-            </a>
-        `).join('');
+            `;
+
+            if (!hasLink) {
+                return `<div class="playground-card is-disabled">${cardContent}</div>`;
+            }
+
+            return `<a href="${item.url}" target="_blank" class="playground-card">${cardContent}</a>`;
+        }).join('');
     }
 
     function renderTestimonials(testimonials, activeTags) {
-        if (!elements.testimonialsContainer || !testimonials) return;
+        const newsletterGrid = document.querySelector('.newsletter-grid');
+        if (!elements.testimonialsContainer || !testimonials || testimonials.length === 0) {
+            if (elements.testimonialsContainer) {
+                elements.testimonialsContainer.innerHTML = '';
+            }
+            if (newsletterGrid) {
+                newsletterGrid.classList.add('newsletter-grid--single');
+            }
+            return;
+        }
+
+        if (newsletterGrid) {
+            newsletterGrid.classList.remove('newsletter-grid--single');
+        }
 
         let filtered = testimonials;
 
@@ -528,7 +619,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const displayed = filtered.sort(() => 0.5 - Math.random()).slice(0, 2);
 
         elements.testimonialsContainer.innerHTML = `
-            <h2 class="section-title">Validación Final</h2>
+            <h2 class="section-title">${getNestedTranslation(translations[currentLang], 'sections.newsletter.validation')}</h2>
             <div class="testimonials-list">
                 ${displayed.map((t, index) => {
             const delay = index * 200;
@@ -540,7 +631,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             <p class="testimonial-content">"${t.content}"</p>
                             <div class="testimonial-author">
                                 <span class="author-name">${t.name}</span>
-                                <span class="author-role">${t.role}</span>
+                                <span class="author-role">${t.role}${t.company ? ` · ${t.company}` : ''}</span>
+                                ${t.linkedin ? `<a href="${t.linkedin}" target="_blank" rel="noopener" class="author-link">LinkedIn</a>` : ''}
                             </div>
                         </div>
                     `;
@@ -576,7 +668,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     <h3 class="talk-title">${talk.title}</h3>
                     <a href="${talk.videoUrl}" target="_blank" class="talk-link">
-                        Ver charla <i class="ph-thin ph-arrow-right"></i>
+                        ${getNestedTranslation(translations[currentLang], 'labels.viewTalk')} <i class="ph-thin ph-arrow-right"></i>
                     </a>
                 </div>
         `;
@@ -600,7 +692,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <ul class="service-features">
                     ${service.features.map(f => `<li><i class="ph-bold ph-check"></i> ${f}</li>`).join('')}
                 </ul>
-                <a href="mailto:hello@joanarbo.com?subject=Inquiry: ${encodeURIComponent(service.title)}" class="service-cta button outline">
+                <a href="mailto:me@joanarbo.com?subject=Inquiry: ${encodeURIComponent(service.title)}" class="service-cta button outline">
                     ${service.cta} <i class="ph-thin ph-arrow-right"></i>
                 </a>
             </div>
@@ -611,8 +703,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!elements.stackGrid || !stack) return;
 
         const categories = {
-            'software': 'Software',
-            'analog': 'Analog'
+            'software': getNestedTranslation(translations[currentLang], 'labels.software'),
+            'analog': getNestedTranslation(translations[currentLang], 'labels.analog')
         };
 
         elements.stackGrid.innerHTML = Object.entries(categories).map(([key, label]) => {
@@ -637,7 +729,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderExperience(experience) {
         if (!elements.experienceContainer) return;
-        elements.experienceContainer.innerHTML = experience.map((item, index) => {
+        const itemsHtml = experience.map((item, index) => {
             const delay = index * 100;
             return `
                 <div class="experience-item fade-in-up" style="animation-delay: ${delay}ms; opacity: 0;">
@@ -650,6 +742,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
         }).join('');
+
+        const linkText = typeof currentLang !== 'undefined' && currentLang === 'es' ? 'Ver CV Completo' : 'View Full CV';
+
+        const cvLinkHtml = `
+            <div class="experience-cv fade-in-up" style="animation-delay: ${experience.length * 100}ms; opacity: 0; margin-top: 1.5rem;">
+                <a href="${appData.links.linkedin}" target="_blank" class="cv-link" style="display: inline-flex; align-items: center; gap: 0.5rem; color: inherit; text-decoration: none; font-size: 0.9rem; opacity: 0.7; transition: opacity 0.2s ease;">
+                    ${linkText} <i class="ph ph-arrow-right"></i>
+                </a>
+            </div>
+        `;
+
+        elements.experienceContainer.innerHTML = itemsHtml + cvLinkHtml;
     }
 
     function renderPrinciples(principles) {
@@ -666,13 +770,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }).join('');
     }
 
-    // State
-    const POSTS_PER_PAGE = 6;
-    let visiblePostsCount = POSTS_PER_PAGE;
+
 
     // Logic Functions
     function filterAndRenderContent() {
-        const filteredPosts = appData.posts.filter(post => {
+        const shouldShowFeatured = activeTags.size === 0 && currentSearch === '' && activeSeries === 'all';
+        const featuredPosts = appData.posts.filter(post => post.featured);
+        const basePosts = shouldShowFeatured
+            ? appData.posts.filter(post => !post.featured)
+            : appData.posts;
+
+        const filteredPosts = basePosts.filter(post => {
             // Fix tag filtering if activeTags is set (it seems I missed where activeTags was defined/used in previous view, assuming it exists or replacing with currentTag based on my previous memory, but looking at line 114 it uses activeTags.size. Let's stick to what was there or adapt.)
             // Actually, in the snippet I viewed (lines 80-140), line 114 is `const matchesTags = activeTags.size === 0 || post.tags.some(tag => activeTags.has(tag)); `. So activeTags is a Set.
             // I will implement using activeTags as seen in the file.
@@ -710,6 +818,19 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+        // Featured posts
+        if (elements.featuredPosts && elements.featuredPostsGrid) {
+            if (shouldShowFeatured && featuredPosts.length > 0) {
+                elements.featuredPosts.style.display = 'block';
+                elements.featuredPostsGrid.innerHTML = featuredPosts.slice(0, 4)
+                    .map((post, index) => renderPost(post, index))
+                    .join('');
+            } else {
+                elements.featuredPosts.style.display = 'none';
+                elements.featuredPostsGrid.innerHTML = '';
+            }
+        }
+
         // Handle Load More Button
         const loadMoreContainer = document.getElementById('loadMoreContainer');
         if (loadMoreContainer) {
@@ -729,6 +850,15 @@ document.addEventListener('DOMContentLoaded', () => {
         // Update Contextual Testimonials
         if (appData.testimonials) {
             renderTestimonials(appData.testimonials, activeTags);
+        }
+
+        // Update Clear Button Visibility
+        if (elements.clearFilters) {
+            if (activeTags.size > 0 || currentSearch.length > 0) {
+                elements.clearFilters.classList.remove('hidden');
+            } else {
+                elements.clearFilters.classList.add('hidden');
+            }
         }
     }
 
@@ -781,7 +911,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function formatDate(dateString) {
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        return new Date(dateString).toLocaleDateString('es-ES', options);
+        const locale = currentLang === 'es' ? 'es-ES' : 'en-US';
+        return new Date(dateString).toLocaleDateString(locale, options);
     }
 
 
@@ -812,37 +943,6 @@ document.addEventListener('DOMContentLoaded', () => {
         populateAndOpenModal(idea);
     };
 
-    function populateAndOpenModal(item) {
-        elements.modalTitle.textContent = item.title;
-        elements.modalDate.textContent = item.date ? formatDate(item.date) : '';
-
-        // Render tags
-        if (item.tags) {
-            elements.modalTags.innerHTML = item.tags.map(tag =>
-                `<span class="tag">${getIconForTag(tag)} ${tag}</span>`
-            ).join('');
-        } else {
-            elements.modalTags.innerHTML = '';
-        }
-
-        elements.modalBody.innerHTML = marked.parse(item.content || item.description);
-
-        // Render Related Articles
-        renderRelatedArticles(item);
-
-        elements.modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-
-        // Reset scroll position to top
-        const modalContent = elements.modal.querySelector('.modal-content');
-        if (modalContent) {
-            modalContent.scrollTop = 0;
-        }
-
-        updateModalNavButtons();
-        // Ensure footer is visible (might have been hidden by /now)
-        document.querySelector('.modal-footer').style.display = 'flex';
-    }
 
     function updateModalNavButtons() {
         const isPost = currentModalContext === 'post';
@@ -894,6 +994,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Event Listeners
     function setupEventListeners() {
         let searchTimeout;
+
+        // Language Toggle
+        const langToggle = document.getElementById('langToggle');
+        if (langToggle) {
+            langToggle.addEventListener('click', toggleLanguage);
+        }
+
+
         elements.searchInput.addEventListener('input', (e) => {
             currentSearch = e.target.value.toLowerCase();
 
@@ -994,6 +1102,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+
+
         // Header Scroll Effect
         const navbar = document.querySelector('.navbar');
         window.addEventListener('scroll', () => {
@@ -1018,14 +1128,9 @@ document.addEventListener('DOMContentLoaded', () => {
             clearFiltersEmpty.addEventListener('click', clearAllFilters);
         }
 
-        initScrollSpy();
-        initTheme();
+        checkHash();
+        window.addEventListener('hashchange', checkHash);
     }
-
-    checkHash();
-    window.addEventListener('hashchange', checkHash);
-    initTheme();
-    initTheme();
 
     function checkHash() {
         const hash = window.location.hash;
@@ -1046,8 +1151,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!appData.now) return;
         const now = appData.now;
 
-        elements.modalTitle.textContent = "Now";
-        elements.modalDate.textContent = `Last updated: ${now.lastUpdated}`;
+        elements.modalTitle.textContent = getNestedTranslation(translations[currentLang], 'sections.now.title');
+        elements.modalDate.textContent = `${getNestedTranslation(translations[currentLang], 'labels.lastUpdated')}: ${now.lastUpdated}`;
         elements.modalTags.innerHTML = `<span class="tag"><i class="ph-thin ph-map-pin"></i> ${now.location}</span>`;
 
         // Hide nav buttons for Now page
@@ -1057,7 +1162,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const nowContent = `
             <div class="now-page-content">
                 <div class="now-status-section">
-                    <h3>Current Status</h3>
+                    <h3>${getNestedTranslation(translations[currentLang], 'sections.now.statusTitle')}</h3>
                     <p class="now-status-highlight">${now.status}</p>
                 </div>
                 
@@ -1071,12 +1176,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
 
                 <div class="now-reading">
-                    <h3>Reading</h3>
+                    <h3>${getNestedTranslation(translations[currentLang], 'sections.now.readingTitle')}</h3>
                     <div class="book-card">
                         <i class="ph-thin ph-book"></i>
                         <div>
                             <strong>${now.reading.title}</strong>
-                            <span>by ${now.reading.author}</span>
+                            <span>${getNestedTranslation(translations[currentLang], 'labels.by')} ${now.reading.author}</span>
                         </div>
                     </div>
                 </div>
@@ -1140,7 +1245,7 @@ document.addEventListener('DOMContentLoaded', () => {
      * Updates navigation highlighting as the user scrolls
      */
     function initScrollSpy() {
-        const sectionIds = ['blog', 'work', 'ideas', 'about', 'contact'];
+        const sectionIds = ['case-studies', 'teaching', 'services', 'blog', 'ideas', 'about', 'contact'];
         const sections = sectionIds.map(id => document.getElementById(id)).filter(el => el);
         const navLinks = document.querySelectorAll('.nav-link');
 
@@ -1226,13 +1331,13 @@ document.addEventListener('DOMContentLoaded', () => {
         elements.relatedArticlesContainer.style.display = 'block';
         elements.relatedArticlesContainer.innerHTML = `
             <div class="related-header">
-                <h3 class="related-title">Sigue explorando</h3>
+                <h3 class="related-title">${getNestedTranslation(translations[currentLang], 'sections.blog.related')}</h3>
             </div>
             <div class="related-grid">
                 ${finalRelated.map(item => `
                     <div class="related-card" onclick="${item.date ? 'openPost' : 'openIdea'}('${item.id}')">
                         <div class="related-info">
-                            <span class="related-date">${item.date ? formatDate(item.date) : 'Idea'}</span>
+                            <span class="related-date">${item.date ? formatDate(item.date) : getNestedTranslation(translations[currentLang], 'labels.concept')}</span>
                             <h4 class="related-card-title">${item.title}</h4>
                         </div>
                         <i class="ph-thin ph-arrow-right related-arrow"></i>
@@ -1253,7 +1358,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Disable form during submission
             submitButton.disabled = true;
-            submitButton.textContent = 'Enviando...';
+            submitButton.textContent = getNestedTranslation(translations[currentLang], 'labels.sending');
 
             // Remove any existing message
             const existingMessage = newsletterForm.querySelector('.newsletter-message');
@@ -1275,7 +1380,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 successMessage.className = 'newsletter-message newsletter-success';
                 successMessage.innerHTML = `
                     <i class="ph-thin ph-check-circle"></i>
-                    <span>¡Perfecto! Revisa tu correo para confirmar tu suscripción.</span>
+                    <span>${getNestedTranslation(translations[currentLang], 'labels.subscribeNotify')}</span>
                 `;
                 newsletterForm.insertBefore(successMessage, newsletterForm.firstChild);
 
@@ -1285,7 +1390,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Reset button after delay
                 setTimeout(() => {
                     submitButton.disabled = false;
-                    submitButton.textContent = 'Suscribirme';
+                    submitButton.textContent = getNestedTranslation(translations[currentLang], 'labels.subscribeButton');
                 }, 2000);
 
             } catch (error) {
@@ -1294,14 +1399,38 @@ document.addEventListener('DOMContentLoaded', () => {
                 errorMessage.className = 'newsletter-message newsletter-error';
                 errorMessage.innerHTML = `
                     <i class="ph-thin ph-warning-circle"></i>
-                    <span>Hubo un problema. Por favor, inténtalo de nuevo.</span>
+                    <span>${getNestedTranslation(translations[currentLang], 'labels.subscribeError')}</span>
                 `;
                 newsletterForm.insertBefore(errorMessage, newsletterForm.firstChild);
 
                 // Reset button
                 submitButton.disabled = false;
-                submitButton.textContent = 'Suscribirme';
+                submitButton.textContent = getNestedTranslation(translations[currentLang], 'labels.subscribeButton');
             }
         };
     }
+
+    function setupIntersectionObserver() {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in, .fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+    }
+
+    // Start everything
+    init();
 });

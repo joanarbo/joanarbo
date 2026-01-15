@@ -134,6 +134,20 @@
   ],
   "ideas": [
     {
+      "id": "hybrid-engineer",
+      "title": "The Collapse of Specialization",
+      "date": "2026-01-14",
+      "readTime": "12 min read",
+      "description": "Prototype: an audit framework to map handoff friction and redesign team structure toward hybrid product builders.",
+      "content": "A decade ago, the division of labor in digital products was clear and, apparently, necessary. We had \"Creatives\" who dreamed in Photoshop and \"Technicals\" who built in PHP or Java. This structure, inherited from the industrial assembly line (Fordism), optimized linear production. But software is no longer linear.\n\n> **Visual Concept**\n> An evolutionary diagram. Left: 'Silo Era' (Design -> Spec -> Code). Right: 'System Era' (Tokens <-> Agents <-> UI). Style: Editorial Data Viz.\n\n#\n\n#\n\n# The Era of Specialization (2010-2023)\n\nDuring the SaaS boom, we specialized roles to the point of absurdity. UX Researchers, UI Designers, Interaction Designers, UX Writers, Frontend Developers, CSS Specialists... The theory was that hyper-specialization increased quality. The reality was that it increased **bureaucracy**.\n\nThe cost of coordination (the communication \"overhead\") surpassed the value of individual work. We spent more time syncing Figma with Jira than solving user problems. We created the \"Handoff\" problem: the traumatic moment where intention is lost in translation.\n\n#\n\n#\n\n# The Catalyst: Artificial Intelligence\n\nGenerative AI has commoditized the technical execution of both sides.\n*   **Midjourney/v0** commoditize visual exploration.\n*   **Cursor/Copilot** commoditize code syntax.\n\nIf AI can generate the mock-up and can also write the component in React, what is the human role? **Systemic Orchestration**.\n\n> \"Value no longer resides in moving pixels or writing loops. It resides in defining the *System Logic* that governs both.\"\n\n#\n\n#\n\n# The Renaissance of the Generalist (Full-Stack Designer)\n\nWe are seeing the return of the 90s \"Webmaster\" profile, but with superpowers. A single individual can now conceive, design, and deploy a complete application. Not because they are a genius, but because abstraction tools allow it.\n\nThe \"Full-Stack Designer\" is not a mediocre developer and a mediocre designer. It is a **Product Architect**. Someone who understands that:\n1.  A **Design Token** in Figma is not a color, it's a pre-processor variable.\n2.  An **animation** is not an 'easing', it's a mathematical interpolation function.\n3.  **Accessibility** is not a checklist, it's a correct HTML semantic structure.\n\n#\n\n#\n\n# Engineering Case Study: Validating a Hypothesis\n\nAt Amazon, I observed how hybrid teams (Design Technologists) delivered value 4x faster than segregated teams. Why?\n*   **Zero translation**: No specs. The prototype *is* the specification.\n*   **Immediate technical validation**: If the design broke performance, it was known on day 1, not day 40.\n*   **Fluid iteration**: Changing the design meant changing a variable in the code, not updating 50 artboards.\n\n#\n\n#\n\n# Educational Conclusion\n\nIf you are a designer, stop obsessing over drawing tools and learn how the browser renders your work (Box Model, DOM, CSS Grid). If you are a developer, study Typography, Gestalt, and Visual Hierarchy.\n\nThe future doesn't belong to the one who best uses the tool, but to the one who best understands the **medium**.\n\n---\n\n#\n\n#\n\n#\n\n# Design Maturity Audit\nDo you feel your organization suffers from \"paralysis by specialization\"? **I audit your product team structure** to identify bottlenecks in the Design-Engineering flow and propose a transition toward high-efficiency hybrid models.\n\n[<i class=\"ph ph-arrow-right\"></i> Request Organizational Audit](mailto:me@joanarbo.com?subject=Organizational%20Product%20Audit)",
+      "tags": [
+        "Philosophy",
+        "Career",
+        "Strategy"
+      ],
+      "status": "active"
+    },
+    {
       "id": "ai-components-ex",
       "title": "Intention-Based Interfaces",
       "date": "2026-01-12",
@@ -200,7 +214,7 @@
       "description": "Combining the brevity of Haiku with the precision of design tokens to build semantic visual languages.",
       "tags": [
         "Design Tokens",
-        "Semántica"
+        "Semantics"
       ]
     }
   ],
@@ -256,27 +270,39 @@
       "period": "Jun 2017 — Present",
       "company": "Amazon",
       "role": "Senior Design Technologist",
-      "description": "Lead UX Engineer across Madrid and Hyderabad. Acting as a critical bridge between engineering and design. Two-time winner of 'Most Peculiar Amazonian' for Ownership and Invent & Simplify."
+      "description": "Lead UX Engineer across Madrid and Hyderabad. Delivered Amazon Business Prime ahead of schedule and built rapid prototyping frameworks that reduced iteration cycles."
     },
     {
       "period": "Jan 2021 — Present",
       "company": "Mr Marcel School / UOC",
       "role": "Design Systems Educator",
       "description": "Director and mentor for the Design Systems nanodegree. Trained 200+ product engineers in tokens, governance, and scalable UI systems."
+    },
+    {
+      "period": "Jun 2010 — Jun 2017",
+      "company": "Movistar+ TV",
+      "role": "R&D Engineer",
+      "description": "Designed complex systems for STB, web, and apps. Led interaction design for 300+ global campaigns and built experimental 2D/3D prototypes."
+    },
+    {
+      "period": "2000 — 2010",
+      "company": "Early Career",
+      "role": "Multimedia Engineer",
+      "description": "Built interactive media systems and video platforms across multiple studios and startups."
     }
   ],
   "principles": [
     {
-      "title": "Code is Truth",
-      "content": "If it isn't in production, it's just an opinion. Design is a hypothesis; code is the only real validation."
+      "title": "01 — Design systems die without measurable ROI",
+      "content": "Adoption metrics and savings are part of the product, not an afterthought."
     },
     {
-      "title": "Systems > Components",
-      "content": "I design decision flows and scalable architectures, not just static UI libraries."
+      "title": "02 — Documentation is the product",
+      "content": "If teams can’t self-serve, the system does not scale."
     },
     {
-      "title": "AI as Multiplier",
-      "content": "Not to replace thinking, but to amplify execution and eliminate manual work."
+      "title": "03 — AI amplifies, it doesn’t replace",
+      "content": "Use AI to accelerate decisions, then validate with human review."
     }
   ],
   "now": {
@@ -308,49 +334,74 @@
     "email": "me@joanarbo.com"
   },
   "testimonials": [],
-  "playground": [],
+  "playground": [
+    {
+      "id": "ds-audit-bot",
+      "title": "Design System Audit Bot",
+      "description": "Automated repo scan that flags component forks, token drift, and adoption gaps.",
+      "type": "AI Workflow",
+      "url": "",
+      "image": "assets/images/playground/grid.png"
+    },
+    {
+      "id": "adoption-dashboard",
+      "title": "Adoption & ROI Dashboard",
+      "description": "Live metrics for coverage, team adoption, and time-to-component.",
+      "type": "Analytics",
+      "url": "",
+      "image": "assets/images/playground/typo.png"
+    },
+    {
+      "id": "ai-briefing",
+      "title": "AI Discovery Briefing",
+      "description": "Discovery assistant that maps edge cases and risk zones before build.",
+      "type": "Research",
+      "url": "",
+      "image": "assets/images/playground/ui.png"
+    }
+  ],
   "services": [
     {
       "id": "ds-mentorship",
       "icon": "ph-student",
       "title": "Design Systems Mentorship",
-      "description": "Sesiones 1:1 para líderes de Diseño e Ingeniería. Desbloquea problemas de gobernanza, arquitectura o carrera.",
-      "price": "€250 / sesión",
+      "description": "1:1 sessions for Design and Engineering leaders. Unblock governance, architecture, or career issues.",
+      "price": "€250 / session",
       "features": [
-        "Revisión de arquitectura",
-        "Estrategia de adopción",
-        "Resolución de bloqueos políticos",
-        "Career path para Design Technologists"
+        "Architecture review",
+        "Adoption strategy",
+        "Resolution of political blockers",
+        "Career path for Design Technologists"
       ],
-      "cta": "Reservar sesión"
+      "cta": "Book session"
     },
     {
       "id": "build-with-me",
       "icon": "ph-code",
       "title": "Build With Me (Day)",
-      "description": "Un día entero construyendo juntos. Tú y yo, en vivo. Prototipamos, codeamos y resolvemos un problema real de tu sistema.",
-      "price": "€1,200 / día",
+      "description": "A full day building together. You and me, live. We prototype, code, and solve a real problem in your system.",
+      "price": "€1,200 / day",
       "features": [
-        "8 horas de foco intenso",
-        "Pair programming real",
-        "Auditoría en tiempo real",
-        "Entrega de código funcional"
+        "8 hours of intense focus",
+        "Real pair programming",
+        "Real-time audit",
+        "Delivery of functional code"
       ],
-      "cta": "Agendar día"
+      "cta": "Schedule day"
     },
     {
       "id": "ds-audit",
       "icon": "ph-check-circle",
       "title": "Design System Audit",
-      "description": "Auditoría técnica y de procesos. En 2 semanas te digo exactamente por qué tu sistema no escala y cómo arreglarlo.",
-      "price": "Desde €3,500",
+      "description": "Technical and process audit. In 2 weeks I tell you exactly why your system isn't scaling and how to fix it.",
+      "price": "From €3,500",
       "features": [
-        "Análisis de deuda técnica",
-        "Revisión de consistencia visual",
-        "Entrevistas con equipos",
-        "Roadmap de refactorización"
+        "Technical debt analysis",
+        "Visual consistency review",
+        "Team interviews",
+        "Refactoring roadmap"
       ],
-      "cta": "Solicitar audit"
+      "cta": "Request audit"
     }
   ],
   "stack": {
@@ -361,7 +412,7 @@
       },
       {
         "name": "Warp",
-        "desc": "Gemini y perplexity para exploracion y notebook llm"
+        "desc": "Gemini and Perplexity for exploration and NotebookLM"
       },
       {
         "name": "Figma",
