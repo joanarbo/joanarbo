@@ -1,64 +1,161 @@
-/* CSS Custom Properties for Theming */
+/* CSS Design Tokens - Hierarchical System */
+
 :root {
-    --bg-color: #fafaf9;
-    --bg-color-rgb: 250, 250, 249;
-    --bg-color-alt: #f1f1f0;
-    --bg-color-alt-rgb: 241, 241, 240;
-    --bg-blocked: #0f172a;
-    --surface-color: #ffffff;
-    --surface-color-rgb: 255, 255, 255;
-    --text-color: #020617;
-    --text-color-rgb: 2, 6, 23;
-    --text-secondary-color: #1e293b;
-    --text-secondary-color-rgb: 30, 41, 59;
-    --line-color: #e2e8f0;
-    --line-color-rgb: 226, 232, 240;
-    --accent-color: #0f172a;
-    --accent-color-rgb: 15, 23, 42;
-    --accent-bright-color: #3b82f6;
-    --accent-bright-color-rgb: 59, 130, 246;
+    /* --- PRIMITIVES --- */
+
+    /* Neutrals */
+    --primitive-stone-50: #fafaf9;
+    --primitive-stone-100: #f1f1f0;
+    --primitive-stone-200: #e7e7e4;
+    --primitive-stone-300: #d6d6d2;
+    --primitive-stone-500: #787877;
+    --primitive-stone-900: #1c1917;
+    --primitive-stone-950: #0c0a09;
+
+    --primitive-slate-50: #f8fafc;
+    --primitive-slate-200: #e2e8f0;
+    --primitive-slate-800: #1e293b;
+    --primitive-slate-900: #0f172a;
+    --primitive-slate-950: #020617;
+
+    /* Brand & Accents */
+    --primitive-blue-400: #60a5fa;
+    --primitive-blue-500: #3b82f6;
+    --primitive-blue-600: #2563eb;
+    --primitive-violet-500: #7c3aed;
+    --primitive-violet-600: #6d28d9;
+    --primitive-teal-400: #64ffda;
+
+    /* Status */
+    --primitive-green-500: #10B981;
+    --primitive-amber-500: #f59e0b;
+
+    /* Static Shades (for persistent contrast) */
+    --static-slate: #1e293b;
+    --static-navy: #0f172a;
+    --static-darker-navy: #020617;
+    --static-white: #ffffff;
+    --static-black: #000000;
+
+    /* --- SEMANTIC TOKENS (Light Mode) --- */
+
+    /* Backgrounds */
+    --bg-primary: var(--primitive-stone-50);
+    --bg-primary-rgb: 250, 250, 249;
+    --bg-secondary: var(--primitive-stone-100);
+    --bg-secondary-rgb: 241, 241, 240;
+    --bg-accent-dark: var(--primitive-slate-900);
+
+    /* Surfaces */
+    --surface-primary: #ffffff;
+    --surface-primary-rgb: 255, 255, 255;
+    --surface-low: var(--primitive-stone-100);
+
+    /* Text */
+    --text-primary: var(--primitive-slate-950);
+    --text-primary-rgb: 2, 6, 23;
+    --text-secondary: var(--primitive-slate-800);
+    --text-secondary-rgb: 30, 41, 59;
+    --text-on-accent: #ffffff;
+
+    /* Interaction */
+    --accent-primary: var(--primitive-slate-900);
+    --accent-primary-rgb: 15, 23, 42;
+    --accent-vibrant: var(--primitive-violet-500);
+    --accent-vibrant-rgb: 124, 58, 237;
+    --accent-interactive: var(--primitive-blue-500);
+    --accent-interactive-rgb: 59, 130, 246;
+
+    /* Support Colors */
+    --info-color: var(--primitive-blue-400);
+    /* Lighter for better contrast on dark backgrounds */
+    --success-color: var(--primitive-green-500);
+    --warning-color: var(--primitive-amber-500);
+
+    /* Borders */
+    --border-subtle: var(--primitive-slate-200);
+    --border-subtle-rgb: 226, 232, 240;
+
+    /* Effects */
     --glass-bg: rgba(255, 255, 255, 0.7);
     --glass-border: rgba(15, 23, 42, 0.08);
-    --nav-scrolled-bg: rgba(250, 250, 249, 0.8);
     --noise-opacity: 0.04;
-    --logo-brightness: 1;
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --accent-vibrant: #7c3aed;
-    --accent-vibrant-rgb: 124, 58, 237;
-    --accent-glow: rgba(59, 130, 246, 0.15);
     --shadow-premium: 0 30px 60px -12px rgba(0, 0, 0, 0.08), 0 18px 36px -18px rgba(0, 0, 0, 0.1);
+
+    /* Navbar */
+    --nav-scrolled-bg: rgba(250, 250, 249, 0.9);
+
+
+    /* --- LEGACY MAPPINGS (Keep existing code working) --- */
+    --bg-color: var(--bg-primary);
+    --bg-color-rgb: var(--bg-primary-rgb);
+    --bg-color-alt: var(--bg-secondary);
+    --bg-color-alt-rgb: var(--bg-secondary-rgb);
+    --bg-blocked: var(--bg-accent-dark);
+    --surface-color: var(--surface-primary);
+    --surface-color-rgb: var(--surface-primary-rgb);
+    --text-color: var(--text-primary);
+    --text-color-rgb: var(--text-primary-rgb);
+    --text-secondary-color: var(--text-secondary);
+    --text-secondary-color-rgb: var(--text-secondary-rgb);
+    --line-color: var(--border-subtle);
+    --line-color-rgb: var(--border-subtle-rgb);
+    --accent-color: var(--accent-primary);
+    --accent-color-rgb: var(--accent-primary-rgb);
+    --accent-bright-color: var(--accent-interactive);
+    --accent-bright-color-rgb: var(--accent-interactive-rgb);
+    --success-color: var(--primitive-green-500);
+    --warning-color: var(--primitive-amber-500);
+    --logo-brightness: 1;
+
+    /* Static Colors */
+    --static-white: #ffffff;
+    --static-black: #000000;
 }
 
 [data-theme="dark"] {
-    --bg-color: #0c0c0c;
-    --bg-color-rgb: 12, 12, 12;
-    --bg-color-alt: #141414;
-    --bg-color-alt-rgb: 20, 20, 20;
-    --bg-blocked: #2e1065;
-    --surface-color: #1a1a1a;
-    --surface-color-rgb: 26, 26, 26;
-    --text-color: #f8fafc;
-    --text-color-rgb: 248, 250, 252;
-    --text-secondary-color: #cbd5e1;
-    --text-secondary-color-rgb: 203, 213, 225;
-    --line-color: #262626;
-    --line-color-rgb: 38, 38, 38;
-    --accent-color: #64ffda;
-    --accent-color-rgb: 100, 255, 218;
-    --accent-bright-color: #60a5fa;
-    --accent-bright-color-rgb: 96, 165, 250;
+    /* --- SEMANTIC TOKENS (Dark Mode) --- */
+
+    /* Backgrounds */
+    --bg-primary: #0c0c0c;
+    --bg-primary-rgb: 12, 12, 12;
+    --bg-secondary: #141414;
+    --bg-secondary-rgb: 20, 20, 20;
+    --bg-accent-dark: #2e1065;
+
+    /* Surfaces */
+    --surface-primary: #1a1a1a;
+    --surface-primary-rgb: 26, 26, 26;
+    --surface-low: #262626;
+
+    /* Text */
+    --text-primary: #f8fafc;
+    --text-primary-rgb: 248, 250, 252;
+    --text-secondary: #cbd5e1;
+    --text-secondary-rgb: 203, 213, 225;
+
+    /* Interaction */
+    --accent-primary: var(--primitive-teal-400);
+    --accent-primary-rgb: 100, 255, 218;
+    --accent-vibrant: var(--primitive-violet-500);
+    --accent-vibrant-rgb: 124, 58, 237;
+    --accent-interactive: var(--primitive-blue-400);
+    --accent-interactive-rgb: 96, 165, 250;
+
+    /* Borders */
+    --border-subtle: #262626;
+    --border-subtle-rgb: 38, 38, 38;
+
+    /* Effects */
     --glass-bg: rgba(12, 12, 12, 0.7);
     --glass-border: rgba(255, 255, 255, 0.08);
-    --nav-scrolled-bg: rgba(12, 12, 12, 0.8);
     --noise-opacity: 0.03;
     --logo-brightness: 2;
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(0 0 0 / 0.5);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
-    --accent-vibrant: #a78bfa;
-    --accent-vibrant-rgb: 167, 139, 250;
-    --accent-glow: rgba(96, 165, 250, 0.15);
     --shadow-premium: 0 30px 60px -12px rgba(0, 0, 0, 0.5), 0 18px 36px -18px rgba(0, 0, 0, 0.6);
+
+    /* Navbar */
+    --nav-scrolled-bg: rgba(12, 12, 12, 0.9);
 }

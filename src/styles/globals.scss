@@ -135,3 +135,83 @@ a {
         transform: translateY(0);
     }
 }
+
+/* Scroll Animations */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+
+    &.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &.is-visible,
+    .is-visible & {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stagger-children {
+    @for $i from 1 through 12 {
+        >*:nth-child(#{$i}) {
+            transition-delay: #{$i * 100}ms;
+        }
+    }
+}
+
+/* Scroll To Top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--surface-color);
+    border: 1px solid var(--line-color);
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 90;
+    color: var(--text-color);
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-premium);
+        border-color: var(--text-color);
+        background: var(--bg-color-alt);
+    }
+
+    &.visible {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+    }
+
+    i {
+        font-size: 1.25rem;
+    }
+
+    @media (max-width: 768px) {
+        bottom: 24px;
+        right: 24px;
+        width: 40px;
+        height: 40px;
+    }
+}

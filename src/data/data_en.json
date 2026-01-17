@@ -14,7 +14,7 @@
         "Philosophy"
       ],
       "series": "AI & Future of Work",
-      "image": "assets/images/writing/perihelion.jpg"
+      "image": "/assets/images/writing/perihelion.jpg"
     },
     {
       "id": "roi-design-system",
@@ -30,7 +30,7 @@
         "Strategy"
       ],
       "series": "Design Systems Mastery",
-      "image": "assets/images/writing/roi-design-system.png"
+      "image": "/assets/images/writing/roi-design-system.png"
     },
     {
       "id": "interface-dependency",
@@ -46,7 +46,7 @@
         "Voice UI"
       ],
       "series": "AI & Future of Work",
-      "image": "assets/images/writing/interface-dependency.png"
+      "image": "/assets/images/writing/interface-dependency.png"
     },
     {
       "id": "invisible-system",
@@ -59,20 +59,24 @@
         "DX",
         "Invisible Design"
       ],
-      "image": "assets/images/writing/invisible-system.png"
+      "image": "/assets/images/writing/invisible-system.png"
     },
     {
       "id": "breaking-rules",
-      "title": "Your design system doesn’t fail because of bad components",
+      "title": "Your design system doesn't fail because of bad components",
       "date": "2025-09-10",
       "readTime": "System Ops",
       "description": "It fails because nobody designed who decides when to break the rules. Governance beats any Figma library.",
+      "keyQuote": "It fails because nobody designed who decides when to break the rules.",
+      "series": "Design Systems Mastery",
       "content": "I have spent the last few years building, breaking, and rebuilding design systems at Amazon, Western Union, and startups. And if there is one lesson that repeats like an error loop in the console, it is this:\n\n> **We obsess over the surface and ignore the structure that supports it.**\n\nI'm not talking about components, or tokens, or documentation. I'm talking about the *real* architecture: the one that defines how decisions are made, who has a voice, and what happens when the system collides with the reality of the product.\n\n<h2>**The myth of the \"perfect system\"**</h2>In my article *\"[The Day Our Perfect Prototype Started Lying to Us](https://medium.com/@joanarbo/the-day-our-perfect-prototype-started-lying-to-us-61971324637e)\"*, I told how an impeccable prototype — with fluid interactions, defined states, and apparently solid logic — fell apart in production because no one had questioned **the underlying API**.\n\nThe problem wasn't in Figma. It was in the gap between the *illusion of control* of design and the *real complexity* of the system.\n\nThe same thing happens with Design Systems.\n\nWe create beautiful libraries, with variants for every use case... but we don't design the **evolution protocol**. We don't define how a conflict is resolved when a team needs something that the system doesn't contemplate. We don't establish who can break the rules... and when.\n\n<h2>**True scalability isn't technical. It's political.**</h2>A Design System doesn't scale by having more components. It scales by having **clear mechanisms for decision making**.\n\n* Who decides that a token changes value?\n\n* What happens when a team needs a pattern that contradicts the system?\n\n* How is a *trade-off* between consistency and innovation resolved?\n\nThese are not design questions. They are **governance** questions. And most systems ignore them until it's too late.\n\nIn *\"[Haikus and Tokens](https://medium.com/@joanarbo/haikus-y-tokens-18c753ad2b13)\"*, I wrote that \"Design Tokens are design decisions that propagate through a system\". But I never said the most uncomfortable part: **poorly governed decisions propagate like bugs**.\n\nI also believed that good components were enough... until my system was ignored by 3 teams.\n\n<h2>**The acid test: the first fork**</h2>Every healthy system survives its first *fork*.\n\nThe moment a team, frustrated by bureaucracy or rigidity, decides to create its own version of the system.\n\nMany see it as a betrayal. I see it as a signal.\n\nBecause if your system doesn't allow for *decentralized evolution*, it's not a system. It's a prison.\n\nThe true test is not whether everyone uses your library. It's whether, when someone breaks it, **the system learns instead of punishing**.\n\n<h2>**So, what to do?**</h2>Stop thinking of your Design System as a *product*.\n\nThink of it as a **coordination infrastructure**.\n\n* Define clear, but not rigid rules.\n\n* Document not only *what* to do, but *how to decide*.\n\n* Make the change process visible, not just the result.\n\n* Celebrate *forks* that add value, not just blind obedience.\n\n<h2>**The final irony**</h2>The best Design Systems are not the most used.\n\nThey are the ones that **disappear**.\n\nNot because they are invisible, but because their architecture is so solid that no one has to think about them. The team focuses on solving real problems, not fighting the system.\n\nThat is not achieved with more documentation.\n\n> It is achieved with **less ego and more structure**.\n\n*Joan Arbó*\n\nUX Engineer @ Western Union | Ex-Amazon Alexa\n\n***Has your team already made a fork of your Design System? Don't punish them. Ask yourself: what feedback is it giving me?***\n\nP.S.: If your Design System has an \"owner\" but not a \"disagreement protocol,\" it's already broken. Someone just needs to say it out loud.",
       "tags": [
         "Governance",
         "Ops"
       ],
-      "image": "assets/images/writing/breaking-rules.png"
+      "featured": false,
+      "series": "Design Systems Mastery",
+      "image": "/assets/images/writing/breaking-rules.png"
     },
     {
       "id": "two-scales",
@@ -86,50 +90,45 @@
         "Education",
         "Philosophy"
       ],
-      "image": "assets/images/writing/two-scales.png"
+      "featured": false,
+      "series": "Design Systems Mastery",
+      "image": "/assets/images/writing/two-scales.png"
     },
     {
       "id": "lying-prototype",
       "title": "The Day Our Perfect Prototype Started Lying to Us",
-      "featured": true,
       "date": "2025-08-15",
-      "readTime": "Case Study",
-      "description": "Designers waste weeks chasing 'pixel-perfect' — when bold product questions need real answers, fast.",
-      "content": "Sophie, our Product Manager, had that look. You know the one — when someone's trying to solve a puzzle that shouldn't exist.\n\nWe were in a routine demo of our e-commerce checkout flow, the kind of meeting that usually ends with everyone nodding and moving on. Our prototype was gorgeous. Every pixel in place, every interaction smooth. The demo ran like clockwork.\n\nBut Sophie was staring at her laptop, scrolling through customer support tickets.\n\n\"I don't get it,\" she said, breaking the satisfied silence. \"Henrik keeps failing at checkout, but it works perfectly here. If our API throws payment errors, why can't I see them in our documentation?\"\n\nThat's when it hit me. **We'd built a beautiful lie.**\n\n#\n\n#\n\n# The Comfortable Fiction of Happy-Path Testing\n**Our API documentation was like a restaurant menu that only shows pictures of perfect dishes — never the soggy chips or burnt edges that real customers sometimes get.**\n\nMeet our cast of characters:\n\n**Emma** lives in central Amsterdam. She has iDEAL banking, multiple saved cards, and her postcode gets next-day delivery for everything. When Emma shops, the internet loves her back.\n\n**Henrik** is a university student in rural Finland. His Nordea card gets declined for mysterious cross-border reasons, shipping to his address takes two weeks, and half the products he wants are \"not available for delivery to Finland.\" Henrik's shopping experience is an obstacle course.\n\n**Marcel** runs procurement for a mid-size company in Lyon. He needs bulk discounts, SEPA transfers, and someone from accounting to approve anything over €500. The e-commerce world wasn't built for Marcel's French procurement regulations.\n\nOur documentation only knew how to be Emma. It had never met Henrik or Marcel.\n\n#\n\n#\n\n# The €75,000 Documentation Problem\nHere's what we discovered: Henrik wasn't just failing at checkout. He was costing us serious money.\n\nEvery time Henrik's card got declined for a GDPR-related restriction we hadn't documented, someone called customer service. Every time his Finnish address triggered an error we'd never tested, we lost a sale and gained a support ticket.\n\nThe math was brutal. We were spending 48 hours in meetings trying to understand problems that should have taken 30 seconds to reproduce.\n\nOur beautiful documentation had become an expensive fiction.\n\n#\n\n#\n\n# The Fix: When Documentation Meets Reality\n**So we did something simple that felt radical. We put Henrik, Emma, and Marcel directly into our API documentation.**\n\nNow, when Sophie opens our docs, she sees a sidebar with three buttons. Click \"Henrik,\" and suddenly the same checkout API that worked perfectly for Emma starts throwing real errors: \"*Payment method not available in Finland.*\" \"*Shipping delayed due to customs requirements.*\" \"*Product restricted under EU regulations.*\"\n\nIt's not just different data — it's different reality. Henrik's button makes the API slower (rural Finnish internet), pickier (Nordic banking restrictions), and more honest about what doesn't work across the Single Market.\n\nThe testing environment stopped being a demo reel and became a truth machine.\n\n#\n\n#\n\n# What We Learned About Building for Real People\nThe change was immediate. Sophie could finally see what Henrik saw. Our engineers could debug GDPR edge cases without playing 20 questions with customer service. **Our support tickets for checkout issues dropped by 41%.**\n\nBut the bigger lesson was about who we'd been building for. Emma is real, but she's also easy. She has fiber internet, SEPA compatibility, and lives where everything ships quickly. Building for Emma feels like progress because everything works.\n\nHenrik is real too, but he's inconvenient. His limitations expose every assumption we've made about how European shopping should work. Building for Henrik feels like problem-solving because nothing is guaranteed across 27 member states.\n\nThe beautiful, Emma-optimized checkout that looked so good in demos was actually a wall that kept Henrik out. Our documentation had helped us build that wall by making it invisible.\n\n#\n\n#\n\n# The Bigger Picture: When Perfect Becomes the Enemy of Good\n**This isn't just about e-commerce or APIs. It's about a common management trap: optimizing for the ideal customer while ignoring the real ones.**\n\nEvery business has an Emma — the customer who makes your metrics look great and your demos sing. Every business also has a Henrik — the customer who reveals where your product actually breaks down across the complexity of the European market.\n\nMost teams build documentation like they're writing the owner's manual for a car that only drives on perfect German autobahns. They document the happy path because it's clean, predictable, and makes everyone feel competent.\n\nBut your customers don't live on perfect roads. They live in Henrik's Lapland, where the internet is slow and the banks have different rules. They work in Marcel's Lyon, where nothing is simple and everything needs approval under French commercial law.\n\n#\n\n#\n\n# Three Questions That Changed How We Build\nBefore we ship anything now, we ask:\n\n**Does this work for Henrik?** Not in theory — in practice, with his slow connection and strict Nordic banking requirements.\n\n**Can Sophie test the Henrik scenario herself?** Without scheduling an engineering deep-dive or hoping GDPR compliance works.\n\n**What does failure actually look like?** Not the sanitized error message, but the frustrated user experience across different EU regulations.\n\nThese questions changed how we think about everything from feature specs to marketing copy. Emma shows us what's possible. Henrik shows us what's necessary across the European Single Market.\n\nThe day our documentation started telling the truth about Henrik was the day we stopped building for the customer we wished we had and started building for the customers we actually serve across 27 different regulatory environments.\n\nThat's when our perfect prototype stopped lying and started working.\n\n> Your documentation isn't just instruction manual — it's a mirror. Make sure it's reflecting the right reality across all your markets.\n\n*More to come...*\n\n*I'll dig into the evolution of our API and its ripple effects on how we think about design systems.*\n\n*Want the rest of the story? Join me for the next one.*\n\n**#ProductStrategy #CustomerExperience #TechnicalDocumentation #EuropeanMarkets #ProductLeadership #APIDesign #UserCenteredDesign #GDPR #SingleMarket**",
+      "readTime": "Management",
+      "description": "The day our perfect prototype started lying to us.",
+      "content": "Content coming soon.",
       "tags": [
-        "Prototyping",
-        "Process",
-        "Reality"
+        "Design Systems",
+        "Prototyping"
       ],
-      "image": "assets/images/writing/lying-prototype.png"
+      "featured": true,
+      "series": "Design Systems Mastery",
+      "image": "/assets/images/writing/lying-prototype.png"
     },
     {
       "id": "ai-thinking",
-      "title": "AI won’t take my job, it forces me to think differently",
+      "title": "Systems Thinking in the Age of AI",
       "date": "2025-08-01",
-      "readTime": "Essay",
-      "description": "From asking AI to execute to asking it to challenge me: the prompt and process that actually change how I build.",
-      "content": "How I move from \"AI that executes\" to \"AI that challenges me.\" The prompt and process that actually change how I build.\n\nI've seen AI generate files I'd print and frame. I've also seen it break contexts by being too compliant. The difference isn't magic: it's how you talk to it. I'll tell you the change I made: from asking it to execute to asking it to challenge me.\n\n#\n\n#\n\n# A real change: when the AI left me speechless\nAt Western Union, after defining an initial collection of tokens, the AI refined the set and generated an SCSS so clean that I went straight to the CTO: \"This needs to be printed and framed.\" Specifically: it eliminated 27 duplicates, grouped semantic tokens by intent, and proposed a spacing scale that I later adopted in all projects. Learning: the value wasn't the code, it was the conversation that forced us to decide what was immutable.\n\nI've spent years reviewing and teaching token files — in companies like Amazon or Western Union, with large teams, analyzing them in courses and talks — and I had never seen one so polished, just like that, in one go.\n\n#\n\n#\n\n# Vulnerability: what really worries me\nYes, it's scary that now someone with less experience can set up a system in a fraction of the time. My response is not to compete against AI in execution, but to lead context, criteria, and agreements. That doesn't self-generate: it's designed by talking.\n\n#\n\n#\n\n# When AI fails\nThe Achilles heel of AI? If it lacks context, it can fail miserably. Early versions of GPT were terribly compliant: they always answered something, even if it didn't make sense. That's where our value still lies: knowing how to say \"not this way,\" demanding it asks us more and adds depth — not accepting the first draft or the easy answer.\n\n#\n\n#\n\n#\n\n# **Signs that the AI is being compliant (and how to stop it):**\n\n* It gives you long answers without asking for more context -> Answer: ask for 3 questions before proposing solutions.\n\n* It returns perfect code but disconnected from the problem -> Ask for \"rationale, trade-offs, and risks.\"\n\n* It says \"yes\" to everything -> Ask for counterexamples and a quick stress test.\n\n#\n\n#\n\n# The simplest but most powerful prompt I use\nI'll give you the prompt that has given me the best results:\n\n```\nYou are an expert in your field. From now on you will be my advisor on {specific topic}. Don't be compliant with me: question my assumptions, ask me questions before proposing solutions, and raise risks and trade-offs.\n\nLet's work in maximum 10-minute iterations and finish each round with:\n\n1) suggested decision\n\n2) risks\n\n3) next question\n```\n#\n\n#\n\n#\n\n# My 5-step flow\n\n* I define the context in 5 lines (who, for what, constraints).\n\n* I ask for 3 questions and stop (if it doesn't ask, I retry).\n\n* I demand 2 alternatives with trade-offs (not a generic \"best practice\").\n\n* I validate with a small example (not full specs).\n\n* I summarize what I've learned and use it as a prompt for the next iteration.\n\nThe key: it's not magic or flattery — it's opening a demanding conversation dynamic, back and forth, demanding value and refining together.\n\n#\n\n#\n\n# My practical advice\nDare yourself: start a basic project of your own from scratch with the help of AI, tinker, break it, iterate, and when you finish, ask the AI to summarize what you've learned and start again with that summary as the initial prompt.<br>The second, third, and fourth versions will be better and more yours.\n\n#\n\n#\n\n# And you?\nDo you dare to let AI challenge you — not just execute tasks for you? What was the last thing the AI taught you or that you would never have done without it?\n\n#AIUX #DesignSystems #Solopreneur #ProductThinking\n\n> Creativity isn't replaced by AI. But AI, if you understand it, forces you to be more creative than ever.",
+      "readTime": "Deep Dive",
+      "description": "Systems thinking in the age of AI.",
+      "content": "Content coming soon.",
       "tags": [
         "AI",
-        "Mindset",
-        "Career"
+        "Systems Thinking"
       ],
-      "image": "assets/images/writing/ai-thinking.png"
+      "featured": false,
+      "series": "AI & Future of Work",
+      "image": "/assets/images/writing/ai-thinking.png"
     },
     {
       "id": "writing-workflow",
-      "title": "How I publish a valuable post every week in 30 minutes",
-      "date": "2025-07-20",
-      "readTime": "Workflow",
-      "description": "No burnout, no waiting for inspiration. My AI-assisted writing system built on Notion.",
-      "content": "Can you imagine writing (and publishing), without burning out, without depending on inspiration... and without posturing?<br>The first day I didn't know if I would just write by inertia. Now I enjoy the process (almost) more than the post itself.\n\n> \"Famous people have books written about them after being interviewed. I have an AI that interviews me daily, challenges me and makes my ideas make sense — and that's enough for me.\"\n\n#\n\n#\n\n#\n\n# Why I systematized my process of publishing weekly\nBefore, I thought a valuable post required two or three days of going around in circles, sketching, rewriting and adjusting. <br>As a designer and engineer, I've always looked for clarity... but almost always my first draft is only understood by me (or my closest students), while it rarely resonates with a professional and demanding audience.\n\nUntil I accepted it:\n\n* Publishing has to be sustainable and fast, not perfect.\n\n* the best ideas usually arise after publishing, not before.\n\nSo I set up a weekly routine mixing a template in Notion, a very simple protocol and my new \"*creative partner*\": an AI that interviews me and perfects the result.\n\n* Before: Doubts, blocks, texts that didn't connect.\n\n* After: Freedom, focus and creative control thanks to the routine+AI.\n\n> For example, before each draft stayed unpublished for fear of criticism. Now, I publish without fear of it not being perfect, because real learning comes right after.\n\n#\n\n#\n\n#\n\n# My 30-minute workflow: creating content without burning out\nThe real process, without posturing?\n\n**1. I open my Notion template.<br>** Every week I duplicate a simple \"Daily Card\". It asks me:\n\n```\n#\n\n#\n\n# My daily template in Notion (extract)\n\n- **What is today's specific challenge/topic?**\n- **Why is this specific topic important to me / to others?**\n- **What have I done, experienced or learned about this (with a real anecdote)?**\n- **What barrier slowed me down and how did I get around it (if any)?**\n- **What \"micro-failure\" can I share that helps others?**\n- **What is the main idea I should remember if I could only write 1 line today?**\n- **How can I challenge my audience so they surprise me?**\n- **Clear call to action: What am I looking for today? Feedback, conversation, co-creation...**\n\n*(I add a quick reflection section like a \"mini-diary\" to understand if what I write today connects with the direction I want.)*\n```\n**2. I let the AI interview me based on what I've filled in on the card.<br>** Instead of fighting the blank page, I ask the AI to challenge me — *\"Where is the real problem? Where have I failed? Who does this really serve?\" *<br> Sometimes it refines my generic ideas, other times it turns around and asks exactly what my audience would need to hear.\n\n> *Real example:* \"Today the AI asked me if that example could be useful to someone without a technical background. That made me simplify the whole post.\"\n\n**3. I keep the post compact.<br>** No long essays: the learning or micro-story, at most before/after (**Before: 3 days per post. Now: 30 minutes and an established routine**).\n\n**4. I always publish a visual asset. <br>** Diagram, code snippet or simply an \"before/after comparison\" (sometimes I just export from Figma!). <br>Publishing something tangible separates your message from the fluff and gives real credibility.\n\n**5. I close with an honest CTA.<br>** No \"DM now,\" but a real proposal for interaction: have people comment on their routine, their worst fail, or if they want the template. The best answers become material for the next week's post.\n\n**6. Reflection/confession block.<br>** Always a real line of self-criticism (\"*I don't know if I nailed it for the pro audience today*\" / \"*I was too soft or went for the easy technicality*\"). It's my logbook: I write to organize myself and, in passing, to build community.\n\n#\n\n#\n\n#\n\n# Examples of real prompts and questions I use\n- \"*What did you learn the hard way prototyping with code?*\"<br>- \"*When did a routine or template really help you go faster, for real?*\"<br>- \"*Where do you lose more time or energy: drafting, editing, looking for feedback?*\"\n\n*(If you want, steal these questions for your Notion, Google Doc or paste them into your regular AI.)*\n\n#\n\n#\n\n# Why this routine WORKS\n\n* **Saves time**: I went from days to 30 minutes (sometimes less!) for each post.\n\n* **Frees you from the perfection trap:** Publishing periodically makes me worry less about each sentence — and focus more on learning alongside those who read me.\n\n* **Builds real authority:** Repetition, mini-stories and realistic lessons work much better than any \"*grand theory*\".\n\n#\n\n#\n\n#\n\n# Real vulnerability\nHonestly: I still doubt if my voice connects with the pro audience. Many times I get confused, I'm too empathetic ('sappy') or I'm somewhere between my usual teacher self and my more strategic version. <br>But this \"micro-routine-diary\" gives me focus and, best of all, creates a feedback loop where readers (and even those who criticize...) help improve both my content and my methodology.\n\nAnd you? Do you feel that your voice is sometimes diluted by 'acting like a teacher' or by fear of not sounding professional enough? I do — and that's why I suggest you try my routine and tell me if it also sets you free.\"\n\n#\n\n#\n\n# Do you want the template? Or see how the AI interviews me (really)?\nJust leave a comment \"INTERVIEW\" or send me a message. I'll share the template, script if it helps you start yours.<br>I still haven't found an AI capable of giving me feedback as 'real' as a sincere comment, a productive debate or even an unexpected criticism.\n\n> Routine doesn't kill creativity. On the contrary: it gives it the space to be honest, brief and shared every day.",
-      "tags": [
-        "Productivity",
-        "Writing",
-        "Notion"
-      ],
-      "image": "assets/images/writing/writing-workflow.png"
+      "featured": false,
+      "series": "AI & Future of Work",
+      "image": "/assets/images/writing/writing-workflow.png"
     }
   ],
   "ideas": [
@@ -220,78 +219,133 @@
       ]
     }
   ],
-  "caseStudies": [
+  "projects": [
     {
-      "id": "fintech-scale",
-      "title": "Global Efficiency Strategy",
+      "id": "western-union",
+      "title": "Radical Rationalization",
       "company": "Western Union",
-      "year": "2023",
-      "challenge": "Visual fragmentation and technical debt were costing millions in maintenance and slowing Time-to-Market.",
-      "image": "assets/images/projects/wu-ds.png",
-      "impact": {
-        "adoption": "10 -> 146",
-        "adoptionLabel": "Component Reduction",
-        "efficiency": "-40%",
-        "efficiencyLabel": "OpEx Reduction"
-      },
-      "technologies": [
-        "Global Strategy",
-        "Stakeholder Mgmt",
-        "Consolidation"
-      ]
+      "impact": "2023–Present",
+      "description": "Not a cosmetic redesign, but a systemic audit and federated governance strategy. Implementation of a Single Source of Truth based on design tokens. A scalable infrastructure enabling rapid localization in 4+ countries.",
+      "tags": [
+        "Federated Governance",
+        "Token Architecture",
+        "Change Management"
+      ],
+      "image": "/assets/images/projects/wu-ds.png",
+      "metrics": {
+        "primary": "146 → 10",
+        "primaryLabel": "Atomic Core Components",
+        "secondary": "-40%",
+        "secondaryLabel": "OpEx Reduction"
+      }
     },
     {
       "id": "alexa-multimodal",
-      "title": "Innovation in Complex Ambiguity",
+      "title": "Multimodal Innovation",
       "company": "Amazon Alexa",
-      "year": "2022",
-      "challenge": "Amazon needed to lead in VUI and Multimodality without a clear map. Defining standards for emerging tech.",
-      "image": "assets/images/projects/alexa.png",
-      "impact": {
-        "adoption": "C-Level",
-        "adoptionLabel": "Strategic Influence",
-        "efficiency": "Patents",
-        "efficiencyLabel": "Technical Innovation"
-      },
-      "technologies": [
-        "Executive Presence",
-        "Voice UI",
-        "ML Handoff"
-      ]
-    }
-  ],
-  "projects": [
-    {
-      "id": "alexa-shopping-ds",
-      "title": "Conversational Design System",
-      "role": "Design Technologist Manager",
-      "company": "Alexa Shopping (Amazon)",
-      "impact": "Q3 2022 launch",
-      "description": "Led the creation of the first conversational design system for Echo and FireTV. Cut component creation time by 80% through automation and strategic design tokens.",
+      "impact": "2021–2022",
+      "description": "Creation of the world's first voice design system. High-fidelity prototypes for 'Rufus' (Next-Gen AI Assistant) presented to CEO Andy Jassy. Standardization of VUI patterns used by millions of users.",
       "tags": [
         "Voice UI",
-        "APL",
-        "AI Strategy"
+        "Multimodality",
+        "ML Collaboration"
       ],
-      "image": "assets/images/projects/alexa-shopping-ds.png",
-      "architecture": "graph TD\n    A[Voice Intent] --> B[Conversational Model]\n    B --> C[Design System Tokens]\n    C --> D[Multi-modal Response]\n    D --> E[Echo Devices]"
+      "image": "/assets/images/projects/alexa.png",
+      "metrics": {
+        "primary": "C-Level",
+        "primaryLabel": "Presented to CEO",
+        "secondary": "-6 months",
+        "secondaryLabel": "Integration Time"
+      }
     },
     {
-      "id": "amazon-telescope",
-      "title": "Amazon Telescope",
-      "role": "Sr Design Technologist",
+      "id": "amazon-business",
+      "title": "Internal Tooling Innovation",
       "company": "Amazon Business",
-      "impact": "-50% Prototyping time",
-      "description": "Built a lean, code-first prototyping tool that removed the dependency on Figma for high‑fidelity validation. Final prototypes were indistinguishable from production.",
+      "impact": "2019–2021",
+      "description": "Creation of 'Telescope': an internal tool to assist prototyping, reducing iteration time by 45%. When tools don't exist, I build them. Democratized high-fidelity prototyping across 12+ teams.",
       "tags": [
+        "Internal Tooling",
         "Prototyping",
-        "React",
-        "Research Tooling"
+        "Process Innovation"
       ],
-      "image": "assets/images/projects/amazon-telescope.png",
-      "architecture": "flowchart LR\n    F[Figma Design] --> T[Telescope UI]\n    T --> C[Live Code Environment]\n    C --> P[Stakeholder Test]"
+      "image": "/assets/images/projects/amazon-business.png",
+      "metrics": {
+        "primary": "-45%",
+        "primaryLabel": "Prototyping Time",
+        "secondary": "12+",
+        "secondaryLabel": "Teams Using Tool"
+      }
+    },
+    {
+      "id": "telefonica",
+      "title": "Technical Origins",
+      "company": "Telefónica",
+      "impact": "2014–2019",
+      "description": "Development of reusable frontend libraries for rapid campaign deployment. Creative Technologist role bridging design and engineering. Established technical foundation: 10+ years in frontend trenches.",
+      "tags": [
+        "Creative Tech",
+        "Frontend",
+        "Component Libraries"
+      ],
+      "image": "/assets/images/projects/telefonica.png",
+      "metrics": {
+        "primary": "10+",
+        "primaryLabel": "Years Frontend",
+        "secondary": "Rapid",
+        "secondaryLabel": "Campaign Deployment"
+      }
     }
   ],
+  "ventureLab": {
+    "title": "How AI Let Me Operate as a 5-Person Engineering Team",
+    "subtitle": "Technical Venture",
+    "role": "Founder & Solo Builder",
+    "period": "2024 — Present",
+    "company": "BODADOS",
+    "narrative": "This isn't about the app. It's about the process. Bodados proves that I don't just lead human teams at Western Union—I know how to orchestrate synthetic workforces (AI agents) to build complex software. This is a futuristic skill that positions me ahead of the curve.",
+    "pillars": [
+      {
+        "title": "AI Orchestration",
+        "description": "Building and coordinating multiple AI agents (Antigravity) that handle code generation, testing, and deployment."
+      },
+      {
+        "title": "Technical Direction",
+        "description": "Stack selection (Next.js, Supabase) to maximize ROI. Collapsed development cycles by 70%."
+      },
+      {
+        "title": "Business Validation",
+        "description": "Real market testing: invitations as viral vectors, cashflow dynamics, and k-factor optimization."
+      }
+    ],
+    "productModel": [
+      {
+        "stage": "Input",
+        "items": [
+          "Market Hypothesis",
+          "User Research",
+          "Technical Constraints"
+        ]
+      },
+      {
+        "stage": "AI Agents",
+        "items": [
+          "Antigravity Framework",
+          "Code Generation",
+          "Auto-Testing"
+        ]
+      },
+      {
+        "stage": "Output",
+        "items": [
+          "Production Software",
+          "Validated Learning",
+          "Scalable Infrastructure"
+        ]
+      }
+    ],
+    "link": "https://bodados.com"
+  },
   "experience": [
     {
       "period": "2024 — Present",
@@ -382,7 +436,7 @@
       "description": "Automated repo scan that flags component forks, token drift, and adoption gaps.",
       "type": "AI Workflow",
       "url": "",
-      "image": "assets/images/playground/grid.png"
+      "image": "/assets/images/playground/grid.png"
     },
     {
       "id": "adoption-dashboard",
@@ -390,7 +444,7 @@
       "description": "Live metrics for coverage, team adoption, and time-to-component.",
       "type": "Analytics",
       "url": "",
-      "image": "assets/images/playground/typo.png"
+      "image": "/assets/images/playground/typo.png"
     },
     {
       "id": "ai-briefing",
@@ -398,7 +452,7 @@
       "description": "Discovery assistant that maps edge cases and risk zones before build.",
       "type": "Research",
       "url": "",
-      "image": "assets/images/playground/ui.png"
+      "image": "/assets/images/playground/ui.png"
     }
   ],
   "services": [
@@ -509,15 +563,16 @@
         "Business Logic",
         "AI Ops"
       ],
-      "image": "assets/images/case-studies/bodados.png",
+      "image": "/assets/images/case-studies/bodados.png",
       "link": "https://bodados.com"
     },
     {
-      "id": "western-union-ds",
+      "id": "western-union",
       "title": "Western Union Global Design Architecture",
       "status": "ONGOING - 2023-Present",
       "company": "Western Union",
       "year": "2023-Present",
+      "leadership": true,
       "role": "UX Manager & Design System Lead (Europe)",
       "timeline": "ongoing",
       "myRole": "Architecture & Governance Lead",
@@ -541,15 +596,16 @@
         "Regulatory Compliance",
         "API-Token Integration"
       ],
-      "image": "assets/images/case-studies/wu-ds.png",
+      "image": "/assets/images/case-studies/wu-ds.png",
       "link": "#western-union-ds"
     },
     {
-      "id": "alexa-shopping-ds",
+      "id": "alexa-multimodal",
       "title": "Alexa Multimodal Design System (Rufus)",
       "status": "ON HOLD - 2020-2022",
       "company": "Amazon",
       "year": "2020-2022",
+      "leadership": true,
       "role": "UX Engineer Manager",
       "timeline": "6 months",
       "myRole": "Product Engineer (Rufus AI Assistant)",
@@ -573,13 +629,13 @@
         "Rufus AI",
         "Machine Learning Handoff"
       ],
-      "image": "assets/images/case-studies/rufus.gif",
+      "image": "/assets/images/case-studies/rufus.gif",
       "videoUrl": "https://youtu.be/uXkDMBNCoFo",
       "content": "# Rufus: AI Assistant for Amazon Shopping\n\nRufus is a generative AI-powered shopping assistant trained on Amazon’s product catalog and information from across the web to answer customer questions on shopping needs, products, and comparisons.\n\n***\n\n## 🎥 Rufus Demonstration\n\n<div class=\"video-container\" style=\"position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 2rem 0; border-radius: var(--radius-md);\">\n  <iframe src=\"https://www.youtube.com/embed/uXkDMBNCoFo\" frameborder=\"0\" allowfullscreen style=\"position: absolute; top: 0; left: 0; width: 100%; height: 100%;\"></iframe>\n</div>\n\n***\n\n## 🧩 The Multimodal Challenge\n\nThe real challenge wasn't just building a chat assistant, but integrating that intelligence into a multimodal ecosystem (Echo, FireTV, Mobile) where voice and visual interfaces must work in perfect synchrony.\n\n### Multimodal Architecture\n\n- **State Synchronization**: Maintaining conversation context across different devices.\n- **UI Adaptability**: Rendering visual components that complement voice responses without overwhelming the user.\n- **ML Handoff**: Translating probabilistic model intents into a deterministic and coherent interface.\n",
       "link": "#alexa-shopping-ds"
     },
     {
-      "id": "amazon-telescope",
+      "id": "amazon-business",
       "title": "Telescope: Global Prototyping Engine",
       "status": "INTERNAL TOOLS",
       "company": "Amazon Business",
@@ -607,7 +663,7 @@
         "Internal Tooling",
         "ROI Analytics"
       ],
-      "image": "assets/images/case-studies/telescope.png",
+      "image": "/assets/images/case-studies/telescope.png",
       "link": "#amazon-telescope"
     }
   ]

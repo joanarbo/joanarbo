@@ -25,7 +25,9 @@ export function Header() {
     }, []);
 
     const toggleLanguage = () => {
-        setLanguage(language === 'en' ? 'es' : 'en');
+        if (language === 'en') setLanguage('es');
+        else if (language === 'es') setLanguage('ca');
+        else setLanguage('en');
     };
 
     return (
@@ -61,17 +63,16 @@ export function Header() {
                     </button>
 
                     <button className="lang-toggle" onClick={toggleLanguage} aria-label="Toggle language">
-                        {language === 'en' ? 'ES' : 'EN'}
+                        {language.toUpperCase()}
                     </button>
 
                     {/* Mobile Menu Button */}
                     <button
                         className={clsx("mobile-toggle", mobileMenuOpen && "open")}
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        aria-label="Toggle menu"
+                        aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
                     >
-                        <span></span>
-                        <span></span>
+                        <i className={clsx("ph-thin", mobileMenuOpen ? "ph-x" : "ph-list")}></i>
                     </button>
                 </div>
             </div>

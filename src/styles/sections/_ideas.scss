@@ -43,13 +43,13 @@
             width: 6px;
             height: 6px;
             border-radius: 50%;
-            background: #DDD;
+            background: var(--line-color);
             margin-right: 16px;
             flex-shrink: 0;
 
             &.active {
-                background: #10B981;
-                box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+                background: var(--success-color);
+                box-shadow: 0 0 10px rgba(var(--success-color-rgb), 0.3);
             }
         }
 

@@ -3,6 +3,8 @@
 import React from 'react';
 import { useData } from '@/hooks/useData';
 import { useTranslation } from '@/hooks/useTranslation';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import clsx from 'clsx';
 
 export function Experience() {
     const { t } = useTranslation();
@@ -11,9 +13,14 @@ export function Experience() {
     if (!data) return null; // Or a skeleton
 
     const experienceItems = data?.experience || [];
+    const { ref, isVisible } = useIntersectionObserver();
 
     return (
-        <section className="experience-section" id="experience">
+        <section
+            ref={ref}
+            className={clsx("experience-section section--blocked fade-in-section", isVisible && "is-visible")}
+            id="experience"
+        >
             <div className="container">
                 <div className="section-header">
                     <span className="section-label">{t.sections.experience.label}</span>
@@ -21,7 +28,7 @@ export function Experience() {
                     <p className="section-subtitle">{t.sections.experience.subtitle}</p>
                 </div>
 
-                <div className="experience-grid layout--zigzag">
+                <div className={clsx("experience-grid layout--zigzag stagger-children", isVisible && "is-visible")}>
                     {experienceItems.map((item: any, index: number) => (
                         <div key={index} className="experience-item fade-in-up">
                             <div className="exp-header">

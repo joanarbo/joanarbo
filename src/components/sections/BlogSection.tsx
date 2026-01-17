@@ -4,7 +4,9 @@ import React, { useState } from 'react';
 import { useData } from '@/hooks/useData';
 import { useTranslation } from '@/hooks/useTranslation';
 import Link from 'next/link';
-// import Image from 'next/image'; // Use standard img for now to match styles easily, or switch to Image
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import clsx from 'clsx';
+import Image from 'next/image';
 
 export function BlogSection() {
     const { t } = useTranslation();
@@ -12,6 +14,7 @@ export function BlogSection() {
     const [searchQuery, setSearchQuery] = useState('');
 
     const posts = data?.posts || [];
+    const { ref, isVisible } = useIntersectionObserver();
 
     // Filter posts based on search
     const filteredPosts = posts.filter((post: any) => {
@@ -21,7 +24,11 @@ export function BlogSection() {
     });
 
     return (
-        <section className="blog-section" id="blog">
+        <section
+            ref={ref}
+            className={clsx("blog-section fade-in-section", isVisible && "is-visible")}
+            id="blog"
+        >
             <div className="container">
                 <div className="section-header">
                     <div>
@@ -42,11 +49,18 @@ export function BlogSection() {
                     </div>
                 </div>
 
-                <div className="posts-grid">
-                    {filteredPosts.map((post: any, index: number) => (
-                        <Link href={`/blog/${post.id}`} key={index} className={`post-card ${post.featured ? 'featured' : ''}`}>
+                <div className={clsx("posts-grid stagger-children", isVisible && "is-visible")}>
+                    {filteredPosts.map((post: any, i: number) => (
+                        <Link href={`/blog/${post.slug || post.id}`} key={post.slug || post.id || i} className={`post-card fade-in-up ${post.featured ? 'featured' : ''}`}>
                             <div className="post-cover">
-                                <img src={post.image || post.coverImage || 'https://placehold.co/600x400/1a1a1a/FFF'} alt={post.title} />
+                                <Image
+                                    src={post.image || post.coverImage || 'https://placehold.co/600x400/1a1a1a/FFF'}
+                                    alt={post.title}
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                    priority={i < 2}
+                                    style={{ objectFit: 'cover' }}
+                                />
                                 {post.series && <span className="post-series-badge">{post.series}</span>}
                             </div>
 
@@ -70,7 +84,7 @@ export function BlogSection() {
                                     </div>
                                     <span className="read-more-link">
                                         {t.labels?.readArticle || 'Read Article'}
-                                        <i className="ph ph-arrow-right"></i>
+                                        <i className="ph-thin ph-arrow-right"></i>
                                     </span>
                                 </div>
                             </div>

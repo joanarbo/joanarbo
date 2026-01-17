@@ -10,13 +10,13 @@
     .newsletter-card {
         max-width: 1000px;
         margin: 0 auto;
-        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        background: linear-gradient(135deg, var(--static-slate) 0%, var(--static-navy) 100%);
         padding: 100px 80px;
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 24px;
         box-shadow: 0 50px 100px rgba(0, 0, 0, 0.2);
         text-align: center;
-        color: #fff;
+        color: var(--static-white);
         position: relative;
         overflow: hidden;
 
@@ -32,7 +32,7 @@
         .newsletter-title,
         .newsletter-subtitle,
         .newsletter-note {
-            color: #fff !important;
+            color: var(--static-white) !important;
         }
 
         @media (max-width: 768px) {
@@ -61,11 +61,11 @@
             margin-bottom: 48px;
             padding: 12px 24px;
             background: rgba(var(--accent-color-rgb), 0.05);
-            border: 1px dashed #64ffda;
+            border: 1px dashed var(--accent-color);
             border-radius: 4px;
             @include text-mono;
             font-size: 0.85rem;
-            color: #bae6fd;
+            color: var(--info-color);
         }
 
         .newsletter-form-container {

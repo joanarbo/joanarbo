@@ -3,11 +3,14 @@
 import { useTranslation } from '@/hooks/useTranslation';
 import { useData } from '@/hooks/useData';
 import { useState } from 'react';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import clsx from 'clsx';
 
 export function Leadership() {
     const { t } = useTranslation();
     const data = useData();
     const [activeTab, setActiveTab] = useState<'philosophy' | 'mentoring' | 'advisory'>('philosophy');
+    const { ref, isVisible } = useIntersectionObserver();
 
     const tabs = [
         { id: 'philosophy', label: t.sections.leadership.tabs.philosophy },
@@ -16,7 +19,11 @@ export function Leadership() {
     ];
 
     return (
-        <section className="leadership-section" id="leadership">
+        <section
+            ref={ref}
+            className={clsx("leadership-section section--blocked fade-in-section", isVisible && "is-visible")}
+            id="leadership"
+        >
             <div className="container">
                 <div className="section-header">
                     <span className="section-label">{t.sections.leadership.label}</span>

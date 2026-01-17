@@ -3,13 +3,20 @@
 import React from 'react';
 import { useTranslation } from '@/hooks/useTranslation';
 import { useData } from '@/hooks/useData';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import clsx from 'clsx';
 
 export function Teaching() {
     const { t } = useTranslation();
     const data = useData();
+    const { ref, isVisible } = useIntersectionObserver();
 
     return (
-        <section className="teaching-section" id="teaching">
+        <section
+            ref={ref}
+            className={clsx("teaching-section fade-in-section", isVisible && "is-visible")}
+            id="teaching"
+        >
             <div className="container">
                 <div className="section-header">
                     <span className="section-label">{t.sections.thoughtLeadership.label}</span>

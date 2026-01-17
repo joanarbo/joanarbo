@@ -1,0 +1,183 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.venture-lab-section {
+    padding: 120px 0;
+    background-color: var(--bg-secondary-color);
+    border-bottom: 1px solid var(--line-color);
+
+    @include mobile {
+        padding: 80px 0;
+    }
+}
+
+.venture-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-top: 60px;
+
+    @include mobile {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+.venture-narrative-col {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.venture-intro {
+    .venture-role {
+        display: block;
+        @include text-mono;
+        font-size: 0.9rem;
+        color: var(--text-secondary-color);
+        margin-bottom: 16px;
+    }
+
+    .venture-desc {
+        font-size: 1.5rem;
+        line-height: 1.4;
+        color: var(--text-color);
+        font-weight: 300;
+
+        @include mobile {
+            font-size: 1.2rem;
+        }
+    }
+}
+
+.venture-pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 20px;
+    border-left: 1px solid var(--line-color);
+    padding-left: 24px;
+}
+
+.pillar-item {
+    .pillar-title {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: var(--text-color);
+    }
+
+    .pillar-desc {
+        font-size: 0.95rem;
+        color: var(--text-secondary-color);
+        line-height: 1.6;
+    }
+}
+
+/* Product Model Visualization */
+.venture-visual-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.product-model-diagram {
+    background: var(--surface-color);
+    border: 1px solid var(--line-color);
+    border-radius: $radius-sm;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--text-color), transparent);
+    }
+
+    .model-header-label {
+        @include text-mono;
+        font-size: 0.75rem;
+        color: var(--text-secondary-color);
+        margin-bottom: 24px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+
+    .model-stages {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 20px;
+
+        @include mobile {
+            flex-direction: column;
+            gap: 40px;
+        }
+    }
+}
+
+.model-stage {
+    flex: 1;
+    position: relative;
+
+    .stage-header {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 16px;
+        border-bottom: 1px solid var(--line-color);
+        padding-bottom: 12px;
+
+        .stage-step {
+            @include text-mono;
+            font-size: 0.8rem;
+            color: var(--text-secondary-color);
+        }
+
+        .stage-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+    }
+
+    .stage-items {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .stage-item {
+            font-size: 0.85rem;
+            color: var(--text-secondary-color);
+            background: rgba(var(--text-color-rgb), 0.03);
+            padding: 6px 10px;
+            border-radius: 4px;
+        }
+    }
+
+    /* Arrow Connector */
+    .stage-connector {
+        position: absolute;
+        top: 24px;
+        /* Align with header roughly */
+        right: -15px;
+        color: var(--text-secondary-color);
+        font-size: 1.2rem;
+        transform: translateX(50%);
+
+        @include mobile {
+            top: auto;
+            bottom: -25px;
+            right: 50%;
+            transform: translateX(50%) rotate(90deg);
+        }
+    }
+}

@@ -81,11 +81,11 @@
                 gap: 6px;
 
                 &.on-track i {
-                    color: #10B981;
+                    color: var(--success-color);
                 }
 
                 &.completed i {
-                    color: #3B82F6;
+                    color: var(--accent-bright-color);
                 }
             }
         }

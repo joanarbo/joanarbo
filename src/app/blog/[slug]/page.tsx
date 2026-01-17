@@ -5,6 +5,7 @@ import { useParams } from 'next/navigation';
 import { useData } from '@/hooks/useData';
 import Link from 'next/link';
 import { useTranslation } from '@/hooks/useTranslation';
+import { ReadingProgressBar } from '@/components/ui/ReadingProgressBar';
 
 export default function BlogPost() {
     const params = useParams();
@@ -66,16 +67,21 @@ export default function BlogPost() {
 
     return (
         <article className="blog-post-page">
+            <ReadingProgressBar />
             <div className="container">
                 <Link href="/#blog" className="back-link">
-                    <i className="ph-bold ph-arrow-left"></i> {t.labels?.back || 'Back'}
+                    <i className="ph-thin ph-arrow-left"></i> {t.labels?.back || 'Back'}
                 </Link>
 
                 <header className="post-header">
                     <div className="post-meta">
                         <span>{post.date}</span>
-                        <span className="meta-sep">•</span>
-                        <span>{post.readTime}</span>
+                        {post.readTime && (
+                            <>
+                                <span className="meta-sep">•</span>
+                                <span>{post.readTime}</span>
+                            </>
+                        )}
                     </div>
                     <h1 className="post-title">{post.title}</h1>
                     {post.tags && (

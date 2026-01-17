@@ -3,7 +3,7 @@
 
 /* Blog Section & Search - Editorial Redesign */
 .blog-section {
-    padding: 120px 0;
+    padding: 80px 0; // Reduced from 120px
     overflow: hidden;
 
     .section-header {
@@ -11,9 +11,9 @@
         grid-template-columns: 1fr auto;
         align-items: end;
         gap: 40px;
-        margin-bottom: 80px;
+        margin-bottom: 40px; // Reduced from 80px
         border-bottom: 1px solid var(--line-color);
-        padding-bottom: 40px;
+        padding-bottom: 24px; // Reduced from 40px
 
         @media(max-width: 768px) {
             grid-template-columns: 1fr;
@@ -156,6 +156,7 @@
 
                     @media(max-width: 768px) {
                         font-size: 2rem;
+                        hyphens: auto;
                     }
                 }
 
@@ -178,6 +179,13 @@
                     padding-left: 8px;
                     color: var(--accent-color);
                 }
+            }
+
+            // Add subtle lift to the whole card context if desired, or just keep it flat/editorial
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: translateY(-4px);
             }
         }
     }
@@ -246,6 +254,8 @@
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
+        word-wrap: break-word;
+        hyphens: auto;
     }
 
     .post-excerpt {

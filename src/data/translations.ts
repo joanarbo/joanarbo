@@ -200,7 +200,13 @@ export const translations = {
             subscribeButton: "Subscribe",
             emailPlaceholder: "your@email.com",
             contents: "Contents",
+            visitSite: "Visit site",
             back: "Back"
+        },
+        theme: {
+            toggle: "Toggle theme",
+            dark: "Switch to dark theme",
+            light: "Switch to light theme"
         }
     },
     es: {
@@ -214,8 +220,8 @@ export const translations = {
         },
         hero: {
             badge: "Disponible para Proyectos y Consultoría",
-            title: "<span class='highlight'>Design Systems Lead</span> & Strategist",
-            description: "Escalando Operaciones de Producto a través de Sistemas de Diseño. Ayudo a organizaciones como Amazon y Western Union a traducir estrategia de negocio en infraestructura de diseño eficiente.",
+            title: "<span class='highlight'>Design Systems Lead</span> & Estratega",
+            description: "Escalando Operaciones de Producto a través de Sistemas de Diseño. Ayudo a organizaciones como Amazon y Western Union a traducir la estrategia de negocio en infraestructura de diseño eficiente.",
             viewCases: "Ejecución e Impacto",
             talkSystem: "Contactar",
             scroll: "Scroll"
@@ -223,7 +229,7 @@ export const translations = {
         buildInPublic: {
             badge: "Venture Lab",
             role: "Liderazgo de Producto",
-            desc: "Bodados es mi laboratorio vivo donde aplico estrategia de producto end-to-end, gestiono roadmaps complejos y valido hipótesis de negocio usando IA.",
+            desc: "Bodados es mi laboratorio vivo donde aplico estrategia de producto de extremo a extremo, gestiono hojas de ruta complejas y valido hipótesis de negocio usando IA.",
             statusLabel: "Estado",
             statusValue: "Validación de Mercado",
             challengeLabel: "Tesis",
@@ -253,23 +259,23 @@ export const translations = {
                 subtitle: "Mi enfoque para liderar organizaciones de diseño e ingeniería.",
                 tabs: {
                     philosophy: "Filosofía",
-                    mentoring: "Mentoring",
-                    advisory: "Advisory"
+                    mentoring: "Mentoría",
+                    advisory: "Asesoría"
                 }
             },
             process: {
                 label: "Proceso",
                 title: "Workflows AI-Native (2026)",
                 subtitle: "Velocidad sin compromisos: integridad arquitectónica mediante IA refinada por humanos.",
-                step1: { title: "Discovery con Agentes", desc: "Casos borde, restricciones y superficie de riesgo mapeados con agentes especializados." },
-                step2: { title: "Arquitectura", desc: "Borradores técnicos co-autorados con Perplexity, validados contra restricciones sistémicas." },
+                step1: { title: "Discovery con Agents", desc: "Casos borde, restricciones y superficie de riesgo mapeados con agentes especializados." },
+                step2: { title: "Arquitectura", desc: "Borradores técnicos co-autorados con Claude, validados contra restricciones sistémicas." },
                 step3: { title: "Refinamiento Humano", desc: "Code review estratégico, patrones de test y trade-offs de producto verificados manualmente." },
                 step4: { title: "Velocidad 10x", desc: "Entrega de grado Senior sin sacrificar robustez ni calidad de diseño." }
             },
             work: {
                 label: "Ingeniería",
                 title: "Arquitectura Seleccionada",
-                subtitle: "Sistemas que escalan a través de equipos y productos. Evolucionando los sistemas de diseño para que dejen de ser simples librerías y se conviertan en infraestructura viva que soporta lógica de negocio y agentes IA."
+                subtitle: "Infraestructura que escala a través de equipos y productos distribuidos"
             },
             services: {
                 label: "Servicios",
@@ -282,12 +288,12 @@ export const translations = {
                 clearFilters: "Reset",
                 seriesTitle: "Series de Conocimiento",
                 allPosts: "Archivo",
-                label: "Escritura",
-                title: "Notas de Campo",
+                label: "Notas de Campo",
+                title: "Escritura",
                 subtitle: "Briefs sobre ingeniería de diseño, arquitectura de sistemas y estrategia IA.",
                 searchPlaceholder: "Buscar notas de campo...",
                 featured: "Posts destacados",
-                noResults: "No se encontraron resultados",
+                noResults: "No se han encontrado resultados",
                 tryAdjusting: "Prueba ajustando tus filtros o términos de búsqueda.",
                 clearAll: "Limpiar todos los filtros",
                 viewMore: "Ver más posts",
@@ -297,7 +303,7 @@ export const translations = {
                 label: "Documentación",
                 title: "Casos Públicos",
                 subtitle: "Sistemas de diseño reales documentados en abierto.",
-                bodadosDesc: "El sistema de diseño multi-plataforma que alimenta Bodados.com.",
+                bodadosDesc: "El Sistema de Diseño multi-plataforma que alimenta Bodados.com.",
                 viewDocs: "Ver documentación",
                 alexaDesc: "Referencia pública de componentes y patrones de voz construidos para Alexa.",
                 viewArchive: "Ver archivo"
@@ -305,43 +311,43 @@ export const translations = {
             ideas: {
                 label: "Laboratorio",
                 title: "Prototipos",
-                subtitle: "Agentes de diseño autónomos y evolución de sistemas de diseño multimodales"
+                subtitle: "Conceptos experimentales y briefs técnicos funcionales"
             },
             about: {
                 label: "Perfil",
                 title: "Sobre mí",
-                p1: "Soy Joan, un **Operational Strategy Lead** especializado en conectar Diseño, Ingeniería y Negocio mediante Sistemas Escalables.",
-                p2: "No se trata solo de mantener una librería. Se trata de ser el socio estratégico del VP de Ingeniería y Producto para que sus equipos vuelen. En **Western Union** y **Amazon**, no solo 'hice componentes'—ejecuté estrategias de consolidación para reducir deuda técnica y acelerar el time-to-market.",
-                p3: "En mi Venture Lab (**Bodados**), demuestro visión completa de producto. Defino roadmaps, priorizo features, gestiono recursos (Agentes IA) y toco negocio. Es la prueba de que puedo hablar con un VP de Producto de tú a tú.",
-                p4: "Ayudo a organizaciones a cerrar la brecha entre visión y ejecución, diseñando cimientos técnicos que no solo son robustos, sino que impulsan directamente un **impacto de negocio medible**.",
-                stackTitle: "Competencias Core",
+                p1: "Soy Joan, un **Operational Strategy Lead** especializado en conectar Diseño, Ingeniería y Negocio a través de Sistemas Escalables.",
+                p2: "No se trata solo de mantener una librería. Se trata de ser el socio estratégico de los VP de Ingeniería y Producto para ayudar a sus equipos a volar. En **Western Union** y **Amazon**, no solo hice 'componentes', ejecuté estrategias de consolidación para reducir la deuda técnica y acelerar el tiempo de lanzamiento al mercado.",
+                p3: "En mi Venture Lab (**Bodados**), demuestro una visión de producto completa. Defino hojas de ruta, priorizo funciones (Cashflow, Alergias), gestiono recursos (Agentes de IA) y toco la lógica de negocio. Es la prueba de que puedo hablar con un VP de Producto de tú a tú.",
+                p4: "Ayudo a las organizaciones a cerrar la brecha entre la visión y la ejecución, diseñando bases técnicas que no solo son sólidas, sino que impulsan directamente un **impacto empresarial medible**.",
+                stackTitle: "Competencias Principales",
                 catFrontend: "Estrategia de Diseño / Sistemas",
                 catBackend: "Liderazgo de Equipos / Ops",
                 catAI: "Gestión de Stakeholders"
             },
             now: {
                 label: "Estado",
-                title: "Qué estoy haciendo ahora",
-                subtitle: "Construyendo sistemas, creando contenido y aprendiendo.",
-                date: "15 Ene, 2026",
-                card1: { title: "Producto (Bodados)", desc: "Construyendo el MVP en React. Enfocado en Loops de adquisición y SEO programático." },
-                card2: { title: "Contenido", desc: "Escribiendo semanalmente en la newsletter sobre Design Engineering y documentando el viaje de founder en Substack." },
-                card3: { title: "Aprendizaje", desc: "Profundizando en React y Performance." },
-                card4: { title: "Docencia", desc: "Viendo como documentar todo lo aprendido todos estos años." }
+                title: "En qué estoy ahora",
+                subtitle: "Sistemas de ingeniería, auditoría de flujos de trabajo y aprendizaje recursivo.",
+                date: "15 de enero de 2026",
+                card1: { title: "Producto (Bodados)", desc: "Construyendo el MVP en React. Enfocado en Loops de Adquisición y SEO Programático." },
+                card2: { title: "Contenido", desc: "Escribiendo semanalmente en la newsletter sobre Ingeniería de Diseño y documentando el viaje del fundador en Substack." },
+                card3: { title: "Aprendizaje", desc: "Profundizando en React (Arquitectura y Rendimiento) y Estrategias de Monetización B2C." },
+                card4: { title: "Docencia", desc: "Viendo cómo documentar todo lo aprendido todos estos años." }
             },
             experience: {
                 label: "Trayectoria",
                 title: "Experiencia",
-                subtitle: "Una trayectoria enfocada en la intersección entre diseño, ingeniería y escala.",
+                subtitle: "Una trayectoria enfocada en la intersección del diseño, la ingeniería y la escala.",
                 viewFullCv: "Ver CV Completo"
             },
             principles: {
                 label: "Cultura y Gobernanza",
                 title: "Principios Operativos",
-                subtitle: "Reglas de juego para construir sistemas resilientes y eficientes."
+                subtitle: "Reglas de compromiso para construir sistemas resilientes y eficientes."
             },
             playground: {
-                title: "Demos de Flujo IA",
+                title: "Demos de Workflow de IA",
                 subtitle: "Demos en vivo de auditorías automatizadas y herramientas de sistema"
             },
             designSystem: {
@@ -350,7 +356,7 @@ export const translations = {
                 tokens: { title: "Design Tokens", desc: "Decisiones de diseño centralizadas como código" },
                 components: { title: "Librería de Componentes", desc: "Componentes UI reutilizables y accesibles" },
                 docs: { title: "Documentación", desc: "Guías completas y mejores prácticas" },
-                metrics: { components: "Componentes", typeSafe: "Tipado Seguro", compliant: "Cumplimiento", teamsUsing: "Equipos Usando" }
+                metrics: { components: "Componentes", typeSafe: "Tipado Seguro", compliant: "Accesible", teamsUsing: "Equipos" }
             },
             newsletter: {
                 title: "SYSTEM BUILDER NEWSLETTER",
@@ -370,11 +376,11 @@ export const translations = {
                 substack: "Substack",
                 substackDesc: "Suscríbete a la newsletter",
                 medium: "Medium",
-                mediumDesc: "Lee mis artículos"
+                mediumDesc: "Lee artículos"
             }
         },
         footer: {
-            rights: "© 2026 Joan Arbo · AI Systems Architect",
+            rights: "© 2026 Joan Arbo · Arquitecto de Sistemas de IA",
             builtWith: "Arquitectura con Cursor AI · Systems over fluff"
         },
         modal: {
@@ -399,15 +405,231 @@ export const translations = {
             software: "Software",
             analog: "Analógico",
             sending: "Enviando...",
-            subscribeNotify: "¡Perfecto! Revisa tu correo para confirmar tu suscripción.",
+            subscribeNotify: "¡Perfecto! Revisa tu email para confirmar la suscripción.",
             subscribeError: "Hubo un problema. Por favor, inténtalo de nuevo.",
             subscribeButton: "Suscribirme",
             emailPlaceholder: "tu@email.com",
             contents: "Contenido",
+            visitSite: "Visitar sitio",
             back: "Volver"
+        },
+        theme: {
+            toggle: "Cambiar tema",
+            dark: "Cambiar a tema oscuro",
+            light: "Cambiar a tema claro"
+        }
+    },
+    ca: {
+        nav: {
+            caseStudies: "Casos d'Estudi",
+            services: "Serveis",
+            blog: "Blog",
+            about: "Sobre mi",
+            contact: "Contacte",
+            bookCall: "Reservar trucada"
+        },
+        hero: {
+            badge: "Disponible per a Projectes i Consultoria",
+            title: "<span class='highlight'>Design Systems Lead</span> & Strategist",
+            description: "Escalant Operacions de Producte a través de Sistemes de Disseny. Ajudo a organitzacions com Amazon i Western Union a traduir l'estratègia de negoci en infraestructura de disseny eficient.",
+            viewCases: "Execució i Impacte",
+            talkSystem: "Contactar",
+            scroll: "Scroll"
+        },
+        buildInPublic: {
+            badge: "Venture Lab",
+            role: "Lideratge de Producte",
+            desc: "Bodados és el meu laboratori viu on aplico estratègia de producte end-to-end, gestiono roadmaps complexos i valido hipòtesis de negoci fent servir IA.",
+            statusLabel: "Estat",
+            statusValue: "Validació de Mercat",
+            challengeLabel: "Tesi",
+            challengeValue: "Solo-Entrepreneurship a Escala",
+            viewProject: "Veure projecte"
+        },
+        trustedBy: "Han confiat en la meva feina:",
+        sections: {
+            caseStudies: {
+                label: "Casos d'Ús",
+                title: "Impacte de Negoci",
+                subtitle: "Resolent problemes complexos mitjançant el pensament sistèmic i execució enfocada."
+            },
+            teaching: {
+                title: "Educació i Mentoria",
+                subtitle: "Més de 200 professionals formats en Design Systems i enginyeria de producte",
+                cta: "Formació in-company"
+            },
+            thoughtLeadership: {
+                label: "Creixement i Educació",
+                title: "Thought Leadership",
+                subtitle: "Divulgació sobre Pensament Sistèmic en conferències i publicacions"
+            },
+            leadership: {
+                label: "Lideratge i Estratègia",
+                title: "Operant a Escala",
+                subtitle: "El meu enfocament per liderar organitzacions de disseny i enginyeria.",
+                tabs: {
+                    philosophy: "Filosofia",
+                    mentoring: "Mentoring",
+                    advisory: "Advisory"
+                }
+            },
+            process: {
+                label: "Procés",
+                title: "Workflows AI-Native (2026)",
+                subtitle: "Velocitat sense compromisos: integritat arquitectònica mitjançant IA refinada per humans.",
+                step1: { title: "Discovery amb Agents", desc: "Casos frontissa, restriccions i superfície de risc mapats amb agents especialitzats." },
+                step2: { title: "Arquitectura", desc: "Esborranys tècnics co-autorats amb Perplexity, validats contra restriccions sistèmiques." },
+                step3: { title: "Refinament Humà", desc: "Code review estratègic, patrons de test i trade-offs de producte verificats manualment." },
+                step4: { title: "Velocitat 10x", desc: "Entrega de grau Senior sense sacrificar robustesa ni qualitat de disseny." }
+            },
+            work: {
+                label: "Enginyeria",
+                title: "Arquitectura Seleccionada",
+                subtitle: "Sistemes que escalen a través d'equips i productes. Evolucionant els sistemes de disseny perquè deixin de ser simples llibreries i es converteixin en infraestructura viva que suporta lògica de negoci i agents IA."
+            },
+            services: {
+                label: "Serveis",
+                title: "Serveis / Contractació",
+                subtitle: "Abasts clars, rangs de preus i resultats."
+            },
+            blog: {
+                topicsTitle: "Temàtiques de Sistema",
+                exploreTitle: "Explorar per arquitectura",
+                clearFilters: "Reset",
+                seriesTitle: "Sèries de Coneixement",
+                allPosts: "Arxiu",
+                label: "Escriptura",
+                title: "Notes de Camp",
+                subtitle: "Briefs sobre enginyeria de disseny, arquitectura de sistemes i estratègia IA.",
+                searchPlaceholder: "Cercar notes de camp...",
+                featured: "Posts destacats",
+                noResults: "No s'han trobat resultats",
+                tryAdjusting: "Prova ajustant els teus filtres o termes de cerca.",
+                clearAll: "Netejar tots els filtres",
+                viewMore: "Veure més posts",
+                share: "T'ha agradat aquesta lectura?"
+            },
+            publicCases: {
+                label: "Documentació",
+                title: "Casos Públics",
+                subtitle: "Sistemes de disseny reals documentats en obert.",
+                bodadosDesc: "El sistema de disseny multi-plataforma que alimenta Bodados.com.",
+                viewDocs: "Veure documentació",
+                alexaDesc: "Referència pública de components i patrons de veu construïts per a Alexa.",
+                viewArchive: "Veure arxiu"
+            },
+            ideas: {
+                label: "Laboratori",
+                title: "Prototius",
+                subtitle: "Agents de disseny autònoms i evolució de sistemes de disseny multimodals"
+            },
+            about: {
+                label: "Perfil",
+                title: "Sobre mi",
+                p1: "Soc en Joan, un **Operational Strategy Lead** especialitzat en connectar Disseny, Enginyeria i Negoci mitjançant Sistemes Escalables.",
+                p2: "No es tracta només de mantenir una llibreria. Es tracta de ser el soci estratègic del VP d'Enginyeria i Producte perquè els seus equips volin. A **Western Union** i **Amazon**, no només vaig 'fer components'—vaig executar estratègies de consolidació per reduir deute tècnic i accelerar el time-to-market.",
+                p3: "Al meu Venture Lab (**Bodados**), demostro visió completa de producte. Defineixo roadmaps, prioritzo features, gestiono recursos (Agents IA) i toco negoci. És la prova que puc parlar amb un VP de Producte de tu a tu.",
+                p4: "Ajudo a organitzacions a tancar la bretxa entre visió i execució, dissenyant fonaments tècnics que no només són robustos, sinó que impulsen directament un **impacte de negoci mesurable**.",
+                stackTitle: "Competències Core",
+                catFrontend: "Estratègia de Disseny / Sistemes",
+                catBackend: "Lideratge d'Equips / Ops",
+                catAI: "Gestió de Stakeholders"
+            },
+            now: {
+                label: "Estat",
+                title: "Què estic fent ara",
+                subtitle: "Construint sistemes, creant contingut i aprenent.",
+                date: "15 Gen, 2026",
+                card1: { title: "Producte (Bodados)", desc: "Construint l'MVP en React. Enfocat en Loops d'adquisició i SEO programàtic." },
+                card2: { title: "Contingut", desc: "Escrivint setmanalment a la newsletter sobre Design Engineering i documentant el viatge de de founder a Substack." },
+                card3: { title: "Aprenentatge", desc: "Aprofundint en React i Performance." },
+                card4: { title: "Docència", desc: "Veient com documentar tot l'aprenentatge d'aquests anys." }
+            },
+            experience: {
+                label: "Trajectòria",
+                title: "Experiència",
+                subtitle: "Una trajectòria enfocada en la intersecció entre disseny, enginyeria i escala.",
+                viewFullCv: "Veure CV Complet"
+            },
+            principles: {
+                label: "Cultura i Governança",
+                title: "Principis Operatius",
+                subtitle: "Regles de joc per construir sistemes resilients i eficients."
+            },
+            playground: {
+                title: "Demos de Flux IA",
+                subtitle: "Demos en viu d'auditories automatitzades i eines de sistema"
+            },
+            designSystem: {
+                title: "Showcase de Design System",
+                subtitle: "Construint llibreries de components escalables i mantenibles",
+                tokens: { title: "Design Tokens", desc: "Decisions de disseny centralitzades com a codi" },
+                components: { title: "Llibreria de Components", desc: "Components UI reutilitzables i accessibles" },
+                docs: { title: "Documentació", desc: "Guies completes i millors pràctiques" },
+                metrics: { components: "Components", typeSafe: "Tipat Segur", compliant: "Compliment", teamsUsing: "Equips Fent Servir" }
+            },
+            newsletter: {
+                title: "SYSTEM BUILDER NEWSLETTER",
+                desc: "Aprenentatges setmanals sobre sistemes, producte i IA. Tàctiques reals, zero teoria.",
+                bonus: "<strong>Bonus:</strong> Rep el meu framework d'Auditoria de Design Systems (PDF) en subscriure't.",
+                cta: "Vull el sistema",
+                note: "Sense spam, només sistemes dels quals aprendre.",
+                validation: "Validació Final"
+            },
+            contact: {
+                label: "Connexió",
+                title: "Connectem",
+                subtitle: "Tens un projecte al cap o vols col·laborar? M'encantaria escoltar-te.",
+                email: "Email",
+                linkedin: "LinkedIn",
+                linkedinDesc: "Connecta amb mi",
+                substack: "Substack",
+                substackDesc: "Subscriu-te a la newsletter",
+                medium: "Medium",
+                mediumDesc: "Llegeix els meus articles"
+            }
+        },
+        footer: {
+            rights: "© 2026 Joan Arbo · AI Systems Architect",
+            builtWith: "Arquitectura amb Cursor AI · Systems over fluff"
+        },
+        modal: {
+            prev: "Anterior",
+            next: "Següent"
+        },
+        labels: {
+            challenge: "Repte",
+            solution: "Solució",
+            myRole: "El meu Rol",
+            team: "Equip",
+            businessImpact: "Impacte de Negoci",
+            architecture: "Arquitectura",
+            viewTalk: "Veure xerrada",
+            readArticle: "Llegir article",
+            comingSoon: "Properament",
+            readTime: "min lectura",
+            readMore: "Saber-ne més",
+            concept: "Concepte",
+            lastUpdated: "Última actualització",
+            by: "per",
+            software: "Programari",
+            analog: "Analògic",
+            sending: "Enviant...",
+            subscribeNotify: "Perfecte! Revisa el teu correu per confirmar la subscripció.",
+            subscribeError: "Hi ha hagut un problema. Si us plau, torna-ho a intentar.",
+            subscribeButton: "Subscriure'm",
+            emailPlaceholder: "el-teu@email.com",
+            contents: "Contingut",
+            visitSite: "Visitar lloc web",
+            back: "Tornar"
+        },
+        theme: {
+            toggle: "Canviar tema",
+            dark: "Canviar a tema fosc",
+            light: "Canviar a tema clar"
         }
     }
 } as const;
 
 export type Translation = typeof translations.en;
-export type Language = 'en' | 'es';
+export type Language = 'en' | 'es' | 'ca';

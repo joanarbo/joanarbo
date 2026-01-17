@@ -2,19 +2,20 @@
 @use '../mixins' as *;
 
 /* Services / Hire */
+/* Services / Hire */
 .services-section {
-    padding: $spacing-unit * 12 0;
+    padding: $spacing-unit * 8 0; // Reduced from 12
     background: var(--bg-color-alt);
 
     .section-header {
-        margin-bottom: $spacing-unit * 8;
+        margin-bottom: $spacing-unit * 6; // Reduced from 8
         max-width: 600px;
     }
 
     .services-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: $spacing-unit * 6;
+        gap: $spacing-unit * 4; // Reduced from 6
 
         @media (max-width: 992px) {
             grid-template-columns: 1fr;
@@ -47,9 +48,9 @@
         }
 
         &:hover {
-            transform: translateY(-8px);
+            transform: translateY(-4px);
             border-color: rgba(var(--accent-color-rgb), 0.3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
 
             &::before {
                 transform: translateX(100%);

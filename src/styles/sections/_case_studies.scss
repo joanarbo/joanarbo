@@ -64,7 +64,7 @@
         }
 
         // Special case for Alexa Rufus GIF - Center and avoid crop
-        &.case-study-alexa-shopping-ds {
+        &.case-study-alexa-multimodal {
             .case-study-image-container {
                 background: var(--surface-color);
                 display: flex;
@@ -150,6 +150,25 @@
                     text-transform: uppercase;
                     letter-spacing: 0.05em;
                 }
+            }
+
+            .case-study-strategy {
+                font-size: 0.95rem;
+                line-height: 1.5;
+                margin-bottom: $spacing-unit * 3;
+                color: var(--text-color);
+                font-weight: 500;
+                border-left: 2px solid var(--accent-bright-color);
+                padding-left: $spacing-unit * 2;
+            }
+
+            .case-study-result {
+                font-size: 0.9rem;
+                line-height: 1.5;
+                margin-bottom: $spacing-unit * 3;
+                color: var(--accent-bright-color);
+                font-weight: 600;
+                @include text-mono;
             }
 
             .impact-metrics {

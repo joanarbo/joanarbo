@@ -1,0 +1,69 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+/* Featured Quote Section */
+.featured-quote-section {
+    padding: $spacing-unit * 10 0;
+    background: var(--bg-color);
+    border-top: 1px solid var(--line-color);
+
+    .featured-quote-card {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+    }
+
+    .quote-icon {
+        font-size: 3rem;
+        color: var(--accent-bright-color);
+        opacity: 0.6;
+        margin-bottom: $spacing-unit * 3;
+
+        i {
+            display: block;
+        }
+    }
+
+    .featured-quote-text {
+        font-size: clamp(1.5rem, 3vw, 2.25rem);
+        line-height: 1.4;
+        font-weight: 400;
+        color: var(--text-color);
+        margin: 0 0 $spacing-unit * 4;
+        font-style: italic;
+        letter-spacing: -0.02em;
+    }
+
+    .featured-quote-source {
+        display: block;
+        font-size: 0.95rem;
+        color: var(--text-secondary-color);
+        font-style: normal;
+        margin-bottom: $spacing-unit * 2;
+    }
+
+    .featured-quote-series {
+        display: inline-block;
+        font-size: 0.75rem;
+        @include text-mono;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--accent-bright-color);
+        padding: $spacing-unit $spacing-unit * 2;
+        border: 1px solid var(--accent-bright-color);
+        border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+        padding: $spacing-unit * 8 0;
+
+        .featured-quote-text {
+            font-size: 1.25rem;
+        }
+
+        .quote-icon {
+            font-size: 2rem;
+        }
+    }
+}

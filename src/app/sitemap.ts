@@ -19,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Blog posts
     const posts = data.posts.map((post) => ({
         url: `${baseUrl}/blog/${post.id}`,
-        lastModified: new Date(post.date),
+        lastModified: post.date ? new Date(post.date) : new Date(),
         changeFrequency: 'monthly' as const,
         priority: 0.8,
     }));

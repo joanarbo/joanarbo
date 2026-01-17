@@ -6,6 +6,7 @@ import "@/styles/globals.scss";
 import { Providers } from "@/components/Providers";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { ScrollToTop } from "@/components/ui/ScrollToTop";
 import JsonLd from "@/components/seo/JsonLd";
 
 const inter = Inter({
@@ -71,6 +72,7 @@ export const metadata: Metadata = {
     languages: {
       'es-ES': 'https://joanarbo.com/es',
       'en-US': 'https://joanarbo.com',
+      'ca-ES': 'https://joanarbo.com/ca',
     }
   },
   robots: {
@@ -102,6 +104,7 @@ export default function RootLayout({
           <Script src="https://unpkg.com/@phosphor-icons/web" strategy="lazyOnload" />
           <Header />
           {children}
+          <ScrollToTop />
           <Footer />
         </Providers>
       </body>

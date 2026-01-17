@@ -2,12 +2,19 @@
 
 import React from 'react';
 import { useTranslation } from '@/hooks/useTranslation';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import clsx from 'clsx';
 
 export function Ideas() {
     const { t } = useTranslation();
+    const { ref, isVisible } = useIntersectionObserver();
 
     return (
-        <section className="ideas-section" id="ideas">
+        <section
+            ref={ref}
+            className={clsx("ideas-section fade-in-section", isVisible && "is-visible")}
+            id="ideas"
+        >
             <div className="container">
                 <div className="section-header">
                     <span className="section-label">{t.sections.ideas.label}</span>

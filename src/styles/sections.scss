@@ -7,9 +7,11 @@
 // Core Logic (Base)
 @use 'sections/hero';
 @use 'sections/bip';
-@use 'sections/work'; // Projects
+@use 'sections/work';
+@use 'sections/venture_lab'; // Projects
 @use 'sections/blog';
 @use 'sections/blog_post';
+@use 'sections/featured_quote';
 
 // Components
 @use 'sections/experience';

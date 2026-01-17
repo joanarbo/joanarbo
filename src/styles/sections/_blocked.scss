@@ -1,15 +1,50 @@
 @use '../variables' as *;
 @use '../mixins' as *;
 
-/* Color Blocking & Overrides */
+/* Color Blocking & Overrides - Forced Dark Mode Parity */
 .section--blocked {
+    /* --- Local Dark Mode Redefinition --- */
+    --bg-primary: #0c0c0c;
+    --bg-primary-rgb: 12, 12, 12;
+    --bg-secondary: #141414;
+    --bg-secondary-rgb: 20, 20, 20;
+    --bg-color: var(--bg-primary);
+    --bg-color-alt: var(--bg-secondary);
+
+    --surface-primary: #1a1a1a;
+    --surface-primary-rgb: 26, 26, 26;
+    --surface-color: var(--surface-primary);
+    --surface-low: #262626;
+
+    --text-primary: #f8fafc;
+    --text-primary-rgb: 248, 250, 252;
+    --text-secondary: #cbd5e1;
+    --text-secondary-rgb: 203, 213, 225;
+    --text-color: var(--text-primary);
+    --text-secondary-color: var(--text-secondary);
+
+    --border-subtle: #262626;
+    --border-subtle-rgb: 38, 38, 38;
+    --line-color: var(--border-subtle);
+
+    --accent-primary: var(--primitive-teal-400);
+    --accent-color: var(--accent-primary);
+    --accent-interactive: var(--primitive-blue-400);
+    --accent-bright-color: var(--accent-interactive);
+
+    /* --- Section Styling --- */
     background: radial-gradient(circle at top right, rgba(var(--accent-vibrant-rgb), 0.05), transparent 40%),
         linear-gradient(180deg, #0f172a 0%, #020617 100%) !important;
-    color: #ffffff !important;
+    color: var(--text-primary) !important;
     padding-top: 120px;
     padding-bottom: 120px;
     position: relative;
     overflow: hidden;
+
+    @include mobile {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
 
     &::before {
         content: '';
@@ -20,110 +55,174 @@
         background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     }
 
-    /* High contrast text overrides */
+    /* Standardized typography and element colors */
     h1,
     h2,
     h3,
     h4,
-    .section-subtitle,
-    p,
-    i,
-    .icon,
-    [class*="ph-"],
-    span:not(.badge-dot):not(.pulse-dot),
-    .trusted-label {
-        color: rgba(255, 255, 255, 0.95) !important;
+    .section-title,
+    .service-header h3,
+    .teaching-company,
+    .principle-title,
+    .advisory-title,
+    .exp-role,
+    .now-card h3 {
+        color: var(--text-primary) !important;
     }
 
+    .section-subtitle,
+    p,
+    .teaching-desc,
+    .principle-content,
+    .advisory-desc,
+    .service-description,
+    .exp-description,
+    .exp-meta,
+    .trusted-label,
+    .now-card p {
+        color: var(--text-secondary) !important;
+    }
+
+    .section-label,
+    .teaching-role,
+    .principle-number,
+    .service-price,
+    .exp-period,
+    .now-icon {
+        color: var(--accent-bright-color) !important;
+    }
+
+    /* Logo & Asset Handling */
     .trusted-logo-img,
     .exp-logo,
     img[src*="logo"] {
         filter: brightness(0) invert(1) !important;
-        opacity: 0.8;
+        opacity: 0.8 !important;
         transition: all 0.4s ease;
 
         &:hover {
             filter: none !important;
-            opacity: 1;
+            opacity: 1 !important;
         }
     }
 
-    /* High-contrast backgrounds for nested components in dark sections */
-    .exp-header {
-        background: rgba(255, 255, 255, 0.05) !important;
-        border: 1px solid rgba(255, 255, 255, 0.1);
+    .exp-logo-placeholder {
+        background: var(--bg-secondary) !important;
+        color: var(--text-primary) !important;
+        border: 1px solid var(--border-subtle) !important;
     }
 
-    .topic-btn {
-        background: rgba(255, 255, 255, 0.05) !important;
-        border-color: rgba(255, 255, 255, 0.1) !important;
-        color: #fff !important;
+    /* Component specific cleanups */
+    .service-card,
+    .principle-card,
+    .teaching-card,
+    .advisory-card,
+    .now-card,
+    .contact-card,
+    .experience-item {
+        background: var(--surface-primary) !important;
+        border: 1px solid var(--border-subtle) !important;
 
         &:hover {
-            background: rgba(255, 255, 255, 0.1) !important;
+            background: var(--surface-low) !important;
+            border-color: rgba(255, 255, 255, 0.1) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+        }
+    }
+
+    .exp-header {
+        background: var(--bg-secondary) !important;
+        border-color: var(--border-subtle) !important;
+    }
+
+    .tab-btn {
+        border-color: var(--border-subtle) !important;
+        color: var(--text-secondary) !important;
+
+        &:hover {
+            border-color: var(--text-secondary) !important;
+            color: var(--text-primary) !important;
+        }
+
+        &.active {
+            background: var(--text-primary) !important;
+            color: #0c0c0c !important;
+            border-color: var(--text-primary) !important;
+        }
+    }
+
+    .service-icon-box {
+        background: var(--bg-secondary) !important;
+        border-color: var(--border-subtle) !important;
+    }
+
+    /* Form and Button Overrides for Dark Mode Parity */
+    input,
+    textarea {
+        background: var(--bg-secondary) !important;
+        border-color: rgba(255, 255, 255, 0.1) !important;
+        color: var(--text-primary) !important;
+
+        &::placeholder {
+            color: var(--text-secondary) !important;
+            opacity: 0.5;
+        }
+
+        &:focus {
+            border-color: var(--accent-bright-color) !important;
+            background: var(--surface-primary) !important;
+        }
+    }
+
+    button:not(.tab-btn),
+    .btn-primary,
+    .newsletter-submit {
+        background: var(--text-primary) !important;
+        color: #0c0c0c !important;
+        border: none !important;
+
+        &:hover {
+            background: var(--accent-interactive) !important;
+            color: #ffffff !important;
+        }
+    }
+
+    .cv-link,
+    .btn-secondary,
+    .button.outline,
+    .service-cta.outline {
+        border-color: rgba(255, 255, 255, 0.2) !important;
+        color: var(--text-primary) !important;
+        background: transparent !important;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.05) !important;
+            border-color: var(--text-primary) !important;
+        }
+    }
+
+    /* Process steps (Venture Lab / Bodados) */
+    .process-step {
+        background: var(--bg-secondary) !important;
+        border-color: var(--border-subtle) !important;
+
+        &:hover {
+            background: var(--surface-primary) !important;
             border-color: var(--accent-bright-color) !important;
         }
     }
 
-    .section-title {
-        color: var(--accent-bright-color) !important;
-
-        &::after {
-            background: rgba(255, 255, 255, 0.2) !important;
-        }
+    .product-model-diagram {
+        background: var(--bg-secondary) !important;
+        border-color: var(--border-subtle) !important;
     }
 
-    .btn-secondary {
-        border-color: rgba(255, 255, 255, 0.3);
-        color: #ffffff;
-
-        &:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: #ffffff;
-        }
+    .model-stage .stage-header {
+        border-color: var(--border-subtle) !important;
     }
 
-    .line-color,
-    .line {
-        background-color: rgba(255, 255, 255, 0.1) !important;
-        border-color: rgba(255, 255, 255, 0.1) !important;
-    }
-
-    .teaching-card,
-    .now-card,
-    .contact-card {
+    .stage-item {
         background: rgba(255, 255, 255, 0.05) !important;
-        border-color: rgba(255, 255, 255, 0.1) !important;
-
-        &:hover {
-            background: rgba(255, 255, 255, 0.08) !important;
-            border-color: rgba(255, 255, 255, 0.2) !important;
-        }
-    }
-
-    .process-step {
-        background: rgba(255, 255, 255, 0.03) !important;
-        border: 1px solid rgba(255, 255, 255, 0.08) !important;
-        padding: 32px;
-        border-radius: 12px;
-        transition: all 0.3s ease;
-        backdrop-filter: blur(5px);
-
-        &:hover {
-            background: rgba(255, 255, 255, 0.06) !important;
-            border-color: rgba(255, 255, 255, 0.15) !important;
-            transform: translateY(-4px);
-        }
-
-        .process-step-title {
-            color: var(--accent-bright-color) !important;
-            display: block;
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-
-        p {
-            color: rgba(255, 255, 255, 0.7) !important;
-        }
+        color: var(--text-secondary) !important;
     }
 }
