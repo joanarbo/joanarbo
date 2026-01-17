@@ -1,0 +1,7 @@
+User-Agent: *
+Allow: /
+
+User-Agent: GPTBot
+Allow: /
+
+Sitemap: https://joanarbo.com/sitemap.xml
