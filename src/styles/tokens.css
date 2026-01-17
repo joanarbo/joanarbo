@@ -1,0 +1,64 @@
+/* CSS Custom Properties for Theming */
+:root {
+    --bg-color: #fafaf9;
+    --bg-color-rgb: 250, 250, 249;
+    --bg-color-alt: #f1f1f0;
+    --bg-color-alt-rgb: 241, 241, 240;
+    --bg-blocked: #0f172a;
+    --surface-color: #ffffff;
+    --surface-color-rgb: 255, 255, 255;
+    --text-color: #020617;
+    --text-color-rgb: 2, 6, 23;
+    --text-secondary-color: #1e293b;
+    --text-secondary-color-rgb: 30, 41, 59;
+    --line-color: #e2e8f0;
+    --line-color-rgb: 226, 232, 240;
+    --accent-color: #0f172a;
+    --accent-color-rgb: 15, 23, 42;
+    --accent-bright-color: #3b82f6;
+    --accent-bright-color-rgb: 59, 130, 246;
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(15, 23, 42, 0.08);
+    --nav-scrolled-bg: rgba(250, 250, 249, 0.8);
+    --noise-opacity: 0.04;
+    --logo-brightness: 1;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --accent-vibrant: #7c3aed;
+    --accent-vibrant-rgb: 124, 58, 237;
+    --accent-glow: rgba(59, 130, 246, 0.15);
+    --shadow-premium: 0 30px 60px -12px rgba(0, 0, 0, 0.08), 0 18px 36px -18px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+    --bg-color: #0c0c0c;
+    --bg-color-rgb: 12, 12, 12;
+    --bg-color-alt: #141414;
+    --bg-color-alt-rgb: 20, 20, 20;
+    --bg-blocked: #2e1065;
+    --surface-color: #1a1a1a;
+    --surface-color-rgb: 26, 26, 26;
+    --text-color: #f8fafc;
+    --text-color-rgb: 248, 250, 252;
+    --text-secondary-color: #cbd5e1;
+    --text-secondary-color-rgb: 203, 213, 225;
+    --line-color: #262626;
+    --line-color-rgb: 38, 38, 38;
+    --accent-color: #64ffda;
+    --accent-color-rgb: 100, 255, 218;
+    --accent-bright-color: #60a5fa;
+    --accent-bright-color-rgb: 96, 165, 250;
+    --glass-bg: rgba(12, 12, 12, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --nav-scrolled-bg: rgba(12, 12, 12, 0.8);
+    --noise-opacity: 0.03;
+    --logo-brightness: 2;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(0 0 0 / 0.5);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
+    --accent-vibrant: #a78bfa;
+    --accent-vibrant-rgb: 167, 139, 250;
+    --accent-glow: rgba(96, 165, 250, 0.15);
+    --shadow-premium: 0 30px 60px -12px rgba(0, 0, 0, 0.5), 0 18px 36px -18px rgba(0, 0, 0, 0.6);
+}

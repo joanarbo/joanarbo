@@ -1,0 +1,55 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+/* Experience Section */
+.experience-section {
+    padding: 120px 0;
+    // background: var(--bg-color); // Inherited
+    border-top: 1px solid var(--line-color);
+
+    .experience-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 32px;
+        margin-top: 60px;
+
+        @media(max-width: 768px) {
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+    }
+
+    .experience-item {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 24px;
+        border: 1px solid var(--line-color);
+        border-radius: 10px;
+        background: var(--surface-color);
+
+        .exp-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            @include text-mono;
+            font-size: 0.75rem;
+            color: var(--text-secondary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .exp-role {
+            @include heading-serif;
+            font-size: 1.75rem;
+            color: var(--text-color);
+        }
+
+        .exp-description {
+            font-size: 1rem;
+            color: var(--text-secondary-color);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+    }
+}

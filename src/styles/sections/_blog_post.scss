@@ -1,0 +1,172 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.blog-post-page {
+    padding-top: $spacing-unit * 15;
+    padding-bottom: $spacing-unit * 15;
+    background: var(--bg-color);
+    color: var(--text-color);
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 $spacing-unit * 4;
+    }
+
+    .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: $spacing-unit;
+        margin-bottom: $spacing-unit * 6;
+        @include text-mono;
+        font-size: 0.9rem;
+        color: var(--text-secondary-color);
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: var(--accent-color);
+        }
+    }
+
+    .post-header {
+        text-align: center;
+        margin-bottom: $spacing-unit * 6;
+
+        .post-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: $spacing-unit * 2;
+            margin-bottom: $spacing-unit * 3;
+            @include text-mono;
+            color: var(--accent-color);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+
+            .meta-sep {
+                color: var(--line-color);
+            }
+        }
+
+        .post-title {
+            @include heading-serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            line-height: 1.1;
+            margin-bottom: $spacing-unit * 4;
+            color: var(--text-color);
+        }
+
+        .post-tags {
+            display: flex;
+            justify-content: center;
+            gap: $spacing-unit;
+            flex-wrap: wrap;
+
+            .tag {
+                @include text-mono;
+                font-size: 0.75rem;
+                padding: 4px 12px;
+                border: 1px solid var(--line-color);
+                border-radius: 100px;
+                color: var(--text-secondary-color);
+            }
+        }
+    }
+
+    .post-image-container {
+        width: 100%;
+        margin-bottom: $spacing-unit * 8;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    }
+
+    .post-content {
+        max-width: 720px;
+        margin: 0 auto;
+        font-size: 1.125rem;
+        line-height: 1.8;
+        color: var(--text-secondary-color);
+
+        p {
+            margin-bottom: $spacing-unit * 4;
+        }
+
+        h1,
+        h2,
+        h3 {
+            @include heading-serif;
+            color: var(--text-color);
+            margin-top: $spacing-unit * 8;
+            margin-bottom: $spacing-unit * 3;
+            line-height: 1.3;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        ul,
+        ol {
+            margin-bottom: $spacing-unit * 4;
+            padding-left: $spacing-unit * 4;
+
+            li {
+                margin-bottom: $spacing-unit;
+                padding-left: $spacing-unit;
+            }
+        }
+
+        blockquote {
+            border-left: 3px solid var(--accent-color);
+            padding-left: $spacing-unit * 4;
+            margin: $spacing-unit * 6 0;
+            font-style: italic;
+            font-size: 1.25rem;
+            color: var(--text-color);
+            background: linear-gradient(to right, rgba(var(--accent-color-rgb), 0.05), transparent);
+            padding: $spacing-unit * 4;
+            border-radius: 0 8px 8px 0;
+        }
+
+        iframe {
+            width: 100%;
+            border-radius: 8px;
+            margin: $spacing-unit * 4 0;
+            aspect-ratio: 16/9;
+            border: none;
+            background: var(--surface-color);
+        }
+
+        strong {
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+
+            &:hover {
+                color: var(--accent-bright-color);
+            }
+        }
+    }
+}

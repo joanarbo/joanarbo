@@ -1,0 +1,129 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+/* Color Blocking & Overrides */
+.section--blocked {
+    background: radial-gradient(circle at top right, rgba(var(--accent-vibrant-rgb), 0.05), transparent 40%),
+        linear-gradient(180deg, #0f172a 0%, #020617 100%) !important;
+    color: #ffffff !important;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        opacity: 0.03;
+        pointer-events: none;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* High contrast text overrides */
+    h1,
+    h2,
+    h3,
+    h4,
+    .section-subtitle,
+    p,
+    i,
+    .icon,
+    [class*="ph-"],
+    span:not(.badge-dot):not(.pulse-dot),
+    .trusted-label {
+        color: rgba(255, 255, 255, 0.95) !important;
+    }
+
+    .trusted-logo-img,
+    .exp-logo,
+    img[src*="logo"] {
+        filter: brightness(0) invert(1) !important;
+        opacity: 0.8;
+        transition: all 0.4s ease;
+
+        &:hover {
+            filter: none !important;
+            opacity: 1;
+        }
+    }
+
+    /* High-contrast backgrounds for nested components in dark sections */
+    .exp-header {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .topic-btn {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border-color: rgba(255, 255, 255, 0.1) !important;
+        color: #fff !important;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.1) !important;
+            border-color: var(--accent-bright-color) !important;
+        }
+    }
+
+    .section-title {
+        color: var(--accent-bright-color) !important;
+
+        &::after {
+            background: rgba(255, 255, 255, 0.2) !important;
+        }
+    }
+
+    .btn-secondary {
+        border-color: rgba(255, 255, 255, 0.3);
+        color: #ffffff;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #ffffff;
+        }
+    }
+
+    .line-color,
+    .line {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+        border-color: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    .teaching-card,
+    .now-card,
+    .contact-card {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border-color: rgba(255, 255, 255, 0.1) !important;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.08) !important;
+            border-color: rgba(255, 255, 255, 0.2) !important;
+        }
+    }
+
+    .process-step {
+        background: rgba(255, 255, 255, 0.03) !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        padding: 32px;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(5px);
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.06) !important;
+            border-color: rgba(255, 255, 255, 0.15) !important;
+            transform: translateY(-4px);
+        }
+
+        .process-step-title {
+            color: var(--accent-bright-color) !important;
+            display: block;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.7) !important;
+        }
+    }
+}

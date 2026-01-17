@@ -1,0 +1,58 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+/* Projects / Work Section */
+.projects-section {
+    padding: 120px 0;
+
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+        margin-top: 60px;
+    }
+
+    .project-card {
+        @include card-hover;
+        background: var(--surface-color);
+        border: 1px solid var(--line-color);
+        border-radius: $radius-md;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+
+        .project-img {
+            aspect-ratio: 16/10;
+            background: #eee;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 32px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-title {
+            @include heading-serif;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: var(--text-color);
+        }
+
+        .project-desc {
+            color: var(--text-secondary-color);
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 12px;
+            margin-top: auto;
+        }
+    }
+}

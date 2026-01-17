@@ -1,0 +1,134 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+/* Newsletter Section */
+.newsletter-section {
+    padding: 120px 0;
+    background: var(--surface-color);
+    border-top: 1px solid rgba(var(--text-color-rgb), 0.08);
+
+    .newsletter-card {
+        max-width: 1000px;
+        margin: 0 auto;
+        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        padding: 100px 80px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 24px;
+        box-shadow: 0 50px 100px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            opacity: 0.05;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .newsletter-title,
+        .newsletter-subtitle,
+        .newsletter-note {
+            color: #fff !important;
+        }
+
+        @media (max-width: 768px) {
+            padding: 40px 24px;
+        }
+
+        .newsletter-title {
+            @include heading-serif;
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+            color: var(--text-color);
+        }
+
+        .newsletter-subtitle {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            color: var(--text-secondary-color);
+            line-height: 1.6;
+        }
+
+        .newsletter-bonus {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 48px;
+            padding: 12px 24px;
+            background: rgba(var(--accent-color-rgb), 0.05);
+            border: 1px dashed #64ffda;
+            border-radius: 4px;
+            @include text-mono;
+            font-size: 0.85rem;
+            color: #bae6fd;
+        }
+
+        .newsletter-form-container {
+            max-width: 500px;
+            margin: 0 auto;
+
+            .newsletter-form {
+                display: flex;
+                gap: 12px;
+                margin-bottom: 24px;
+
+                @media (max-width: 600px) {
+                    flex-direction: column;
+                }
+            }
+
+            .newsletter-input {
+                flex: 1;
+                padding: 16px 20px;
+                background: var(--bg-color-alt);
+                border: 1px solid rgba(var(--text-color-rgb), 0.15);
+                border-radius: 4px;
+                color: var(--text-color);
+                font-size: 1rem;
+                transition: all 0.3s ease;
+
+                &:focus {
+                    outline: none;
+                    border-color: var(--accent-color);
+                    background: var(--bg-color);
+                }
+            }
+
+            .newsletter-submit {
+                padding: 16px 32px;
+                background: var(--text-color);
+                color: var(--bg-color);
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                @include text-mono;
+                font-weight: 400;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                font-size: 0.9rem;
+                transition: all 0.3s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+
+                &:hover {
+                    background: var(--accent-color);
+                    color: white;
+                }
+            }
+
+            .newsletter-note {
+                font-size: 0.8rem;
+                opacity: 0.5;
+                @include text-mono;
+                margin-top: 16px;
+            }
+        }
+    }
+}

@@ -1,0 +1,26 @@
+/* SCSS Variables mapping to CSS variables */
+$color-bg: var(--bg-color);
+$color-surface: var(--surface-color);
+$color-text: var(--text-color);
+$color-text-secondary: var(--text-secondary-color);
+$color-line: var(--line-color);
+$color-accent: var(--accent-color);
+$color-accent-bright: var(--accent-bright-color);
+
+/* Typography */
+$font-serif: 'Playfair Display', serif;
+$font-sans: 'Inter', sans-serif;
+$font-mono: 'JetBrains Mono', monospace;
+
+/* Layout & Spacing */
+$spacing-unit: 8px;
+$radius-xs: 4px;
+$radius-sm: 8px;
+$radius-md: 12px;
+/* Sharper corners for editorial feel */
+
+/* Breakpoints */
+$mobile: 480px;
+$tablet: 768px;
+$laptop: 1024px;
+$desktop: 1200px;

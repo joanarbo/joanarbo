@@ -1,0 +1,31 @@
+/* 
+ * Sections Styles
+ * Each section is modularized in its own partial file.
+ * Order matters for cascade, specifically for overrides in _blocked.scss.
+ */
+
+// Core Logic (Base)
+@use 'sections/hero';
+@use 'sections/bip';
+@use 'sections/work'; // Projects
+@use 'sections/blog';
+@use 'sections/blog_post';
+
+// Components
+@use 'sections/experience';
+@use 'sections/services';
+@use 'sections/trusted';
+@use 'sections/case_studies';
+@use 'sections/zigzag';
+@use 'sections/process';
+// @use 'sections/teaching';
+@use 'sections/leadership'; // Added
+@use 'sections/public_cases';
+@use 'sections/ideas';
+@use 'sections/now';
+// @use 'sections/principles';
+@use 'sections/newsletter';
+@use 'sections/contact';
+
+// Utilities / Overrides (Must be last to override specific components)
+@use 'sections/blocked';

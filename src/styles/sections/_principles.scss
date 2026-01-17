@@ -1,0 +1,60 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+/* Principles Section */
+.principles-section {
+    padding: 120px 0;
+    background: var(--bg-color);
+    border-top: 1px solid var(--line-color);
+
+    .principles-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 48px;
+        margin-top: 80px;
+
+        @media (max-width: 1024px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 600px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .principle-card {
+        background: var(--surface-color);
+        padding: 40px;
+        border: 1px solid var(--line-color);
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        transition: all 0.3s ease;
+
+        &:hover {
+            transform: translateY(-8px);
+            border-color: var(--text-color);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .principle-number {
+            @include text-mono;
+            font-size: 0.8rem;
+            color: rgba(var(--text-color-rgb), 0.2);
+            font-weight: 700;
+        }
+
+        .principle-title {
+            @include heading-serif;
+            font-size: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .principle-content {
+            font-size: 1rem;
+            color: var(--text-secondary-color);
+            line-height: 1.6;
+        }
+    }
+}

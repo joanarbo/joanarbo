@@ -1,0 +1,60 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+/* Now Section */
+.now-section {
+    padding: 120px 0;
+    background: var(--bg-color);
+
+    .section-subtitle {
+        // ... 
+    }
+
+    .now-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 32px;
+    }
+
+    .now-card {
+        padding: 40px;
+        background: var(--surface-color);
+        border: 1px solid rgba(var(--text-color-rgb), 0.08);
+        border-radius: 4px;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+        &:hover {
+            border-color: rgba(var(--text-color-rgb), 0.15);
+            background: var(--bg-color-alt);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .now-icon {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+            color: var(--accent-color);
+            opacity: 0.8;
+        }
+
+        h3 {
+            @include text-mono;
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            color: var(--text-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-secondary-color);
+        }
+
+        @media(max-width: 768px) {
+            padding: 32px;
+        }
+    }
+}

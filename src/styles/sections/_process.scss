@@ -1,0 +1,43 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+/* Process Section */
+.process-section {
+    padding: 96px 0;
+    background: var(--bg-color);
+
+    .section-subtitle {
+        margin-left: 0;
+        margin-right: 0;
+        text-align: left;
+    }
+
+    .process-steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 32px;
+        margin-top: 32px;
+    }
+
+    .process-step {
+        border: 1px solid rgba(var(--text-color-rgb), 0.08);
+        background: var(--surface-color);
+        padding: 24px;
+        border-radius: 8px;
+
+        .process-step-title {
+            display: block;
+            @include text-mono;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 16px;
+            color: var(--text-color);
+        }
+
+        p {
+            color: var(--text-secondary-color);
+            line-height: 1.6;
+        }
+    }
+}
