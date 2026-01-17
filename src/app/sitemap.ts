@@ -1,4 +1,7 @@
 import { MetadataRoute } from 'next';
+
+export const dynamic = 'force-static';
+
 import data from '@/data/data_es.json';
 
 export default function sitemap(): MetadataRoute.Sitemap {

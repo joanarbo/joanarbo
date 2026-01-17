@@ -6,6 +6,25 @@ import { useData } from '@/hooks/useData';
 import Link from 'next/link';
 import { useTranslation } from '@/hooks/useTranslation';
 import { ReadingProgressBar } from '@/components/ui/ReadingProgressBar';
+import dataEn from '@/data/data_en.json';
+import dataEs from '@/data/data_es.json';
+import dataCa from '@/data/data_ca.json';
+
+export function generateStaticParams() {
+    const allPosts = [
+        ...dataEn.posts,
+        ...dataEs.posts,
+        ...dataCa.posts,
+    ];
+
+    // Get unique IDs to ensure we generate all necessary paths
+    const uniqueSlugs = Array.from(new Set(allPosts.map((post) => post.id)));
+
+    return uniqueSlugs.map((slug) => ({
+        slug: slug,
+    }));
+}
+
 
 export default function BlogPost() {
     const params = useParams();

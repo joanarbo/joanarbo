@@ -1,5 +1,8 @@
 import { MetadataRoute } from 'next';
 
+export const dynamic = 'force-static';
+
+
 export default function manifest(): MetadataRoute.Manifest {
     return {
         name: 'Joan Arbo | Design Systems Lead & Strategist',
