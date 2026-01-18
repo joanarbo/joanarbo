@@ -3,11 +3,20 @@ import clsx from 'clsx';
 
 type BadgeProps = {
     children: React.ReactNode;
+    /** Visual style variant */
     variant?: 'default' | 'outline' | 'ghost' | 'contrast';
-    color?: string; // Optional custom color override
+    /** Optional custom color override (background and border) */
+    color?: string;
     className?: string;
 };
 
+/**
+ * Badge/Tag component for labels and categories.
+ * 
+ * @example
+ * <Badge variant="outline">Category</Badge>
+ * <Badge variant="contrast">Highlighted</Badge>
+ */
 export function Badge({ children, variant = 'default', className, color }: BadgeProps) {
     return (
         <span

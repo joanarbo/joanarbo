@@ -1,28 +1,35 @@
-/* SCSS Variables mapping to CSS variables */
-$color-bg: var(--bg-color);
-$color-surface: var(--surface-color);
-$color-text: var(--text-color);
-$color-text-secondary: var(--text-secondary-color);
-$color-line: var(--line-color);
-$color-accent: var(--accent-color);
-$color-accent-bright: var(--accent-bright-color);
+/* 
+ * SCSS Variables - Thin wrappers around CSS Custom Properties
+ * Source of truth is tokens.css, these are for SCSS convenience only.
+ */
+
+/* Color tokens - mapped to semantic CSS variables */
+$color-bg: var(--bg-primary);
+$color-surface: var(--surface-primary);
+$color-text: var(--text-primary);
+$color-text-secondary: var(--text-secondary);
+$color-line: var(--border-subtle);
+$color-accent: var(--accent-primary);
+$color-accent-bright: var(--accent-interactive);
 $color-success: var(--success-color);
 $color-info: var(--info-color);
 $color-warning: var(--warning-color);
 
-/* Typography */
-$font-serif: 'Playfair Display', serif;
-$font-sans: 'Inter', sans-serif;
-$font-mono: 'JetBrains Mono', monospace;
+/* Typography - wrappers for CSS custom properties */
+$font-serif: var(--font-serif);
+$font-sans: var(--font-sans);
+$font-mono: var(--font-mono);
 
-/* Layout & Spacing */
-$spacing-unit: 8px;
-$radius-xs: 4px;
-$radius-sm: 8px;
-$radius-md: 12px;
-/* Sharper corners for editorial feel */
+/* Spacing - base unit for calculations, maps to CSS scale */
+$spacing-unit: 8px; // Keep for calc() expressions like `$spacing-unit * 3`
 
-/* Breakpoints */
+/* Radius - wrappers for CSS custom properties */
+$radius-xs: var(--radius-xs);
+$radius-sm: var(--radius-sm);
+$radius-md: var(--radius-md);
+$radius-lg: var(--radius-lg);
+
+/* Breakpoints - SCSS-only (used in @media mixins) */
 $mobile: 480px;
 $tablet: 768px;
 $laptop: 1024px;

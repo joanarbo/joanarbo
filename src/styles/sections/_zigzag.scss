@@ -13,7 +13,7 @@
         gap: 80px !important;
     }
 
-    @media (max-width: 1024px) {
+    @include laptop {
         gap: 32px !important;
     }
 
@@ -51,7 +51,7 @@
             img {
                 width: 100% !important;
                 height: 100% !important;
-                object-fit: cover !important;
+                object-fit: cover;
                 transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
             }
         }
@@ -295,7 +295,7 @@
         }
 
         /* Mobile Adjustments */
-        @media (max-width: 1024px) {
+        @include laptop {
             flex-direction: column !important;
             gap: 0 !important;
             align-items: stretch !important;

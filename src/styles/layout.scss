@@ -13,7 +13,7 @@
         max-width: 1800px;
     }
 
-    @media (max-width: 480px) {
+    @include mobile {
         padding: 0 16px;
     }
 }
@@ -21,7 +21,7 @@
 section {
     padding: $spacing-unit * 15 0;
 
-    @media (max-width: 768px) {
+    @include tablet {
         padding: $spacing-unit * 8 0;
     }
 }
@@ -67,7 +67,7 @@ section {
         gap: $spacing-unit * 4;
         list-style: none;
 
-        @media(max-width: 1024px) {
+        @include laptop {
             display: none;
         }
 
@@ -163,7 +163,7 @@ section {
     }
 
     .desktop-cta {
-        @media (max-width: 1024px) {
+        @include laptop {
             display: none;
         }
     }
@@ -182,7 +182,7 @@ section {
         align-items: center;
         justify-content: center;
 
-        @media (max-width: 1024px) {
+        @include laptop {
             display: flex;
         }
 
@@ -251,7 +251,7 @@ section {
         justify-content: space-between;
         align-items: center;
 
-        @media (max-width: 768px) {
+        @include tablet {
             flex-direction: column;
             gap: 24px;
             text-align: center;

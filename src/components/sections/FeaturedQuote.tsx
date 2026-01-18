@@ -2,8 +2,7 @@
 
 import React from 'react';
 import { useData } from '@/hooks/useData';
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import clsx from 'clsx';
+import { motion } from 'framer-motion';
 
 interface FeaturedPostType {
     id: string;
@@ -13,9 +12,25 @@ interface FeaturedPostType {
     tags?: string[];
 }
 
+const container = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: { staggerChildren: 0.15, delayChildren: 0.1 },
+    },
+};
+
+const item = {
+    hidden: { opacity: 0, y: 15 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.6, ease: 'easeOut' as const },
+    },
+};
+
 export function FeaturedQuote() {
     const data = useData();
-    const { ref, isVisible } = useIntersectionObserver();
 
     // Find the first post with a keyQuote
     const featuredPost = data?.posts?.find((post: any) => post.keyQuote) as FeaturedPostType | undefined;
@@ -23,25 +38,30 @@ export function FeaturedQuote() {
     if (!featuredPost?.keyQuote) return null;
 
     return (
-        <section
-            ref={ref}
-            className={clsx("featured-quote-section fade-in-section", isVisible && "is-visible")}
-        >
+        <section className="featured-quote-section">
             <div className="container">
-                <div className="featured-quote-card">
-                    <div className="quote-icon">
+                <motion.div
+                    className="featured-quote-card"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: '-80px' }}
+                    variants={container}
+                >
+                    <motion.div className="quote-icon" variants={item}>
                         <i className="ph-thin ph-quotes"></i>
-                    </div>
-                    <blockquote className="featured-quote-text">
+                    </motion.div>
+                    <motion.blockquote className="featured-quote-text" variants={item}>
                         "{featuredPost.keyQuote}"
-                    </blockquote>
-                    <cite className="featured-quote-source">
+                    </motion.blockquote>
+                    <motion.cite className="featured-quote-source" variants={item}>
                         — {featuredPost.title}
-                    </cite>
+                    </motion.cite>
                     {featuredPost.series && (
-                        <span className="featured-quote-series">{featuredPost.series}</span>
+                        <motion.span className="featured-quote-series" variants={item}>
+                            {featuredPost.series}
+                        </motion.span>
                     )}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

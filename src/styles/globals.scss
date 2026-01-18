@@ -208,7 +208,7 @@ a {
         font-size: 1.25rem;
     }
 
-    @media (max-width: 768px) {
+    @include tablet {
         bottom: 24px;
         right: 24px;
         width: 40px;

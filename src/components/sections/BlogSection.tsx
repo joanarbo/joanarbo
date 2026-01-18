@@ -55,7 +55,7 @@ export function BlogSection() {
                             <div className="post-cover">
                                 <Image
                                     src={post.image || post.coverImage || 'https://placehold.co/600x400/1a1a1a/FFF'}
-                                    alt={post.title}
+                                    alt={post.title || 'Blog post image'}
                                     fill
                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     priority={i < 2}

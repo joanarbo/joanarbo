@@ -1,5 +1,11 @@
 @use 'variables' as *;
 
+/* ============================================
+   MIXINS - Core style utilities
+   ============================================ */
+
+/* --- LAYOUT --- */
+
 @mixin container {
     max-width: 1200px;
     margin: 0 auto;
@@ -14,6 +20,8 @@
     }
 }
 
+/* --- EFFECTS --- */
+
 @mixin glass {
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
@@ -27,9 +35,11 @@
     &:hover {
         transform: translateY(-8px);
         box-shadow: var(--shadow-premium);
-        border-color: rgba(var(--accent-bright-color-rgb), 0.3) !important;
+        border-color: rgba(var(--accent-interactive-rgb), 0.3) !important;
     }
 }
+
+/* --- TYPOGRAPHY --- */
 
 @mixin text-mono {
     font-family: $font-mono;
@@ -44,9 +54,13 @@
     color: $color-text;
 }
 
+/* --- ANIMATIONS --- */
+
 @mixin fade-in {
     animation: fadeIn 0.4s ease forwards;
 }
+
+/* --- BREAKPOINTS --- */
 
 @mixin mobile {
     @media (max-width: $mobile) {
@@ -62,6 +76,25 @@
 
 @mixin laptop {
     @media (max-width: $laptop) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: $desktop) {
+        @content;
+    }
+}
+
+/* Convenience: target specific ranges */
+@mixin tablet-only {
+    @media (min-width: $mobile + 1) and (max-width: $tablet) {
+        @content;
+    }
+}
+
+@mixin laptop-only {
+    @media (min-width: $tablet + 1) and (max-width: $laptop) {
         @content;
     }
 }

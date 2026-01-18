@@ -3,13 +3,6 @@
 import React from 'react';
 import Link from 'next/link';
 import clsx from 'clsx';
-import styles from './Button.module.scss'; // We will create this or use global
-
-// Since we are migrating from global SCSS, we can use global classes or migrate to modules.
-// For a Design System in React, modules or CSS-in-JS is preferred to isolate styles,
-// but for a strict clone, using the existing global classes is faster.
-// However, to be "more optimized" and "React-way", I should probably use Modules or standard CSS classes.
-// Given global SCSS is already set up with .btn-primary, etc., I will use those global classes for now.
 
 type ButtonProps = {
     variant?: 'primary' | 'secondary' | 'ghost';
@@ -20,6 +13,13 @@ type ButtonProps = {
     fullWidth?: boolean;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
+/**
+ * Button component with multiple variants and sizes.
+ * 
+ * @example
+ * <Button variant="primary">Click me</Button>
+ * <Button variant="secondary" size="sm" href="/about">Learn more</Button>
+ */
 export function Button({
     variant = 'primary',
     size = 'md',

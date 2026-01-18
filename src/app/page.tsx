@@ -3,7 +3,7 @@
 import { Hero } from "@/components/sections/Hero";
 import { BuildInPublic } from "@/components/sections/BuildInPublic";
 import { TrustedBy } from "@/components/sections/TrustedBy";
-import { ProjectsSection } from "@/components/sections/ProjectsSection";
+import { CaseStudies } from "@/components/sections/CaseStudies";
 import { Leadership } from "@/components/sections/Leadership";
 import { VentureLab } from "@/components/sections/VentureLab";
 import { Services } from "@/components/sections/Services";
@@ -19,7 +19,7 @@ export default function Home() {
       <Hero />
       <BuildInPublic />
       <TrustedBy />
-      <ProjectsSection />
+      <CaseStudies />
       <Leadership />
       <VentureLab />
       <Services />

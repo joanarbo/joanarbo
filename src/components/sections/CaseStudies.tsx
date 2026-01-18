@@ -21,9 +21,9 @@ export function CaseStudies() {
         >
             <div className="container">
                 <div className="section-header">
-                    <span className="section-label">{t.sections.caseStudies.label}</span>
-                    <h2 className="section-title">{t.sections.caseStudies.title}</h2>
-                    <p className="section-subtitle">{t.sections.caseStudies.subtitle}</p>
+                    <span className="section-label">{t.sections.work.label}</span>
+                    <h2 className="section-title">{t.sections.work.title}</h2>
+                    <p className="section-subtitle">{t.sections.work.subtitle}</p>
                 </div>
                 <div className="case-studies-grid layout--zigzag">
                     {caseStudies.map((study: any, index: number) => {
@@ -60,7 +60,7 @@ export function CaseStudies() {
                                         <span className="case-study-year">{study.year}</span>
                                     </div>
                                     <h3 className="case-study-title">{study.title}</h3>
-                                    <p className="case-study-challenge">{study.challenge}</p>
+                                    <p className="case-study-challenge">{study.description || study.challenge}</p>
 
                                     {study.strategy && (
                                         <p className="case-study-strategy">{study.strategy}</p>

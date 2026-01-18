@@ -4,11 +4,20 @@ import clsx from 'clsx';
 type CardProps = {
     children: React.ReactNode;
     className?: string;
+    /** Enable hover animation with lift and shadow */
     hover?: boolean;
+    /** Apply glassmorphism effect */
     glass?: boolean;
+    /** Padding size using utility classes */
     padding?: 'none' | 'sm' | 'md' | 'lg';
 } & React.HTMLAttributes<HTMLDivElement>;
 
+/**
+ * Card component with optional glass effect and hover animation.
+ * 
+ * @example
+ * <Card glass hover padding="md">Content</Card>
+ */
 export function Card({
     children,
     className,
@@ -21,15 +30,11 @@ export function Card({
         <div
             className={clsx(
                 'card',
-                glass && 'glass-panel', // Assuming we add this utility class or use mixin in globals
+                glass && 'glass-panel',
                 hover && 'card-hover',
-                `p-${padding}`, // Utility for padding if we add it, or just use style
+                `p-${padding}`,
                 className
             )}
-            style={{
-                padding: padding === 'none' ? '0' : padding === 'sm' ? '1rem' : padding === 'lg' ? '2.5rem' : '1.5rem',
-                ...props.style
-            }}
             {...props}
         >
             {children}
