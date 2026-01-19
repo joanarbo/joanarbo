@@ -220,7 +220,7 @@ export const translations = {
         },
         hero: {
             badge: "Disponible para Proyectos y Consultoría",
-            title: "<span class='highlight'>Design Systems Lead</span> & Estratega",
+            title: "<span class='highlight'>Design Systems Lead</span> & Strategist",
             description: "Escalando Operaciones de Producto a través de Sistemas de Diseño. Ayudo a organizaciones como Amazon y Western Union a traducir la estrategia de negocio en infraestructura de diseño eficiente.",
             viewCases: "Ejecución e Impacto",
             talkSystem: "Contactar",

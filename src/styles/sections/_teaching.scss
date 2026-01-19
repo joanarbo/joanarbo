@@ -48,7 +48,7 @@
             @include text-mono;
             font-size: 0.7rem;
             color: var(--text-secondary-color);
-            opacity: 0.8;
+            opacity: 1;
         }
 
         .teaching-company {
@@ -155,7 +155,7 @@
             text-transform: uppercase;
 
             .meta-sep {
-                opacity: 0.3;
+                opacity: 0.6;
             }
 
             i {

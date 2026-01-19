@@ -30,7 +30,11 @@ export function Experience() {
 
                 <div className={clsx("experience-grid layout--zigzag stagger-children", isVisible && "is-visible")}>
                     {experienceItems.map((item: any, index: number) => (
-                        <div key={index} className="experience-item fade-in-up">
+                        <div
+                            key={index}
+                            className="experience-item fade-in-up"
+                            id={item.company?.toLowerCase().replace(/\s+/g, '-')}
+                        >
                             <div className="exp-header">
                                 {item.logo ? (
                                     <img src={item.logo} alt={item.company} className="exp-logo" loading="lazy" />

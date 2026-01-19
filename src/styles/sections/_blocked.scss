@@ -4,17 +4,17 @@
 /* Color Blocking & Overrides - Forced Dark Mode Parity */
 .section--blocked {
     /* --- Local Dark Mode Redefinition --- */
-    --bg-primary: #0c0c0c;
-    --bg-primary-rgb: 12, 12, 12;
-    --bg-secondary: #141414;
-    --bg-secondary-rgb: 20, 20, 20;
+    --bg-primary: #020617;
+    --bg-primary-rgb: 2, 6, 23;
+    --bg-secondary: #0a0f1e;
+    --bg-secondary-rgb: 10, 15, 30;
     --bg-color: var(--bg-primary);
     --bg-color-alt: var(--bg-secondary);
 
-    --surface-primary: #1a1a1a;
-    --surface-primary-rgb: 26, 26, 26;
+    --surface-primary: #111827;
+    --surface-primary-rgb: 17, 24, 39;
     --surface-color: var(--surface-primary);
-    --surface-low: #262626;
+    --surface-low: #1f2937;
 
     --text-primary: #f8fafc;
     --text-primary-rgb: 248, 250, 252;
@@ -23,11 +23,11 @@
     --text-color: var(--text-primary);
     --text-secondary-color: var(--text-secondary);
 
-    --border-subtle: #262626;
-    --border-subtle-rgb: 38, 38, 38;
+    --border-subtle: #1e293b;
+    --border-subtle-rgb: 30, 41, 59;
     --line-color: var(--border-subtle);
 
-    --accent-primary: var(--primitive-teal-400);
+    --accent-primary: var(--primitive-blue-400);
     --accent-color: var(--accent-primary);
     --accent-interactive: var(--primitive-blue-400);
     --accent-bright-color: var(--accent-interactive);

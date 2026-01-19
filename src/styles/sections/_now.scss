@@ -10,6 +10,22 @@
         // ... 
     }
 
+    .section-meta {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 24px;
+        margin-bottom: 64px; // Added more "air"
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        @include text-mono;
+
+        i {
+            font-size: 1.1rem;
+            color: var(--accent-interactive);
+        }
+    }
+
     .now-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -24,10 +40,16 @@
         transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 
         &:hover {
-            border-color: rgba(var(--text-color-rgb), 0.15);
-            background: var(--bg-color-alt);
+            border-color: var(--accent-interactive);
+            background: var(--surface-low);
             transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            box-shadow: var(--shadow-premium);
+
+            .now-icon {
+                transform: scale(1.1) rotate(5deg);
+                color: var(--accent-interactive);
+                opacity: 1;
+            }
         }
 
         .now-icon {
@@ -35,6 +57,7 @@
             margin-bottom: 24px;
             color: var(--accent-color);
             opacity: 0.8;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         h3 {

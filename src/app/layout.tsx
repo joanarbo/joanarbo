@@ -5,7 +5,6 @@ import "@/styles/tokens.css";
 import "@/styles/globals.scss";
 import { Providers } from "@/components/Providers";
 import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
 import { ScrollToTop } from "@/components/ui/ScrollToTop";
 import JsonLd from "@/components/seo/JsonLd";
 
@@ -105,7 +104,6 @@ export default function RootLayout({
           <Header />
           {children}
           <ScrollToTop />
-          <Footer />
         </Providers>
       </body>
     </html>

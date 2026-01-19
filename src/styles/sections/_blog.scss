@@ -230,14 +230,14 @@
         display: flex;
         align-items: center;
         gap: 12px;
-        opacity: 0.7;
+        opacity: 0.9;
 
         .meta-sep {
             width: 4px;
             height: 4px;
             background: currentColor;
             border-radius: 50%;
-            opacity: 0.4;
+            opacity: 0.7;
         }
     }
 
@@ -268,7 +268,7 @@
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
-        opacity: 0.9;
+        opacity: 1;
     }
 
     .post-footer {

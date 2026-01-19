@@ -109,21 +109,6 @@
     },
     {
       "id": "ai-thinking",
-      "title": "Pensamiento sistémico en la era de la IA",
-      "date": "2025-08-01",
-      "readTime": "Deep Dive",
-      "description": "Pensamiento sistémico en la era de la IA.",
-      "content": "Contenido en camino.",
-      "tags": [
-        "AI",
-        "Systems Thinking"
-      ],
-      "featured": false,
-      "series": "IA y el Futuro del Trabajo",
-      "image": "/assets/images/writing/ai-thinking.png"
-    },
-    {
-      "id": "ai-thinking",
       "title": "La IA no me quita el trabajo, me reta a pensar distinto",
       "date": "2025-08-01",
       "readTime": "Essay",
@@ -270,7 +255,7 @@
       "company": "Amazon Alexa",
       "year": "2021-2022",
       "impact": "2021–2022",
-      "description": "Creación del primer sistema de diseño de voz del mundo. Prototipos de alta fidelidad para 'Rufus' (Next-Gen AI Assistant) presentados al CEO Andy Jassy. Estandarización de patrones VUI utilizados per millones de usuarios.",
+      "description": "Creación del primer sistema de diseño de voz del mundo. Prototipos de alta fidelidad para 'Rufus' (Next-Gen AI Assistant). Estandarización de patrones VUI utilizados per millones de usuarios.",
       "tags": [
         "Voice UI",
         "Multimodalidad",
@@ -391,7 +376,7 @@
       "period": "2020 — 2023",
       "company": "Amazon Alexa",
       "role": "UX Engineer Manager",
-      "description": "Lideré el primer sistema de diseño de voz del mundo para Alexa. Ingenié prototipos de alta fidelidad para 'Rufus' presentados al CEO Andy Jassy. Reduje los tiempos de integración en 6 meses globalmente."
+      "description": "Lideré el primer sistema de diseño de voz del mundo para Alexa. Ingenié prototipos de alta fidelidad para 'Rufus'. Reduje los tiempos de integración en 6 meses globalmente."
     },
     {
       "period": "2021 — Presente",
@@ -536,38 +521,46 @@
       }
     ]
   },
+  "buildInPublic": {
+    "badge": "Venture Lab",
+    "role": "Cofundador Técnico",
+    "desc": "Construyendo una plataforma de coordinación de bodas para resolver la fragmentación del mercado. 0→1 desde la idea hasta la beta privada.",
+    "statusLabel": "Estado",
+    "statusValue": "Beta Privada",
+    "challengeLabel": "Reto",
+    "challengeValue": "Fragmentación Mercado",
+    "viewProject": "Ver Estudio de Caso"
+  },
   "caseStudies": [
     {
       "id": "bodados",
-      "title": "BODADOS: Tesis de Liderazgo de Producto",
-      "status": "Venture Lab",
+      "title": "Plataforma de Coordinación de Bodas BODADOS",
+      "status": "ACTIVO - Construyendo ahora",
       "company": "BODADOS",
-      "year": "2024",
-      "role": "Operational Strategy Lead (Founder)",
-      "timeline": "Ongoing",
-      "myRole": "Estrategia de Producto End-to-End",
-      "team": "Agentes IA + Founder",
-      "challenge": "Validar una tesis de negocio compleja (SaaS vertical para bodas) minimizando el capital riesgo y maximizando la velocidad de ejecución.",
-      "solution": "Un 'Living Lab' donde aplico estrategia de producto, gestión de roadmap y validación de hipótesis de negocio con recursos limitados (IA Agents).",
-      "businessImpact": "Demostración de capacidad de ejecución 'Hands-on' y visión de negocio completa. Validación de canales de adquisición y modelos de revenue.",
-      "architecture": "Arquitectura optimizada para iteración rápida (Supabase, Next.js).",
-      "content": "# Bodados: Mi Laboratorio de Liderazgo de Producto\n\nComo líder, creo que es vital mantenerse 'cerca del metal'. Bodados no es solo una app, es mi tesis de maestría en liderazgo de producto.\n\nEs un laboratorio vivo donde demuestro que puedo:\n\n1.  **Definir Visión y Estrategia**: Identificar un mercado fragmentado (bodas) y proponer una solución sistémica (Wedding OS).\n2.  **Gestionar Roadmaps Complejos**: Priorizar features críticas (Cashflow, Alergias) sobre 'nice-to-haves'.\n3.  **Ejecutar con Recursos Limitados**: Orquestar un equipo de Agentes de IA para suplir la falta de headcount, demostrando eficiencia operativa.\n\n***\n\n## 🧩 Visión de Negocio\n\nEl mercado de bodas sufre de falta de transparencia y herramientas obsoletas. Mi estrategia se centra en resolver el 'drama social' y la 'fricción financiera' mediante grafos sociales y previsión de cashflow.\n\n***\n\n## ⚡ Liderazgo Técnico y Ejecución\n\nMás allá de la estrategia, Bodados demuestra que puedo bajar al barro y tomar decisiones técnicas que maximizan el ROI. Elegir Next.js y Supabase no fue una preferencia personal, fue una decisión de negocio para reducir el Time-to-Market.",
+      "year": "2024-Presente",
+      "role": "Cofundador Técnico",
+      "timeline": "En curso",
+      "myRole": "0→1 producto, arquitectura y entrega",
+      "team": "Equipo fundador",
+      "challenge": "Una industria de bodas fragmentada sin flujo de trabajo digital compartido para proveedores o parejas.",
+      "solution": "Construí una plataforma de coordinación freemium para planificación multiproveedor, cronogramas y pagos.",
+      "businessImpact": "Beta privada en vivo con validación temprana de mercado.",
+      "architecture": "Cliente React Native, backend Supabase, web Vercel.",
       "impact": {
-        "adoption": "Product",
-        "adoptionLabel": "Visión",
-        "efficiency": "Biz",
-        "efficiencyLabel": "Estrategia",
-        "consistency": "Exec",
-        "consistencyLabel": "Ejecución"
+        "adoption": "Beta",
+        "adoptionLabel": "Beta Privada",
+        "efficiency": "0→1",
+        "efficiencyLabel": "Lanzamiento Producto",
+        "consistency": "MVP",
+        "consistencyLabel": "Validación Mercado"
       },
       "technologies": [
-        "Product Strategy",
-        "Roadmap Mgmt",
-        "Business Logic",
-        "AI Ops"
+        "React Native",
+        "Supabase",
+        "Vercel"
       ],
       "image": "/assets/images/case-studies/bodados.png",
-      "link": "https://bodados.com"
+      "link": "#bodados"
     },
     {
       "id": "western-union",
@@ -614,10 +607,11 @@
       "timeline": "6 meses",
       "myRole": "Ingeniero de Producto (Asistente Rufus AI)",
       "team": "Madrid, Seattle, Londres, Chicago",
-      "description": "Creación del primer sistema de diseño de voz del mundo. Prototipos de alta fidelidad para 'Rufus' (Next-Gen AI Assistant) presentados al CEO Andy Jassy. Estandarización de patrones VUI usados por millones de usuarios.",
+      "description": "Creación del primer sistema de diseño de voz del mundo. Prototipos de alta fidelidad para 'Rufus' (Next-Gen AI Assistant). Estandarización de patrones VUI usados por millones de usuarios.",
       "challenge": "Definir estándares de experiencia para una tecnología emergente (Voz/Multimodal) sin referencias de mercado.",
       "solution": "Liderazgo de la definición de estándares VUI. Influencia en equipos de ingeniería ML para alinear tecnología con UX.",
-      "businessImpact": "Presentación de visión estratégica al C-Level (Andy Jassy). Demostración de capacidad de innovar en ambigüedad.",
+      "businessImpact": "Presentación de visión estratégica al C-Level. Demostración de capacidad de innovar en ambigüedad.",
+      "highlight": "Habilitó 4x Velocidad Desarrollo & Lanzamiento Prime Day",
       "architecture": "El reto real era implantar un sistema de diseño en las tripas de los dispositivos Alexa que funciona principalmente con archivos JSON.",
       "impact": {
         "adoption": "Global",

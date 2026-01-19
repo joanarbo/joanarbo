@@ -244,7 +244,7 @@
       "title": "Multimodal Innovation",
       "company": "Amazon Alexa",
       "impact": "2021–2022",
-      "description": "Creation of the world's first voice design system. High-fidelity prototypes for 'Rufus' (Next-Gen AI Assistant) presented to CEO Andy Jassy. Standardization of VUI patterns used by millions of users.",
+      "description": "Creation of the world's first voice design system. High-fidelity prototypes for 'Rufus' (Next-Gen AI Assistant). Standardization of VUI patterns used by millions of users.",
       "tags": [
         "Voice UI",
         "Multimodality",
@@ -533,38 +533,46 @@
       }
     ]
   },
+  "buildInPublic": {
+    "badge": "Venture Lab",
+    "role": "Technical Co-Founder",
+    "desc": "Building a wedding coordination platform to solve market fragmentation. 0→1 from idea to private beta.",
+    "statusLabel": "Status",
+    "statusValue": "Private Beta",
+    "challengeLabel": "Challenge",
+    "challengeValue": "Market Fragmentation",
+    "viewProject": "Read Case Study"
+  },
   "caseStudies": [
     {
       "id": "bodados",
-      "title": "BODADOS: Product Leadership Thesis",
-      "status": "Venture Lab",
+      "title": "BODADOS Wedding Coordination Platform",
+      "status": "ACTIVE - Building now",
       "company": "BODADOS",
-      "year": "2024",
-      "role": "Operational Strategy Lead (Founder)",
+      "year": "2024-Present",
+      "role": "Technical Co-Founder",
       "timeline": "Ongoing",
-      "myRole": "End-to-End Product Strategy",
-      "team": "AI Agents + Founder",
-      "challenge": "Validate a complex business thesis (vertical wedding SaaS) minimizing venture capital and maximizing execution speed.",
-      "solution": "A 'Living Lab' where I apply product strategy, roadmap management, and business hypothesis validation with limited resources (AI Agents).",
-      "businessImpact": "Demonstration of 'Hands-on' execution capability and complete business vision. Validation of acquisition channels and revenue models.",
-      "architecture": "Architecture optimized for rapid iteration (Supabase, Next.js).",
-      "content": "# Bodados: My Product Leadership Laboratory\n\nAs a leader, I believe it is vital to stay 'close to the metal'. Bodados is not just an app, it is my master's thesis in product leadership.\n\nIt is a living laboratory where I demonstrate that I can:\n\n1.  **Define Vision and Strategy**: Identify a fragmented market (weddings) and propose a systemic solution (Wedding OS).\n2.  **Manage Complex Roadmaps**: Prioritize critical features (Cashflow, Allergies) over 'nice-to-haves'.\n3.  **Execute with Limited Resources**: Orchestrate a team of AI Agents to make up for the lack of headcount, demonstrating operational efficiency.\n\n***\n\n## 🧩 Business Vision\n\nThe wedding market suffers from a lack of transparency and obsolete tools. My strategy focuses on resolving 'social drama' and 'financial friction' through social graphs and cashflow forecasting.\n\n***\n\n## ⚡ Technical Leadership and Execution\n\nBeyond strategy, Bodados demonstrates that I can get down in the mud and make technical decisions that maximize ROI. Choosing Next.js and Supabase was not a personal preference, it was a business decision to reduce Time-to-Market.",
+      "myRole": "0→1 product, architecture, and delivery",
+      "team": "Founding team",
+      "challenge": "A fragmented wedding industry with no shared digital workflow for vendors or couples.",
+      "solution": "Built a freemium coordination platform for multi-vendor planning, timelines, and payments.",
+      "businessImpact": "Private beta live with early market validation.",
+      "architecture": "React Native client, Supabase backend, Vercel web surface.",
       "impact": {
-        "adoption": "Product",
-        "adoptionLabel": "Vision",
-        "efficiency": "Biz",
-        "efficiencyLabel": "Strategy",
-        "consistency": "Exec",
-        "consistencyLabel": "Execution"
+        "adoption": "Beta",
+        "adoptionLabel": "Private Beta",
+        "efficiency": "0→1",
+        "efficiencyLabel": "Product Launch",
+        "consistency": "MVP",
+        "consistencyLabel": "Market Validation"
       },
       "technologies": [
-        "Product Strategy",
-        "Roadmap Mgmt",
-        "Business Logic",
-        "AI Ops"
+        "React Native",
+        "Supabase",
+        "Vercel"
       ],
       "image": "/assets/images/case-studies/bodados.png",
-      "link": "https://bodados.com"
+      "link": "#bodados"
     },
     {
       "id": "western-union",
@@ -611,10 +619,11 @@
       "timeline": "6 months",
       "myRole": "Product Engineer (Rufus AI Assistant)",
       "team": "Madrid, Seattle, London, Chicago",
-      "description": "Creation of the world's first voice design system. High-fidelity prototypes for 'Rufus' (Next-Gen AI Assistant) presented to CEO Andy Jassy. Standardization of VUI patterns used by millions of users.",
+      "description": "Creation of the world's first voice design system. High-fidelity prototypes for 'Rufus' (Next-Gen AI Assistant). Standardization of VUI patterns used by millions of users.",
       "challenge": "Synchronizing deterministic visual UI with probabilistic voice interaction models for next-gen AI commerce assistants.",
       "solution": "Architected the world's first multimodal design system for Rufus. With the rise of competitors like ChatGPT, the project pivoted to focus on Rufus launch, putting the original system on hold.",
       "businessImpact": "Cut integration timelines by 6 months via ML-Design alignment and unlocked €2M in delayed voice features.",
+      "highlight": "Enabled 4x Dev Velocity & Prime Day Launch",
       "architecture": "The real challenge was implementing a design system within Alexa's JSON-based infrastructure.",
       "impact": {
         "adoption": "Global",

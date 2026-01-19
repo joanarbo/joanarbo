@@ -16,13 +16,13 @@ export function BuildInPublic() {
     // Since the original was hardcoded in HTML or JS, we'll implement the structure.
 
     return (
-        <div className="bip-section">
+        <section className="bip-section" id="bodados">
             <div className="container">
                 <div className="bip-content">
-                    <div className="bip-info">
+                    <div className="bip-main">
                         <div className="bip-badge">
                             <span className="pulse-dot"></span>
-                            {t.buildInPublic?.badge}
+                            {t.buildInPublic?.badge || "Venture Lab"}
                         </div>
                         <h3 className="bip-title">Bodados</h3>
                         <p className="bip-subtitle">{t.buildInPublic?.role}</p>
@@ -50,6 +50,6 @@ export function BuildInPublic() {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }

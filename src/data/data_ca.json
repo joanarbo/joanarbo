@@ -238,38 +238,6 @@
   ],
   "caseStudies": [
     {
-      "id": "bodados",
-      "title": "BODADOS: Tesi de Lideratge de Producte",
-      "status": "Venture Lab",
-      "company": "BODADOS",
-      "year": "2024",
-      "role": "Operational Strategy Lead (Founder)",
-      "timeline": "Ongoing",
-      "myRole": "Estratègia de Producte End-to-End",
-      "team": "Agents IA + Founder",
-      "challenge": "Validar una tesi de negoci complexa (SaaS vertical per a bodes) minimitzant el capital risc i maximitzant la velocitat d'execució.",
-      "solution": "Un 'Living Lab' on aplico estratègia de producte, gestió de roadmap i validació d'hipòtesis de negoci amb recursos limitats (IA Agents).",
-      "businessImpact": "Demostració de capacitat d'execució 'Hands-on' i visió de negoci completa. Validació de canals d'adquisició i models de revenue.",
-      "architecture": "Arquitectura optimitzada per a iteració ràpida (Supabase, Next.js).",
-      "content": "# Bodados: El meu Laboratori de Lideratge de Producte\n\nCom a líder, crec que és vital mantenir-se 'prop del metall'. Bodados no és només una app, és la meva tesi de mestratge en lideratge de producte.\n\nÉs un laboratori viu on demostro que puc:\n\n1.  **Definir Visió i Estratègia**: Identificar un mercat fragmentat (bodes) i proposar una solució sistèmica (Wedding OS).\n2.  **Gestionar Roadmaps Complexos**: Prioritzar features crítiques (Cashflow, Al·lèrgies) sobre 'nice-to-haves'.\n3.  **Executar amb Recursos Limitats**: Orquestrar un equip d'Agents d'IA per suplir la falta de headcount, demostrant eficiència operativa.\n\n***\n\n## 🧩 Visió de Negoci\n\nEl mercat de bodes pateix de falta de transparència i eines obsoletes. La meva estratègia es centra en resoldre el 'drama social' i la 'fricció financera' mitjançant grafs socials i previsió de cashflow.\n\n***\n\n## ⚡ Lideratge Tècnic i Execució\n\nMés enllà de l'estratègia, Bodados demostra que puc baixar al fang i prendre decisions tècniques que maximitzen el ROI. Triar Next.js i Supabase no va ser una preferència personal, va ser una decisió de negoci per reduir el Time-to-Market.",
-      "impact": {
-        "adoption": "Product",
-        "adoptionLabel": "Visió",
-        "efficiency": "Biz",
-        "efficiencyLabel": "Estratègia",
-        "consistency": "Exec",
-        "consistencyLabel": "Execució"
-      },
-      "technologies": [
-        "Product Strategy",
-        "Roadmap Mgmt",
-        "Business Logic",
-        "AI Ops"
-      ],
-      "image": "/assets/images/case-studies/bodados.png",
-      "link": "https://bodados.com"
-    },
-    {
       "id": "western-union",
       "title": "Racionalització Radical",
       "status": "En curs - 2023-Present",
@@ -314,10 +282,10 @@
       "timeline": "6 meses",
       "myRole": "Enginyer de Producte (Assistent Rufus AI)",
       "team": "Madrid, Seattle, Londres, Chicago",
-      "description": "Creació del primer sistema de d'veu del món. Prototips d'alta fidelidad per a 'Rufus' (Next-Gen AI Assistant) presentats al CEO Andy Jassy. Estandardització de patrons VUI utilitzats per milions d'usuaris.",
+      "description": "Creació del primer sistema de d'veu del món. Prototips d'alta fidelidad per a 'Rufus' (Next-Gen AI Assistant). Estandardització de patrons VUI utilitzats per milions d'usuaris.",
       "challenge": "Definir estàndards d'experiència per a una tecnologia emergent (Veu/Multimodal) sense referències de mercat.",
       "solution": "Lideratge de la definició d'estàndards VUI. Influència en equips d'enginyeria ML per alinear tecnologia amb UX.",
-      "businessImpact": "Presentació de visió estratègica al C-Level (Andy Jassy). Demostració de capacitat d'innovar en ambigüitat.",
+      "businessImpact": "Presentació de visió estratègica al C-Level. Demostració de capacitat d'innovar en ambigüitat.",
       "architecture": "El repte real era implantar un sistema de disseny a les entranyes dels dispositius Alexa que funciona principalment amb fitxers JSON.",
       "impact": {
         "adoption": "Global",
@@ -401,7 +369,7 @@
       "company": "Amazon Alexa",
       "year": "2021-2022",
       "impact": "2021–2022",
-      "description": "Creació del primer sistema de d'veu del món. Prototips d'alta fidelidad per a 'Rufus' (Next-Gen AI Assistant) presentats al CEO Andy Jassy. Estandardització de patrons VUI utilitzats per milions d'usuaris.",
+      "description": "Creació del primer sistema de d'veu del món. Prototips d'alta fidelidad per a 'Rufus' (Next-Gen AI Assistant). Estandardització de patrons VUI utilitzats per milions d'usuaris.",
       "tags": [
         "Voice UI",
         "Multimodalitat",
@@ -522,7 +490,7 @@
       "period": "2020 — 2023",
       "company": "Amazon Alexa",
       "role": "UX Engineer Manager",
-      "description": "Vaig liderar el primer sistema de disseny de veu del món per a Alexa. Vaig enginyar prototips d'alta fidelitat per a 'Rufus' presentats al CEO Andy Jassy. Vaig reduir els temps d'integració en 6 mesos globalment."
+      "description": "Vaig liderar el primer sistema de disseny de veu del món per a Alexa. Vaig enginyar prototips d'alta fidelitat per a 'Rufus'. Vaig reduir els temps d'integració en 6 mesos globalment."
     },
     {
       "period": "2021 — Present",

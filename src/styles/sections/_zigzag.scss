@@ -115,7 +115,7 @@
                     font-size: 0.7rem !important;
                     text-transform: uppercase;
                     letter-spacing: 0.1em;
-                    opacity: 0.5;
+                    opacity: 0.8;
                     display: block !important;
                 }
 
@@ -145,13 +145,13 @@
                 letter-spacing: 0.1em;
                 color: var(--text-secondary-color);
                 margin-bottom: 12px !important;
-                opacity: 0.8;
+                opacity: 1;
                 display: flex;
                 align-items: center;
                 gap: 8px;
 
                 .meta-sep {
-                    opacity: 0.3;
+                    opacity: 0.6;
                 }
             }
 
@@ -379,39 +379,39 @@
             }
         }
     }
+}
 
-    .experience-cv {
-        margin-top: 60px;
-        text-align: center;
-        width: 100%;
+.experience-cv {
+    margin-top: 100px;
+    text-align: center;
+    width: 100%;
 
-        .cv-link {
-            @include text-mono;
-            font-size: 0.9rem;
-            color: var(--text-color);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 24px;
-            border: 1px solid var(--line-color);
-            border-radius: 100px;
-            @include glass;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    .cv-link {
+        @include text-mono;
+        font-size: 0.9rem;
+        color: var(--text-color);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 24px;
+        border: 1px solid var(--line-color);
+        border-radius: 100px;
+        @include glass;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 
-            &:hover {
-                transform: translateY(-2px);
-                border-color: var(--accent-bright-color);
-                box-shadow: var(--shadow-premium);
-
-                i {
-                    transform: translateX(4px);
-                }
-            }
+        &:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-interactive);
+            box-shadow: var(--shadow-premium);
 
             i {
-                transition: transform 0.3s ease;
+                transform: translateX(4px);
             }
+        }
+
+        i {
+            transition: transform 0.3s ease;
         }
     }
 }

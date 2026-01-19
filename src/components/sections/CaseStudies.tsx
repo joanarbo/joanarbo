@@ -40,6 +40,7 @@ export function CaseStudies() {
                             <LinkComponent
                                 key={index}
                                 className={`case-study-card ${study.link ? 'is-clickable' : ''} case-study-${study.id}`}
+                                id={study.id}
                                 {...linkProps}
                             >
                                 <div className="case-study-image-container">
@@ -54,6 +55,11 @@ export function CaseStudies() {
                                     />
                                 </div>
                                 <div className="case-study-content">
+                                    {study.highlight && (
+                                        <div className="case-study-highlight-badge">
+                                            {study.highlight}
+                                        </div>
+                                    )}
                                     <div className="case-study-meta">
                                         <span className="case-study-company">{study.company}</span>
                                         <span className="meta-sep">•</span>

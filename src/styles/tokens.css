@@ -167,16 +167,16 @@
     /* --- SEMANTIC TOKENS (Dark Mode) --- */
 
     /* Backgrounds */
-    --bg-primary: #0c0c0c;
-    --bg-primary-rgb: 12, 12, 12;
-    --bg-secondary: #141414;
-    --bg-secondary-rgb: 20, 20, 20;
+    --bg-primary: #020617;
+    --bg-primary-rgb: 2, 6, 23;
+    --bg-secondary: #0a0f1e;
+    --bg-secondary-rgb: 10, 15, 30;
     --bg-accent-dark: #2e1065;
 
     /* Surfaces */
-    --surface-primary: #1a1a1a;
-    --surface-primary-rgb: 26, 26, 26;
-    --surface-low: #262626;
+    --surface-primary: #111827;
+    --surface-primary-rgb: 17, 24, 39;
+    --surface-low: #1f2937;
 
     /* Text */
     --text-primary: #f8fafc;
@@ -185,16 +185,16 @@
     --text-secondary-rgb: 203, 213, 225;
 
     /* Interaction */
-    --accent-primary: var(--primitive-teal-400);
-    --accent-primary-rgb: 100, 255, 218;
+    --accent-primary: var(--primitive-blue-400);
+    --accent-primary-rgb: 96, 165, 250;
     --accent-vibrant: var(--primitive-violet-500);
     --accent-vibrant-rgb: 124, 58, 237;
     --accent-interactive: var(--primitive-blue-400);
     --accent-interactive-rgb: 96, 165, 250;
 
     /* Borders */
-    --border-subtle: #262626;
-    --border-subtle-rgb: 38, 38, 38;
+    --border-subtle: #1e293b;
+    --border-subtle-rgb: 30, 41, 59;
 
     /* Effects */
     --glass-bg: rgba(12, 12, 12, 0.7);
