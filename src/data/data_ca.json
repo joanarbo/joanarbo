@@ -236,7 +236,47 @@
       ]
     }
   ],
+  "buildInPublic": {
+    "badge": "Venture Lab",
+    "role": "Cofundador Tècnic",
+    "desc": "Construint una plataforma de coordinació de bodes per resoldre la fragmentació del mercat. 0→1 des de la idea fins a la beta privada.",
+    "statusLabel": "Estat",
+    "statusValue": "Beta Privada",
+    "challengeLabel": "Repte",
+    "challengeValue": "Fragmentació del Mercat",
+    "viewProject": "Veure Estudi de Cas"
+  },
   "caseStudies": [
+    {
+      "id": "bodados",
+      "title": "BODADOS - Plataforma de Coordinació de Bodes",
+      "status": "ACTIU - Construint ara",
+      "company": "BODADOS",
+      "year": "2024-Present",
+      "role": "Cofundador Tècnic",
+      "timeline": "En curs",
+      "myRole": "Producte 0→1, arquitectura i lliurament",
+      "team": "Equip fundador",
+      "challenge": "Una indústria de bodes fragmentada sense un flux de treball digital compartit per a proveïdors o parelles.",
+      "solution": "Vaig construir una plataforma de coordinació freemium per a la planificació multi-proveïdor, cronogrames i pagaments.",
+      "businessImpact": "Beta privada activa amb validació de mercat inicial.",
+      "architecture": "Client en React Native, backend en Supabase, superfície web en Vercel.",
+      "impact": {
+        "adoption": "Beta",
+        "adoptionLabel": "Beta Privada",
+        "efficiency": "0→1",
+        "efficiencyLabel": "Llançament de Producte",
+        "consistency": "MVP",
+        "consistencyLabel": "Validació de Mercat"
+      },
+      "technologies": [
+        "React Native",
+        "Supabase",
+        "Vercel"
+      ],
+      "image": "/assets/images/case-studies/bodados.png",
+      "link": "#bodados"
+    },
     {
       "id": "western-union",
       "title": "Racionalització Radical",
@@ -302,6 +342,7 @@
         "Rufus AI",
         "ML Handoff"
       ],
+      "highlight": "Va permetre 4x en velocitat de desenvolupament i llançament al Prime Day",
       "image": "/assets/images/case-studies/rufus.gif",
       "videoUrl": "https://youtu.be/uXkDMBNCoFo",
       "content": "# Rufus: Assistent de IA per a Amazon Shopping\n\nRufus és un assistent de compres format en el catàleg de productes d'Amazon i en informació de tota la web per respondre a les preguntes dels clients sobre necessitats de compra, productes i comparacions.\n\n***\n\n## 🎥 Demostració de Rufus\n\n<div class=\"video-container\" style=\"position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 2rem 0; border-radius: var(--radius-md);\">\n  <iframe src=\"https://www.youtube.com/embed/uXkDMBNCoFo\" frameborder=\"0\" allowfullscreen style=\"position: absolute; top: 0; left: 0; width: 100%; height: 100%;\"></iframe>\n</div>\n\n***\n\n## 🧩 El Repte Multimodal\n\nEl veritable desafiament no va ser només crear un assistent de xat, sinó integrar aquesta intel·ligència en un ecosistema multimodal (Echo, FireTV, Mobile) on la veu i la interfície visual han de treballar en perfecta sincronia.\n\n### Arquitectura Multimodal\n\n- **Sincronització d'Estat**: Mantenir el context de la conversa a través de diferents dispositius.\n- **Adaptabilitat de UI**: Renderitzar components visuals que complementen la resposta de veu sense saturar l'usuari.\n- **Handoff de ML**: Traduir les intencions del model probabilístic a una interfície determinista i coherent.",
